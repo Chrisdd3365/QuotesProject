@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07122A7EFF500849A91 /* AppDelegate.swift */; };
-		95FDE07422A7EFF500849A91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07322A7EFF500849A91 /* ViewController.swift */; };
 		95FDE07722A7EFF500849A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FDE07522A7EFF500849A91 /* Main.storyboard */; };
 		95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */; };
 		95FDE07C22A7EFF600849A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FDE07B22A7EFF600849A91 /* Assets.xcassets */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		95FDE06E22A7EFF500849A91 /* QuotesProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FDE07122A7EFF500849A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95FDE07322A7EFF500849A91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95FDE07622A7EFF500849A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95FDE07922A7EFF500849A91 /* QuotesProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesProject.xcdatamodel; sourceTree = "<group>"; };
 		95FDE07B22A7EFF600849A91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,13 +77,10 @@
 		95FDE07022A7EFF500849A91 /* QuotesProject */ = {
 			isa = PBXGroup;
 			children = (
-				95FDE07122A7EFF500849A91 /* AppDelegate.swift */,
-				95FDE07322A7EFF500849A91 /* ViewController.swift */,
-				95FDE07522A7EFF500849A91 /* Main.storyboard */,
-				95FDE07B22A7EFF600849A91 /* Assets.xcassets */,
-				95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */,
-				95FDE08022A7EFF600849A91 /* Info.plist */,
-				95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */,
+				95FDE09622A7F03100849A91 /* Model */,
+				95FDE09722A7F04200849A91 /* Controller */,
+				95FDE09522A7F02900849A91 /* View */,
+				95FDE09422A7F01300849A91 /* Supporting Files */,
 			);
 			path = QuotesProject;
 			sourceTree = "<group>";
@@ -97,6 +92,40 @@
 				95FDE08B22A7EFF600849A91 /* Info.plist */,
 			);
 			path = QuotesProjectTests;
+			sourceTree = "<group>";
+		};
+		95FDE09422A7F01300849A91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95FDE07122A7EFF500849A91 /* AppDelegate.swift */,
+				95FDE07B22A7EFF600849A91 /* Assets.xcassets */,
+				95FDE08022A7EFF600849A91 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95FDE09522A7F02900849A91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95FDE07522A7EFF500849A91 /* Main.storyboard */,
+				95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95FDE09622A7F03100849A91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95FDE09722A7F04200849A91 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */,
-				95FDE07422A7EFF500849A91 /* ViewController.swift in Sources */,
 				95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
-				INFOPLIST_FILE = QuotesProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QuotesProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
-				INFOPLIST_FILE = QuotesProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QuotesProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
