@@ -14,7 +14,6 @@ class QuoteViewController: UIViewController {
     
     //MARK: - Properties
     let quotesService = QuotesService()
-    let quotes: [Quote] = []
 
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -23,15 +22,15 @@ class QuoteViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func displayQuoteTextView(quote: [Quote]) {
+    private func displayContents(quote: [Quote]) {
         quotesView.quoteTextView.text = quote[0].quote
+        quotesView.authorLabel.text = quote[0].author
     }
     
     private func fetchQuoteData() {
         quotesService.getQuote { (success, contentsResponse) in
             if success {
-                //TODO: quoteString = quoteData
-                self.displayQuoteTextView(quote: contentsResponse?.contents.quotes ?? [])
+                self.displayContents(quote: contentsResponse?.contents.quotes ?? [])
             } else {
                 self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
             }

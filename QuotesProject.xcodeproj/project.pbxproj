@@ -14,6 +14,7 @@
 		951A3BAD22B2914F009634EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAC22B2914F009634EF /* Constants.swift */; };
 		951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAE22B2935B009634EF /* QuotesView.swift */; };
 		951A3BB222B2992B009634EF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BB122B2992B009634EF /* UIViewController.swift */; };
+		95B6F5BC22B3EEA00095C342 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B6F5BB22B3EEA00095C342 /* ImagesService.swift */; };
 		95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07122A7EFF500849A91 /* AppDelegate.swift */; };
 		95FDE07722A7EFF500849A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FDE07522A7EFF500849A91 /* Main.storyboard */; };
 		95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		951A3BAC22B2914F009634EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		951A3BAE22B2935B009634EF /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		951A3BB122B2992B009634EF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		95B6F5BB22B3EEA00095C342 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		95FDE06E22A7EFF500849A91 /* QuotesProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FDE07122A7EFF500849A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FDE07622A7EFF500849A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,39 @@
 				951A3BB122B2992B009634EF /* UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		95B6F5BD22B3EED40095C342 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				951A3BA822B13A30009634EF /* QuotesService.swift */,
+				95B6F5BB22B3EEA00095C342 /* ImagesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		95B6F5BE22B3EEE70095C342 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				951A3BAA22B140EF009634EF /* Quote.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		95B6F5BF22B3EEFA0095C342 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		95B6F5C022B3F8C60095C342 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				951A3BAE22B2935B009634EF /* QuotesView.swift */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		95FDE06522A7EFF500849A91 = {
@@ -147,7 +182,7 @@
 			children = (
 				95FDE07522A7EFF500849A91 /* Main.storyboard */,
 				95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */,
-				951A3BAE22B2935B009634EF /* QuotesView.swift */,
+				95B6F5C022B3F8C60095C342 /* UIView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,9 +190,9 @@
 		95FDE09622A7F03100849A91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */,
-				951A3BA822B13A30009634EF /* QuotesService.swift */,
-				951A3BAA22B140EF009634EF /* Quote.swift */,
+				95B6F5BF22B3EEFA0095C342 /* CoreData */,
+				95B6F5BE22B3EEE70095C342 /* Structures */,
+				95B6F5BD22B3EED40095C342 /* Services */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B6F5BC22B3EEA00095C342 /* ImagesService.swift in Sources */,
 				951A3BA922B13A30009634EF /* QuotesService.swift in Sources */,
 				950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */,
 				95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */,

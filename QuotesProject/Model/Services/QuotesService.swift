@@ -21,7 +21,7 @@ class QuotesService {
     //MARK: - Method
     //URL method
     func quotesURL() -> String {
-        let baseURL = Constants.QuotesURL.baseURL
+        let baseURL = Constants.baseURL
         let quoteOfTheDayURL = Constants.QuotesURL.quoteOfTheDayURL
         
         return baseURL + quoteOfTheDayURL

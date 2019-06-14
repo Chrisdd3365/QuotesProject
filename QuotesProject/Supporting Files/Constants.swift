@@ -9,8 +9,18 @@
 import Foundation
 
 struct Constants {
+    static let baseURL = "http://quotes.rest/"
+    static let apiKeyURL = "?api_key="
+    static let apiKey = ""
+    
     struct QuotesURL {
-        static let baseURL = "http://quotes.rest/"
         static let quoteOfTheDayURL = "qod.json"
+        static let randomQuoteURL = "quote/random.json"
+    }
+    
+    struct ImagesURL {
+        static let randomImageURL = "quote/image/search.json"
+        static let randomImageByCategoryURL = "quote/image/search.json?category="
+        static let randomImageByAuthorURL = "http://quotes.rest/quote/image/search.json?author="
     }
 }
