@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "SideMenu.h"
 
-FOUNDATION_EXPORT double SideMenuSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char SideMenuSwiftVersionString[];
+FOUNDATION_EXPORT double SideMenuVersionNumber;
+FOUNDATION_EXPORT const unsigned char SideMenuVersionString[];
 

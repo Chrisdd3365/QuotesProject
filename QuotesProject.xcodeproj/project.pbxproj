@@ -15,6 +15,9 @@
 		951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAE22B2935B009634EF /* QuotesView.swift */; };
 		951A3BB222B2992B009634EF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BB122B2992B009634EF /* UIViewController.swift */; };
 		95B6F5BC22B3EEA00095C342 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B6F5BB22B3EEA00095C342 /* ImagesService.swift */; };
+		95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */; };
+		95FDDE2722B9248C00F7F1C0 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */; };
+		95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */; };
 		95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07122A7EFF500849A91 /* AppDelegate.swift */; };
 		95FDE07722A7EFF500849A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FDE07522A7EFF500849A91 /* Main.storyboard */; };
 		95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */; };
@@ -43,6 +46,9 @@
 		951A3BAE22B2935B009634EF /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		951A3BB122B2992B009634EF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95B6F5BB22B3EEA00095C342 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
+		95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		95FDE06E22A7EFF500849A91 /* QuotesProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FDE07122A7EFF500849A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FDE07622A7EFF500849A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				951A3BB122B2992B009634EF /* UIViewController.swift */,
+				95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +130,14 @@
 				951A3BAE22B2935B009634EF /* QuotesView.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		95FDDE2322B923E800F7F1C0 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */,
+			);
+			path = UITableViewCell;
 			sourceTree = "<group>";
 		};
 		95FDE06522A7EFF500849A91 = {
@@ -169,10 +184,10 @@
 		95FDE09422A7F01300849A91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				951A3BAC22B2914F009634EF /* Constants.swift */,
 				95FDE07122A7EFF500849A91 /* AppDelegate.swift */,
 				95FDE07B22A7EFF600849A91 /* Assets.xcassets */,
 				95FDE08022A7EFF600849A91 /* Info.plist */,
-				951A3BAC22B2914F009634EF /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +197,7 @@
 			children = (
 				95FDE07522A7EFF500849A91 /* Main.storyboard */,
 				95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */,
+				95FDDE2322B923E800F7F1C0 /* UITableViewCell */,
 				95B6F5C022B3F8C60095C342 /* UIView */,
 			);
 			path = View;
@@ -201,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */,
+				95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,7 +241,7 @@
 				95FDE06A22A7EFF500849A91 /* Sources */,
 				95FDE06B22A7EFF500849A91 /* Frameworks */,
 				95FDE06C22A7EFF500849A91 /* Resources */,
-				6CB77BE5F4F7E74A30AE824A /* [CP] Embed Pods Frameworks */,
+				DF0BDA4A6BBF61F24ADE5CCC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,7 +351,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6CB77BE5F4F7E74A30AE824A /* [CP] Embed Pods Frameworks */ = {
+		DF0BDA4A6BBF61F24ADE5CCC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,13 +360,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -366,8 +383,11 @@
 				95B6F5BC22B3EEA00095C342 /* ImagesService.swift in Sources */,
 				951A3BA922B13A30009634EF /* QuotesService.swift in Sources */,
 				950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */,
+				95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */,
 				95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */,
+				95FDDE2722B9248C00F7F1C0 /* SideMenuViewController.swift in Sources */,
 				951A3BAB22B140EF009634EF /* Quote.swift in Sources */,
+				95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */,
 				95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */,
 				951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */,
 				951A3BB222B2992B009634EF /* UIViewController.swift in Sources */,
