@@ -9,6 +9,7 @@
 import UIKit
 
 class QuotesView: UIView {
+    //MARK: - Outlets
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var quoteTextView: UITextView!
     @IBOutlet weak var authorLabel: UILabel!
