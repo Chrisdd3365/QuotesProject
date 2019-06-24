@@ -23,8 +23,4 @@ struct Constants {
         static let randomImageByCategoryURL = "quote/image/search.json?category="
         static let randomImageByAuthorURL = "http://quotes.rest/quote/image/search.json?author="
     }
-    
-    struct SeguesIdentifiers {
-        static let sideMenuSegue = "SideMenuSegue"
-    }
 }

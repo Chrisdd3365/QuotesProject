@@ -14,7 +14,8 @@
 		951A3BAD22B2914F009634EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAC22B2914F009634EF /* Constants.swift */; };
 		951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAE22B2935B009634EF /* QuotesView.swift */; };
 		951A3BB222B2992B009634EF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BB122B2992B009634EF /* UIViewController.swift */; };
-		95B6F5BC22B3EEA00095C342 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B6F5BB22B3EEA00095C342 /* ImagesService.swift */; };
+		9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */; };
+		9594DB3522C11ACD00189E7D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3422C11ACD00189E7D /* RemindersViewController.swift */; };
 		95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */; };
 		95FDDE2722B9248C00F7F1C0 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */; };
 		95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */; };
@@ -46,7 +47,8 @@
 		951A3BAE22B2935B009634EF /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		951A3BB122B2992B009634EF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9547A8B722BBB2760064FAA2 /* QuotesProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesProject.entitlements; sourceTree = "<group>"; };
-		95B6F5BB22B3EEA00095C342 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
+		9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersScrollView.swift; sourceTree = "<group>"; };
+		9594DB3422C11ACD00189E7D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,11 +102,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9594DB3122C119F500189E7D /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
 		95B6F5BD22B3EED40095C342 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				951A3BA822B13A30009634EF /* QuotesService.swift */,
-				95B6F5BB22B3EEA00095C342 /* ImagesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -200,6 +209,7 @@
 				95FDE07522A7EFF500849A91 /* Main.storyboard */,
 				95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */,
 				95FDDE2322B923E800F7F1C0 /* UITableViewCell */,
+				9594DB3122C119F500189E7D /* UIScrollView */,
 				95B6F5C022B3F8C60095C342 /* UIView */,
 			);
 			path = View;
@@ -220,6 +230,7 @@
 			children = (
 				950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */,
 				95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */,
+				9594DB3422C11ACD00189E7D /* RemindersViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -372,12 +383,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,8 +405,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95B6F5BC22B3EEA00095C342 /* ImagesService.swift in Sources */,
 				951A3BA922B13A30009634EF /* QuotesService.swift in Sources */,
+				9594DB3522C11ACD00189E7D /* RemindersViewController.swift in Sources */,
 				950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */,
 				95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */,
 				95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */,
@@ -404,6 +417,7 @@
 				951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */,
 				951A3BB222B2992B009634EF /* UIViewController.swift in Sources */,
 				951A3BAD22B2914F009634EF /* Constants.swift in Sources */,
+				9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

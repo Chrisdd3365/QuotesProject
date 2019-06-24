@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'QuotesProject' do
   pod 'SideMenu'
+  pod 'GMStepper'
 end

@@ -12,5 +12,4 @@ class SideMenuTableViewCell: UITableViewCell {
     //MARK: - Outlets
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
 }

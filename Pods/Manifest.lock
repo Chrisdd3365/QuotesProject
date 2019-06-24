@@ -1,16 +1,20 @@
 PODS:
+  - GMStepper (2.2)
   - SideMenu (5.0.3)
 
 DEPENDENCIES:
+  - GMStepper
   - SideMenu
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - GMStepper
     - SideMenu
 
 SPEC CHECKSUMS:
+  GMStepper: 89fb106944dfcc3aa3add7164e3ebd463ea2104b
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
 
-PODFILE CHECKSUM: e7c3a3ccee7e1c71239c621d16ac9c75b54afda6
+PODFILE CHECKSUM: 711ebc7a59c5cd57d40e328c678251b34259b840
 
 COCOAPODS: 1.5.3
