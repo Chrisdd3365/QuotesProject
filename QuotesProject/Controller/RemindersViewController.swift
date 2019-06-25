@@ -13,6 +13,9 @@ class RemindersViewController: UIViewController {
     //MARK: - Outlet
     @IBOutlet weak var remindersScrollView: RemindersScrollView!
     
+    //MARK: - Properties
+    var timeInterval = 0
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +24,21 @@ class RemindersViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func timesValueChanged(_ sender: UIStepper) {
-        remindersScrollView.timesLabel.text = Int(sender.value).description + "x"
+        timeInterval = Int(sender.value)
+        remindersScrollView.timesLabel.text = timeInterval.description + "x"
     }
     
     @IBAction func hoursValueChanged(_ sender: UIStepper) {
         remindersScrollView.hoursLabel.text = Int(sender.value).description + " hour"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.timeIntervalSegue,
+            let quoteVC = segue.destination as? QuoteViewController {
+            quoteVC.timeInterval = timeInterval
+       
+        }
+    }
+    
+    
 }

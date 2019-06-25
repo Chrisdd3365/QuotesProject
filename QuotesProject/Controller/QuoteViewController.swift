@@ -15,23 +15,15 @@ class QuoteViewController: UIViewController {
     
     //MARK: - Properties
     let quotesService = QuotesService()
+    var timeInterval = 1
 
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchQuoteData()
-        
-        
-//        let content = UNMutableNotificationContent()
-//        content.title = "Title"
-//        content.body = "Body"
-//        content.sound = UNNotificationSound.default
-//
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//
-//        let request = UNNotificationRequest(identifier: "TestIdentifier", content: content, trigger: trigger)
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)
+
+
     }
     
     //MARK: - Methods
@@ -44,9 +36,30 @@ class QuoteViewController: UIViewController {
         quotesService.getQuote { (success, contentsResponse) in
             if success {
                 self.displayContents(quote: contentsResponse?.contents.quotes ?? [])
+                self.notifications(quote: contentsResponse?.contents.quotes ?? [] )
             } else {
                 self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
             }
         }
+    }
+    
+    private func notifications(quote: [Quote]) {
+        //Content
+        let content = UNMutableNotificationContent()
+        content.title = quote[0].author
+        content.body = quote[0].quote
+        content.sound = UNNotificationSound.default
+        
+        //Trigger
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeIntervalTrigger()), repeats: true)
+        
+        //Request
+        let request = UNNotificationRequest(identifier: "TestIdentifier", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    //HELPER
+    private func timeIntervalTrigger() -> Int {
+        return 3600 / timeInterval
     }
 }
