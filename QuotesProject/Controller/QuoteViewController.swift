@@ -16,6 +16,8 @@ class QuoteViewController: UIViewController {
     //MARK: - Properties
     let quotesService = QuotesService()
     var timeInterval = 1
+    var hours = 0
+    var minutes = 0
 
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -51,8 +53,12 @@ class QuoteViewController: UIViewController {
         content.sound = UNNotificationSound.default
         
         //Trigger
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeIntervalTrigger()), repeats: true)
-        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeIntervalTrigger()), repeats: true)
+        var dateComponents = DateComponents()
+        dateComponents.hour = hours
+        dateComponents.minute = minutes
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    
         //Request
         let request = UNNotificationRequest(identifier: "TestIdentifier", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
@@ -60,6 +66,9 @@ class QuoteViewController: UIViewController {
     
     //HELPER
     private func timeIntervalTrigger() -> Int {
+        if timeInterval == 0 {
+            return 3600/1
+        }
         return 3600 / timeInterval
     }
 }
