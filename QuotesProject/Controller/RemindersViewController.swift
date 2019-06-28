@@ -15,8 +15,11 @@ class RemindersViewController: UIViewController {
     
     //MARK: - Properties
     var timeInterval = 0
-    var hours = 0
-    var minutes = 0
+    var startHour = 0
+    var startMinute = 0
+    var endHour = 0
+    var endMinute = 0
+    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -39,16 +42,37 @@ class RemindersViewController: UIViewController {
             hour -= 24
         }
         
-        hours = hour
-        minutes = roundToFives(x: Double(mins))
+        startHour = hour
+        startMinute = roundToFives(x: Double(mins))
         
         // This fixes when you have hh:60. For instance, it fixes 7:60 to 8:00
-        if minutes == 60 {
-            hours = hour + 1
-            minutes = 0
+        if startMinute == 60 {
+            startHour = hour + 1
+            startMinute = 0
         }
         
-        remindersScrollView.hoursLabel.text = "\(String(format: "%02d", hours)):\(String(format: "%02d", minutes))"
+        remindersScrollView.startingTimeLabel.text = "\(String(format: "%02d", startHour)):\(String(format: "%02d", startMinute))"
+    }
+    
+    @IBAction func endingHourValueChanged(_ sender: UISlider) {
+        let countmin1 = Int(Double(sender.value)*14.4)
+        var hour1 = countmin1 / 60
+        let mins1 = countmin1 - (hour1 * 60)
+        
+        if hour1 >= 24 {
+            hour1 -= 24
+        }
+        
+        endHour = hour1
+        endMinute = roundToFives(x: Double(mins1))
+        
+        // This fixes when you have hh:60. For instance, it fixes 7:60 to 8:00
+        if endMinute == 60 {
+            endHour = hour1 + 1
+            endMinute = 0
+        }
+        
+        remindersScrollView.endingTimeLabel.text = "\(String(format: "%02d", endHour)):\(String(format: "%02d", endMinute))"
     }
     
     private func roundToFives(x : Double) -> Int {
@@ -59,8 +83,10 @@ class RemindersViewController: UIViewController {
         if segue.identifier == Constants.SeguesIdentifiers.timeIntervalSegue,
             let quoteVC = segue.destination as? QuoteViewController {
             quoteVC.timeInterval = timeInterval
-            quoteVC.hours = hours
-            quoteVC.minutes = minutes
+            quoteVC.startHour = startHour
+            quoteVC.startMinute = startMinute
+            quoteVC.endHour = endHour
+            quoteVC.endMinute = endMinute
         }
     }
 }

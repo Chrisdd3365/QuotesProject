@@ -11,5 +11,6 @@ import UIKit
 class RemindersScrollView: UIScrollView {
     //MARK: - Outlets
     @IBOutlet weak var timesLabel: UILabel!
-    @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var startingTimeLabel: UILabel!
+    @IBOutlet weak var endingTimeLabel: UILabel!
 }
