@@ -33,6 +33,14 @@ class RemindersViewController: UIViewController {
         remindersScrollView.timesLabel.text = timeInterval.description + "x"
     }
     
+    @IBAction func enableLocalNotifications(_ sender: UISwitch) {
+        if remindersScrollView.localNotificationsSwitch.isOn {
+            
+        } else {
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
+    }
+    
     @IBAction func startingHourValueChanged(_ sender: UISlider) {
         let countmin = Int(Double(sender.value)*14.4)
         var hour = countmin / 60
@@ -82,11 +90,13 @@ class RemindersViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.timeIntervalSegue,
             let quoteVC = segue.destination as? QuoteViewController {
-            quoteVC.timeInterval = timeInterval
+            //quoteVC.timeInterval = timeInterval
             quoteVC.startHour = startHour
             quoteVC.startMinute = startMinute
-            quoteVC.endHour = endHour
-            quoteVC.endMinute = endMinute
+            print(startHour)
+            print(startMinute)
+            //quoteVC.endHour = endHour
+            //quoteVC.endMinute = endMinute
         }
     }
 }

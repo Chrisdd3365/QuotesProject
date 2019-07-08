@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43117DD3EAA2DF70F047FCAE /* Pods_QuotesProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CE945D20D475B0306CCE68 /* Pods_QuotesProject.framework */; };
+		9502D2BC22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9502D2BB22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift */; };
 		950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */; };
 		951A3BA922B13A30009634EF /* QuotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BA822B13A30009634EF /* QuotesService.swift */; };
 		951A3BAB22B140EF009634EF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAA22B140EF009634EF /* Quote.swift */; };
 		951A3BAD22B2914F009634EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAC22B2914F009634EF /* Constants.swift */; };
 		951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAE22B2935B009634EF /* QuotesView.swift */; };
 		951A3BB222B2992B009634EF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BB122B2992B009634EF /* UIViewController.swift */; };
+		95482B8322CF708D00A8B013 /* MyOwnQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8222CF708D00A8B013 /* MyOwnQuotes.swift */; };
+		95482B8522CF75DB00A8B013 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8422CF75DB00A8B013 /* CoreDataManager.swift */; };
+		95482B8722CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8622CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift */; };
 		9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */; };
 		9594DB3522C11ACD00189E7D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3422C11ACD00189E7D /* RemindersViewController.swift */; };
 		95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */; };
@@ -25,6 +28,7 @@
 		95FDE07C22A7EFF600849A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FDE07B22A7EFF600849A91 /* Assets.xcassets */; };
 		95FDE07F22A7EFF600849A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */; };
 		95FDE08A22A7EFF600849A91 /* QuotesProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDE08922A7EFF600849A91 /* QuotesProjectTests.swift */; };
+		A0594DC0BE3D88D133840C7F /* Pods_QuotesProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31EDDE0B12641B179E49F3B /* Pods_QuotesProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C292F8CCE1159F97783A143 /* Pods-QuotesProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject.release.xcconfig"; sourceTree = "<group>"; };
-		9187574B88837A21DD3B750A /* Pods-QuotesProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject.debug.xcconfig"; sourceTree = "<group>"; };
+		4CF8B6E3321256EBAE22954F /* Pods-QuotesProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject.release.xcconfig"; sourceTree = "<group>"; };
+		9502D2BB22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuotesViewController.swift; sourceTree = "<group>"; };
 		950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		951A3BA822B13A30009634EF /* QuotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesService.swift; sourceTree = "<group>"; };
 		951A3BAA22B140EF009634EF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -47,6 +51,9 @@
 		951A3BAE22B2935B009634EF /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		951A3BB122B2992B009634EF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9547A8B722BBB2760064FAA2 /* QuotesProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesProject.entitlements; sourceTree = "<group>"; };
+		95482B8222CF708D00A8B013 /* MyOwnQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuotes.swift; sourceTree = "<group>"; };
+		95482B8422CF75DB00A8B013 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		95482B8622CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuotesTableViewCell.swift; sourceTree = "<group>"; };
 		9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersScrollView.swift; sourceTree = "<group>"; };
 		9594DB3422C11ACD00189E7D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
@@ -62,7 +69,8 @@
 		95FDE08522A7EFF600849A91 /* QuotesProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FDE08922A7EFF600849A91 /* QuotesProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesProjectTests.swift; sourceTree = "<group>"; };
 		95FDE08B22A7EFF600849A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7CE945D20D475B0306CCE68 /* Pods_QuotesProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31EDDE0B12641B179E49F3B /* Pods_QuotesProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE610EBB93C41A938398D1D /* Pods-QuotesProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43117DD3EAA2DF70F047FCAE /* Pods_QuotesProject.framework in Frameworks */,
+				A0594DC0BE3D88D133840C7F /* Pods_QuotesProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,11 +92,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F26E56B19FA4C860FCC87BB /* Pods */ = {
+		71867194AE332487A39F7518 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9187574B88837A21DD3B750A /* Pods-QuotesProject.debug.xcconfig */,
-				5C292F8CCE1159F97783A143 /* Pods-QuotesProject.release.xcconfig */,
+				EDE610EBB93C41A938398D1D /* Pods-QuotesProject.debug.xcconfig */,
+				4CF8B6E3321256EBAE22954F /* Pods-QuotesProject.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -100,6 +108,14 @@
 				95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		95482B8122CF707500A8B013 /* MyOwnQuotes */ = {
+			isa = PBXGroup;
+			children = (
+				95482B8222CF708D00A8B013 /* MyOwnQuotes.swift */,
+			);
+			path = MyOwnQuotes;
 			sourceTree = "<group>";
 		};
 		9594DB3122C119F500189E7D /* UIScrollView */ = {
@@ -130,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				95FDE07822A7EFF500849A91 /* QuotesProject.xcdatamodeld */,
+				95482B8422CF75DB00A8B013 /* CoreDataManager.swift */,
+				95482B8122CF707500A8B013 /* MyOwnQuotes */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -146,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */,
+				95482B8622CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -157,8 +176,8 @@
 				951A3BB022B29912009634EF /* Extensions */,
 				95FDE08822A7EFF600849A91 /* QuotesProjectTests */,
 				95FDE06F22A7EFF500849A91 /* Products */,
-				5F26E56B19FA4C860FCC87BB /* Pods */,
-				E02487541279F3B299D02A49 /* Frameworks */,
+				71867194AE332487A39F7518 /* Pods */,
+				C03C4748CBB4ACC5B27C912D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,14 +250,15 @@
 				950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */,
 				95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */,
 				9594DB3422C11ACD00189E7D /* RemindersViewController.swift */,
+				9502D2BB22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		E02487541279F3B299D02A49 /* Frameworks */ = {
+		C03C4748CBB4ACC5B27C912D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7CE945D20D475B0306CCE68 /* Pods_QuotesProject.framework */,
+				D31EDDE0B12641B179E49F3B /* Pods_QuotesProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,11 +270,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95FDE08E22A7EFF600849A91 /* Build configuration list for PBXNativeTarget "QuotesProject" */;
 			buildPhases = (
-				07C8C1A8B6A0FE672A74DE2F /* [CP] Check Pods Manifest.lock */,
+				9D2A261B097F3C5FCCB59B3C /* [CP] Check Pods Manifest.lock */,
 				95FDE06A22A7EFF500849A91 /* Sources */,
 				95FDE06B22A7EFF500849A91 /* Frameworks */,
 				95FDE06C22A7EFF500849A91 /* Resources */,
-				DF0BDA4A6BBF61F24ADE5CCC /* [CP] Embed Pods Frameworks */,
+				894A6F2B99751BF09FD8C732 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -352,7 +372,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07C8C1A8B6A0FE672A74DE2F /* [CP] Check Pods Manifest.lock */ = {
+		894A6F2B99751BF09FD8C732 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D2A261B097F3C5FCCB59B3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -374,30 +416,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF0BDA4A6BBF61F24ADE5CCC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -409,15 +427,19 @@
 				9594DB3522C11ACD00189E7D /* RemindersViewController.swift in Sources */,
 				950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */,
 				95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */,
+				95482B8522CF75DB00A8B013 /* CoreDataManager.swift in Sources */,
 				95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */,
 				95FDDE2722B9248C00F7F1C0 /* SideMenuViewController.swift in Sources */,
 				951A3BAB22B140EF009634EF /* Quote.swift in Sources */,
+				95482B8322CF708D00A8B013 /* MyOwnQuotes.swift in Sources */,
 				95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */,
+				9502D2BC22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift in Sources */,
 				95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */,
 				951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */,
 				951A3BB222B2992B009634EF /* UIViewController.swift in Sources */,
 				951A3BAD22B2914F009634EF /* Constants.swift in Sources */,
 				9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */,
+				95482B8722CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +599,7 @@
 		};
 		95FDE08F22A7EFF600849A91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9187574B88837A21DD3B750A /* Pods-QuotesProject.debug.xcconfig */;
+			baseConfigurationReference = EDE610EBB93C41A938398D1D /* Pods-QuotesProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = QuotesProject/QuotesProject.entitlements;
@@ -597,7 +619,7 @@
 		};
 		95FDE09022A7EFF600849A91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C292F8CCE1159F97783A143 /* Pods-QuotesProject.release.xcconfig */;
+			baseConfigurationReference = 4CF8B6E3321256EBAE22954F /* Pods-QuotesProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = QuotesProject/QuotesProject.entitlements;

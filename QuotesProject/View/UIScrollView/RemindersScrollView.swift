@@ -13,4 +13,6 @@ class RemindersScrollView: UIScrollView {
     @IBOutlet weak var timesLabel: UILabel!
     @IBOutlet weak var startingTimeLabel: UILabel!
     @IBOutlet weak var endingTimeLabel: UILabel!
+    @IBOutlet weak var localNotificationsSwitch: UISwitch!
+    
 }

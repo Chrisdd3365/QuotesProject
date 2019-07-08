@@ -13,9 +13,9 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuTableView: UITableView!
     
     //MARK: - Properties
-    let cellsTitles = ["Reminders", "Categories", "Favorites"]
-    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "favorites")]
-    let seguesIdentifiers = ["Reminders", "Categories", "Favorites"]
+    let cellsTitles = ["Reminders", "Categories", "Favorites", "My Own Quotes"]
+    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "favorites"), UIImage(named: "write")]
+    let seguesIdentifiers = ["Reminders", "Categories", "Favorites", "MyOwnQuotes"]
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
