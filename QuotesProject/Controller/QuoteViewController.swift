@@ -11,48 +11,55 @@ import UserNotifications
 
 class QuoteViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet var quotesView: QuotesView!
+    @IBOutlet weak var quotesView: QuotesView!
     
     //MARK: - Properties
     let quotesService = QuotesService()
+    var favoritesQuotes = FavoritesQuotes.all
     var timeInterval = 0
     var startHour = 0
     var startMinute = 0
     var endHour = 0
     var endMinute = 0
     
-
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchQuoteData()
         self.navigationItem.setHidesBackButton(true, animated: false)
-
-
+    }
+    
+    //MARK: - Actions
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        didTapShareButton(myOwnQuote: quotesView.quoteTextView.text ?? "", author: quotesView.authorLabel.text ?? "")
+    }
+    
+    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+        addQuoteToFavoriteList(quote: quotesView.quoteTextView.text ?? "", author: quotesView.authorLabel.text ?? "")
     }
     
     //MARK: - Methods
-    private func displayContents(quote: [Quote]) {
-        quotesView.quoteTextView.text = quote[0].quote
-        quotesView.authorLabel.text = quote[0].author
+    private func displayContents(quotes: [Quote]) {
+        quotesView.quoteTextView.text = quotes[0].quote
+        quotesView.authorLabel.text = quotes[0].author
     }
     
     private func fetchQuoteData() {
         quotesService.getQuote { (success, contentsResponse) in
             if success {
-                self.displayContents(quote: contentsResponse?.contents.quotes ?? [])
-                self.notifications(quote: contentsResponse?.contents.quotes ?? [])
+                self.displayContents(quotes: contentsResponse?.contents.quotes ?? [])
+                self.notifications(quotes: contentsResponse?.contents.quotes ?? [])
             } else {
                 self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
             }
         }
     }
 
-    private func notifications(quote: [Quote]) {
+    private func notifications(quotes: [Quote]) {
         //Content
         let content = UNMutableNotificationContent()
-        content.title = quote[0].author
-        content.body = quote[0].quote
+        content.title = quotes[0].author
+        content.body = quotes[0].quote
         content.sound = UNNotificationSound.default
 
         //Trigger
@@ -74,5 +81,10 @@ class QuoteViewController: UIViewController {
             return 3600/1
         }
         return 3600 / timeInterval
+    }
+    
+    private func addQuoteToFavoriteList(quote: String, author: String) {
+        CoreDataManager.saveFavoritesQuotes(quote: quote, author: author)
+        favoritesQuotes = FavoritesQuotes.all
     }
 }

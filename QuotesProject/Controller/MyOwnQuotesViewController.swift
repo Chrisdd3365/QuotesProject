@@ -9,13 +9,12 @@
 import UIKit
 import CoreData
 
-class MyOwnQuotesViewController: UIViewController, UITextFieldDelegate {
+class MyOwnQuotesViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var myOwnQuotesTableView: UITableView!
 
     //MARK: - Properties
     var myOwnQuotes = MyOwnQuotes.all
-    
     var quoteTextField: UITextField!
     var authorTextField: UITextField!
     var saveAction: UIAlertAction!
@@ -70,6 +69,18 @@ class MyOwnQuotesViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.displayMyOwnQuoteSegue,
+            let displayMyOwnQuoteVC = segue.destination as? DisplayMyOwnQuoteViewController,
+            let indexPath = self.myOwnQuotesTableView.indexPathForSelectedRow {
+            let myOwnQuoteSelected = myOwnQuotes[indexPath.row]
+            displayMyOwnQuoteVC.myOwnQuoteSelected = myOwnQuoteSelected
+        }
+    }
+}
+
+extension MyOwnQuotesViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         saveAction.isEnabled = (!string.isEmpty || range.length < (textField.text ?? "").count)
         
@@ -95,14 +106,8 @@ extension MyOwnQuotesViewController: UITableViewDataSource {
         }
         
         let myOwnQuote = myOwnQuotes[indexPath.row]
-    
         cell.selectionStyle = .none
-        cell.quoteLabel.text = myOwnQuote.quote
-        cell.authorLabel.text = "- " + "\(myOwnQuote.author ?? "")"
-        
-        if cell.authorLabel.text == "- " {
-            cell.authorLabel.text = "- Anonymous Author"
-        }
+        cell.myOwnQuotesCellConfigure = myOwnQuote
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = .lightGray
@@ -132,7 +137,7 @@ extension MyOwnQuotesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Hit the 'Add' Button to add your own quote into the list!"
+        label.text = "Tap on the 'Write' Button to add your own quote into the list!"
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.numberOfLines = 0
         label.textAlignment = .center

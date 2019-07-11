@@ -14,11 +14,21 @@ class CoreDataManager {
     static func saveMyOwnQuotes(quote: String, author: String) -> MyOwnQuotes {
         let myOwnQuotes = MyOwnQuotes(context: AppDelegate.viewContext)
     
-        myOwnQuotes.author = author
         myOwnQuotes.quote = quote
+        myOwnQuotes.author = author
         
         saveContext()
         return myOwnQuotes
+    }
+    
+    //MARK: - FavoritesQuotes CoreDataManager's methods
+    static func saveFavoritesQuotes(quote: String?, author: String?) {
+        let favoritesQuotes = FavoritesQuotes(context: AppDelegate.viewContext)
+        
+        favoritesQuotes.quote = quote
+        favoritesQuotes.author = author
+        
+        saveContext()
     }
     
     //MARK: - Helper's methods

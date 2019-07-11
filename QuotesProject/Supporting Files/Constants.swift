@@ -26,5 +26,6 @@ struct Constants {
     
     struct SeguesIdentifiers {
         static let timeIntervalSegue = "TimeIntervalSegue"
+        static let displayMyOwnQuoteSegue = "DisplayMyOwnQuoteSegue"
     }
 }
