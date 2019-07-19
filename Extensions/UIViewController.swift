@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIViewController {
+    //MARK: - Methods
     //Alert
     func showAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -17,13 +18,12 @@ extension UIViewController {
     }
     
     //Share
-    func didTapShareButton(myOwnQuote: String, author: String) {
-        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this quote!", myOwnQuote, author], applicationActivities: nil)
+    func didTapShareButton(quote: String, author: String) {
+        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this quote!", quote, author], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
     
-    func didTapShareButton2(favoriteQuote: String, author: String) {
-        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this quote!", favoriteQuote, author], applicationActivities: nil)
-        present(activityController, animated: true, completion: nil)
+    func didTapFavoriteButton(quote: String, author: String) {
+        CoreDataManager.saveFavoritesQuotes(quote: quote, author: author)
     }
 }

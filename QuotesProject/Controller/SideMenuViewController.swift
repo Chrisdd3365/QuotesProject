@@ -13,9 +13,9 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuTableView: UITableView!
     
     //MARK: - Properties
-    let cellsTitles = ["Reminders", "Categories", "Favorites", "My Own Quotes", "Search", "Themes"]
-    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "favorites"), UIImage(named: "write"), UIImage(named: "search"), UIImage(named: "theme")]
-    let seguesIdentifiers = ["Reminders", "Categories", "Favorites", "MyOwnQuotes", "Search"]
+    let cellsTitles = ["Reminders", "Categories", "Favorites", "My Own Quotes"]
+    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "favorites"), UIImage(named: "write")]
+    let seguesIdentifiers = ["Reminders", "Categories", "Favorites", "MyOwnQuotes"]
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -26,6 +26,11 @@ class SideMenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         sideMenuTableView.reloadData()
+    }
+    
+    //MARK: - Actions
+    @IBAction func dismissController(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

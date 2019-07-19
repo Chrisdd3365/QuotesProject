@@ -12,9 +12,11 @@ import UserNotifications
 class QuoteViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var quotesView: QuotesView!
+    @IBOutlet weak var quotesCollectionView: UICollectionView!
     
     //MARK: - Properties
-    let quotesService = QuotesService()
+    let quoteOfTheDayService = QuoteOfTheDayService()
+    var quotes = [Quote]()
     var favoritesQuotes = FavoritesQuotes.all
     var timeInterval = 0
     var startHour = 0
@@ -26,33 +28,34 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchQuoteData()
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        quotesCollectionView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        quotesCollectionView.reloadData()
     }
     
     //MARK: - Actions
     @IBAction func shareButtonTapped(_ sender: UIButton) {
-        didTapShareButton(myOwnQuote: quotesView.quoteTextView.text ?? "", author: quotesView.authorLabel.text ?? "")
+        //didTapShareButton(quote: <#T##String#>, author: <#T##String#>)
     }
-    
+
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        addQuoteToFavoriteList(quote: quotesView.quoteTextView.text ?? "", author: quotesView.authorLabel.text ?? "")
+        //didTapFavoriteButton(quote: <#T##String#>, author: <#T##String#>)
+        //favoritesQuotes = FavoritesQuotes.all
     }
-    
+
     //MARK: - Methods
-    private func displayContents(quotes: [Quote]) {
-        quotesView.quoteTextView.text = quotes[0].quote
-        quotesView.authorLabel.text = quotes[0].author
-    }
-    
     private func fetchQuoteData() {
-        quotesService.getQuote { (success, contentsResponse) in
-            if success {
-                self.displayContents(quotes: contentsResponse?.contents.quotes ?? [])
-                self.notifications(quotes: contentsResponse?.contents.quotes ?? [])
-            } else {
-                self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
-            }
-        }
+//        quoteOfTheDayService.getQuote { (success, contentsResponse) in
+//            if success {
+//                self.quotes = contentsResponse?.contents.quotes ?? []
+//                self.notifications(quotes: contentsResponse?.contents.quotes ?? [])
+//            } else {
+//                self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
+//            }
+//        }
     }
 
     private func notifications(quotes: [Quote]) {
@@ -82,9 +85,20 @@ class QuoteViewController: UIViewController {
         }
         return 3600 / timeInterval
     }
+}
+
+extension QuoteViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return quotes.count
+    }
     
-    private func addQuoteToFavoriteList(quote: String, author: String) {
-        CoreDataManager.saveFavoritesQuotes(quote: quote, author: author)
-        favoritesQuotes = FavoritesQuotes.all
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = quotesCollectionView.dequeueReusableCell(withReuseIdentifier: QuoteCollectionViewCell.identifier, for: indexPath) as? QuoteCollectionViewCell else {
+            return UICollectionViewCell() }
+        
+        let quote = quotes[indexPath.row]
+        cell.quoteCollectionViewCellConfigure = quote
+        
+        return cell
     }
 }

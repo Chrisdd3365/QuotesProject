@@ -60,7 +60,7 @@ class MyOwnQuotesViewController: UIViewController {
         }
         
         saveAction.isEnabled = false
-  
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(saveAction)
