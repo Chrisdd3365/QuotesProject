@@ -18,8 +18,15 @@ extension UIViewController {
     }
     
     //Share
-    func didTapShareButton(quote: String, author: String) {
-        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this quote!", quote, author], applicationActivities: nil)
+    func didTapShareButton(view: QuoteOfTheDayView) {
+        guard let image = RenderImageService.convertQuoteOfTheDayViewIntoImage(view: view) else { return }
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+    }
+    
+    func didTapShareButtonMyOwnQuote(view: MyOwnQuoteView) {
+        guard let image = RenderImageService.convertMyOwnQuoteViewIntoImage(view: view) else { return }
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
     

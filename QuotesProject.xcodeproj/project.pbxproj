@@ -10,7 +10,7 @@
 		9502D2BC22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9502D2BB22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift */; };
 		950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */; };
 		9511BD9922D4E0F100ACBD31 /* DisplayMyOwnQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511BD9822D4E0F100ACBD31 /* DisplayMyOwnQuoteViewController.swift */; };
-		9511BD9B22D4E11E00ACBD31 /* DisplayMyOwnQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511BD9A22D4E11E00ACBD31 /* DisplayMyOwnQuoteView.swift */; };
+		9511BD9B22D4E11E00ACBD31 /* MyOwnQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511BD9A22D4E11E00ACBD31 /* MyOwnQuoteView.swift */; };
 		951A3BA922B13A30009634EF /* QuoteOfTheDayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BA822B13A30009634EF /* QuoteOfTheDayService.swift */; };
 		951A3BAB22B140EF009634EF /* QuoteOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAA22B140EF009634EF /* QuoteOfTheDay.swift */; };
 		951A3BAD22B2914F009634EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAC22B2914F009634EF /* Constants.swift */; };
@@ -22,6 +22,7 @@
 		95482B8322CF708D00A8B013 /* MyOwnQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8222CF708D00A8B013 /* MyOwnQuotes.swift */; };
 		95482B8522CF75DB00A8B013 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8422CF75DB00A8B013 /* CoreDataManager.swift */; };
 		95482B8722CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8622CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift */; };
+		9548B8CE22E617A500D120F0 /* RenderImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9548B8CD22E617A500D120F0 /* RenderImageService.swift */; };
 		954C651322D8C7BE00A5DB9E /* SearchQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C651222D8C7BE00A5DB9E /* SearchQuote.swift */; };
 		954C651522D8CCEE00A5DB9E /* SearchQuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C651422D8CCEE00A5DB9E /* SearchQuoteService.swift */; };
 		9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */; };
@@ -58,7 +59,7 @@
 		9502D2BB22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuotesViewController.swift; sourceTree = "<group>"; };
 		950CE8A522AEE25A00F67C4A /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		9511BD9822D4E0F100ACBD31 /* DisplayMyOwnQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMyOwnQuoteViewController.swift; sourceTree = "<group>"; };
-		9511BD9A22D4E11E00ACBD31 /* DisplayMyOwnQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMyOwnQuoteView.swift; sourceTree = "<group>"; };
+		9511BD9A22D4E11E00ACBD31 /* MyOwnQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuoteView.swift; sourceTree = "<group>"; };
 		951A3BA822B13A30009634EF /* QuoteOfTheDayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDayService.swift; sourceTree = "<group>"; };
 		951A3BAA22B140EF009634EF /* QuoteOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDay.swift; sourceTree = "<group>"; };
 		951A3BAC22B2914F009634EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		95482B8222CF708D00A8B013 /* MyOwnQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuotes.swift; sourceTree = "<group>"; };
 		95482B8422CF75DB00A8B013 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		95482B8622CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnQuotesTableViewCell.swift; sourceTree = "<group>"; };
+		9548B8CD22E617A500D120F0 /* RenderImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderImageService.swift; sourceTree = "<group>"; };
 		954C651222D8C7BE00A5DB9E /* SearchQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQuote.swift; sourceTree = "<group>"; };
 		954C651422D8CCEE00A5DB9E /* SearchQuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQuoteService.swift; sourceTree = "<group>"; };
 		9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersScrollView.swift; sourceTree = "<group>"; };
@@ -193,7 +195,7 @@
 			children = (
 				95A6551E22E1F8A900A46A25 /* QuoteOfTheDayView.swift */,
 				951A3BAE22B2935B009634EF /* QuotesView.swift */,
-				9511BD9A22D4E11E00ACBD31 /* DisplayMyOwnQuoteView.swift */,
+				9511BD9A22D4E11E00ACBD31 /* MyOwnQuoteView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -286,6 +288,7 @@
 		95FDE09622A7F03100849A91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9548B8CD22E617A500D120F0 /* RenderImageService.swift */,
 				95B6F5BF22B3EEFA0095C342 /* CoreData */,
 				95B6F5BE22B3EEE70095C342 /* Structures */,
 				95B6F5BD22B3EED40095C342 /* Services */,
@@ -318,6 +321,7 @@
 				95FDE06A22A7EFF500849A91 /* Sources */,
 				95FDE06B22A7EFF500849A91 /* Frameworks */,
 				95FDE06C22A7EFF500849A91 /* Resources */,
+				4128526B06B4F01474E22E6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -415,6 +419,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4128526B06B4F01474E22E6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4D9140E15A91E15ECF73A3BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,13 +487,14 @@
 				9511BD9922D4E0F100ACBD31 /* DisplayMyOwnQuoteViewController.swift in Sources */,
 				95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */,
 				953FE46122D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift in Sources */,
+				9548B8CE22E617A500D120F0 /* RenderImageService.swift in Sources */,
 				95A6552422E2314E00A46A25 /* ImagePicker.swift in Sources */,
 				9502D2BC22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift in Sources */,
 				95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */,
 				95A6551F22E1F8A900A46A25 /* QuoteOfTheDayView.swift in Sources */,
 				953FE46322D601F3009FDE7E /* FavoritesQuotesViewController.swift in Sources */,
 				951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */,
-				9511BD9B22D4E11E00ACBD31 /* DisplayMyOwnQuoteView.swift in Sources */,
+				9511BD9B22D4E11E00ACBD31 /* MyOwnQuoteView.swift in Sources */,
 				951A3BB222B2992B009634EF /* UIViewController.swift in Sources */,
 				951A3BAD22B2914F009634EF /* Constants.swift in Sources */,
 				95C4FDFF22E0C4C50035AF56 /* QuoteCollectionViewCell.swift in Sources */,

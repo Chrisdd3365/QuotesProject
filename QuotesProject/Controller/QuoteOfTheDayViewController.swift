@@ -30,29 +30,30 @@ class QuoteOfTheDayViewController: UIViewController {
     }
     
     @IBAction func shareQuoteOfTheDay(_ sender: UIButton) {
-        didTapShareButton(quote: quoteOfTheDayView.quoteOfTheDayTextView.text ?? "", author: quoteOfTheDayView.authorLabel.text ?? "")
+        didTapShareButton(view: quoteOfTheDayView)
     }
     
     @IBAction func addToFavorite(_ sender: UIButton) {
-        didTapFavoriteButton(quote: quoteOfTheDayView.quoteOfTheDayTextView.text ?? "", author: quoteOfTheDayView.authorLabel.text ?? "")
+        didTapFavoriteButton(quote: quoteOfTheDayView.quoteLabel.text ?? "", author: quoteOfTheDayView.authorLabel.text ?? "")
         favoritesQuotes = FavoritesQuotes.all
     }
     
     //MARK: - Methods
     private func fetchQuoteOfTheDayData() {
+        //toggleActivityIndicator(shown: true)
         quoteOfTheDayService.getQuoteOfTheDay { (success, contentsResponse) in
+            //self.toggleActivityIndicator(shown: false)
             if success {
-                self.displayContents(quotes: contentsResponse?.contents.quotes ?? [])
+                self.quoteOfTheDayView.quoteOfTheDayViewConfigure = contentsResponse
             } else {
                 self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
             }
         }
     }
-    
-    private func displayContents(quotes: [Quote]) {
-        quoteOfTheDayView.quoteOfTheDayTextView.text = quotes[0].quote
-        quoteOfTheDayView.authorLabel.text = quotes[0].author
-     }
+
+//    private func toggleActivityIndicator(shown: Bool) {
+//        quoteOfTheDayView.activityIndicator.isHidden = !shown
+//    }
 }
 
 extension QuoteOfTheDayViewController: ImagePickerDelegate {

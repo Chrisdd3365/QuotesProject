@@ -26,14 +26,16 @@ struct Quotes: Decodable {
 
 struct Quote: Decodable {
     let quote: String
-    let author: String
+    let author: String?
     let category: String
     let title: String
+    let background: String
 
     enum CodingKeys: String, CodingKey {
         case quote = "quote"
         case author = "author"
         case category = "category"
         case title = "title"
+        case background = "background"
     }
 }

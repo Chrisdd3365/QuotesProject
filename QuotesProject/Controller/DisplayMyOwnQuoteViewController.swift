@@ -10,44 +10,36 @@ import UIKit
 
 class DisplayMyOwnQuoteViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet weak var displayMyOwnQuoteView: DisplayMyOwnQuoteView!
+    @IBOutlet weak var myOwnQuoteView: MyOwnQuoteView!
     
     //MARK: - Properties
     var myOwnQuoteSelected: MyOwnQuotes?
-    var favoriteQuote: FavoritesQuotes?
+    var imagePicker: ImagePicker?
 
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayMyOwnQuoteViewConfigure(myOwnQuoteSelected: myOwnQuoteSelected)
-        displayFavoriteQuoteConfigure(favoriteQuote: favoriteQuote)
+        myOwnQuoteViewSetup()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
     }
     
     //MARK: - Actions
-    //TO DO
+    @IBAction func takePicture(_ sender: UIButton) {
+        self.imagePicker?.present(from: sender)
+    }
+    
     @IBAction func shareMyOwnQuote(_ sender: UIButton) {
-//        didTapShareButton(myOwnQuote: myOwnQuoteSelected?.quote ?? "", author: myOwnQuoteSelected?.author ?? "")
-//        didTapShareButton2(favoriteQuote: favoriteQuote?.quote ?? "", author: favoriteQuote?.author ?? "")
+        didTapShareButtonMyOwnQuote(view: myOwnQuoteView)
     }
     
-    //MARK: - Methods
-    private func displayMyOwnQuoteViewConfigure(myOwnQuoteSelected: MyOwnQuotes?) {
-        displayMyOwnQuoteView.myOwnQuoteTextView.text = myOwnQuoteSelected?.quote
-        displayMyOwnQuoteView.authorLabel.text = "- " + "\(myOwnQuoteSelected?.author ?? "")"
-        
-        authorLabelConfigure()
+    //MARK: - Method
+    private func myOwnQuoteViewSetup () {
+        myOwnQuoteView.myOwnQuoteViewConfigure = myOwnQuoteSelected
     }
-    
-    private func displayFavoriteQuoteConfigure(favoriteQuote: FavoritesQuotes?) {
-        displayMyOwnQuoteView.myOwnQuoteTextView.text = favoriteQuote?.quote
-        displayMyOwnQuoteView.authorLabel.text = "- " + "\(favoriteQuote?.author ?? "")"
-        
-        authorLabelConfigure()
-    }
-    //HELPER
-    private func authorLabelConfigure() {
-        if displayMyOwnQuoteView.authorLabel.text == "- " {
-            displayMyOwnQuoteView.authorLabel.text = "- Anonymous Author"
-        }
+}
+
+extension DisplayMyOwnQuoteViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        self.myOwnQuoteView.backgroundImage.image = image
     }
 }

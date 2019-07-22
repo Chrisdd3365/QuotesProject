@@ -61,7 +61,7 @@ class QuoteViewController: UIViewController {
     private func notifications(quotes: [Quote]) {
         //Content
         let content = UNMutableNotificationContent()
-        content.title = quotes[0].author
+        content.title = quotes[0].author ?? ""
         content.body = quotes[0].quote
         content.sound = UNNotificationSound.default
 

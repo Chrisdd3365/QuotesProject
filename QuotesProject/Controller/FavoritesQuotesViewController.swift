@@ -29,14 +29,14 @@ class FavoritesQuotesViewController: UIViewController {
     
     //MARK: - Methods
     //Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.displayMyOwnQuoteSegue,
-            let displayMyOwnQuoteVC = segue.destination as? DisplayMyOwnQuoteViewController,
-            let indexPath = self.favoritesQuotesTableView.indexPathForSelectedRow {
-            let favoriteQuoteSelected = favoritesQuotes[indexPath.row]
-            displayMyOwnQuoteVC.favoriteQuote = favoriteQuoteSelected
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == Constants.SeguesIdentifiers.displayMyOwnQuoteSegue,
+//            let displayMyOwnQuoteVC = segue.destination as? DisplayMyOwnQuoteViewController,
+//            let indexPath = self.favoritesQuotesTableView.indexPathForSelectedRow {
+//            let favoriteQuoteSelected = favoritesQuotes[indexPath.row]
+//            displayMyOwnQuoteVC.favoriteQuote = favoriteQuoteSelected
+//        }
+//    }
 }
 
 extension FavoritesQuotesViewController: UITableViewDataSource {
