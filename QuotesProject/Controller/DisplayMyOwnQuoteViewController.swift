@@ -13,7 +13,7 @@ class DisplayMyOwnQuoteViewController: UIViewController {
     @IBOutlet weak var myOwnQuoteView: MyOwnQuoteView!
     
     //MARK: - Properties
-    var myOwnQuoteSelected: MyOwnQuotes?
+    var myOwnQuoteSelected: MyOwnQuote?
     var imagePicker: ImagePicker?
 
     //MARK: - View Life Cycle

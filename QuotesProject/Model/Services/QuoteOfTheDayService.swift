@@ -46,6 +46,7 @@ class QuoteOfTheDayService {
                     return
                 }
                 callback(true, responseJSON)
+                print(responseJSON)
             }
         }
         task?.resume()

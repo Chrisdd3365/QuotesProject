@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-class FavoritesQuotes: NSManagedObject {
+class FavoriteQuote: NSManagedObject {
     //MARK: - Property
-    static var all: [FavoritesQuotes] {
-        let request: NSFetchRequest<FavoritesQuotes> = FavoritesQuotes.fetchRequest()
+    static var all: [FavoriteQuote] {
+        let request: NSFetchRequest<FavoriteQuote> = FavoriteQuote.fetchRequest()
         guard let favoritesQuotes = try? AppDelegate.viewContext.fetch(request) else { return [] }
         return favoritesQuotes
     }

@@ -15,12 +15,15 @@ class MyOwnQuoteView: UIView {
     @IBOutlet weak var backgroundImage: UIImageView!
     
     //MARK: - Property
-    var myOwnQuoteViewConfigure: MyOwnQuotes? {
+    var myOwnQuoteViewConfigure: MyOwnQuote? {
         didSet {
             quoteLabel.text = myOwnQuoteViewConfigure?.quote
+            quoteLabel.layer.shadowColor = UIColor.black.cgColor
+            quoteLabel.layer.shadowOpacity = 0.9
+            quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
             
-            authorLabel.text = "- " + "\(myOwnQuoteViewConfigure?.author ?? "")"
-            if authorLabel.text == "- " {
+            authorLabel.text = myOwnQuoteViewConfigure?.author
+            if authorLabel.text == "" {
                 authorLabel.text = "- Anonymous Author"
             }
         }

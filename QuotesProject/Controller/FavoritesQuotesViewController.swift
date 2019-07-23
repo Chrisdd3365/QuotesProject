@@ -13,7 +13,7 @@ class FavoritesQuotesViewController: UIViewController {
     @IBOutlet weak var favoritesQuotesTableView: UITableView!
     
     //MARK: - Properties
-    var favoritesQuotes = FavoritesQuotes.all
+    var favoritesQuotes = FavoriteQuote.all
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -23,20 +23,20 @@ class FavoritesQuotesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        favoritesQuotes = FavoritesQuotes.all
+        favoritesQuotes = FavoriteQuote.all
         favoritesQuotesTableView.reloadData()
     }
     
     //MARK: - Methods
     //Segue
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == Constants.SeguesIdentifiers.displayMyOwnQuoteSegue,
-//            let displayMyOwnQuoteVC = segue.destination as? DisplayMyOwnQuoteViewController,
-//            let indexPath = self.favoritesQuotesTableView.indexPathForSelectedRow {
-//            let favoriteQuoteSelected = favoritesQuotes[indexPath.row]
-//            displayMyOwnQuoteVC.favoriteQuote = favoriteQuoteSelected
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.displayFavoriteQuoteSegue,
+            let displayFavoriteQuoteVC = segue.destination as? DisplayFavoriteQuoteViewController,
+            let indexPath = self.favoritesQuotesTableView.indexPathForSelectedRow {
+            let favoriteQuoteSelected = favoritesQuotes[indexPath.row]
+            displayFavoriteQuoteVC.favoriteQuoteSelected = favoriteQuoteSelected
+        }
+    }
 }
 
 extension FavoritesQuotesViewController: UITableViewDataSource {

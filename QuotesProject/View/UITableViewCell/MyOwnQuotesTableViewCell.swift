@@ -14,7 +14,7 @@ class MyOwnQuotesTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     
     //MARK: - Property
-    var myOwnQuotesCellConfigure: MyOwnQuotes? {
+    var myOwnQuotesCellConfigure: MyOwnQuote? {
         didSet {
             quoteLabel.text = myOwnQuotesCellConfigure?.quote
             authorLabel.text = "- " + "\(myOwnQuotesCellConfigure?.author ?? "")"

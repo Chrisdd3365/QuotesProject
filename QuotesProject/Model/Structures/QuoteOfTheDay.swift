@@ -30,6 +30,7 @@ struct Quote: Decodable {
     let category: String
     let title: String
     let background: String
+    let id: String
 
     enum CodingKeys: String, CodingKey {
         case quote = "quote"
@@ -37,5 +38,6 @@ struct Quote: Decodable {
         case category = "category"
         case title = "title"
         case background = "background"
+        case id = "id"
     }
 }

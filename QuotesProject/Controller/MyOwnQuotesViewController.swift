@@ -14,7 +14,7 @@ class MyOwnQuotesViewController: UIViewController {
     @IBOutlet weak var myOwnQuotesTableView: UITableView!
 
     //MARK: - Properties
-    var myOwnQuotes = MyOwnQuotes.all
+    var myOwnQuotes = MyOwnQuote.all
     var quoteTextField: UITextField!
     var authorTextField: UITextField!
     var saveAction: UIAlertAction!
@@ -54,8 +54,8 @@ class MyOwnQuotesViewController: UIViewController {
             guard let textFieldQuote = alert.textFields?[0], let quote = textFieldQuote.text else { return }
             guard let textFieldAuthor = alert.textFields?[1], let author = textFieldAuthor.text else { return }
 
-            self.myOwnQuotes.append(CoreDataManager.saveMyOwnQuotes(quote: quote, author: author))
-            self.myOwnQuotes = MyOwnQuotes.all
+            self.myOwnQuotes.append(CoreDataManager.saveMyOwnQuote(quote: quote, author: author))
+            self.myOwnQuotes = MyOwnQuote.all
             self.myOwnQuotesTableView.reloadData()
         }
         

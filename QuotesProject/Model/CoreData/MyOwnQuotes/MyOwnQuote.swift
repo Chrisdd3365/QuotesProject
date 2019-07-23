@@ -1,5 +1,5 @@
 //
-//  MyOwnQuotes.swift
+//  MyOwnQuote.swift
 //  QuotesProject
 //
 //  Created by Christophe DURAND on 05/07/2019.
@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-public class MyOwnQuotes: NSManagedObject {
+public class MyOwnQuote: NSManagedObject {
     //MARK: - Property
-    static var all: [MyOwnQuotes] {
-        let request: NSFetchRequest<MyOwnQuotes> = MyOwnQuotes.fetchRequest()
+    static var all: [MyOwnQuote] {
+        let request: NSFetchRequest<MyOwnQuote> = MyOwnQuote.fetchRequest()
         guard let myOwnQuotes = try? AppDelegate.viewContext.fetch(request) else { return [] }
         return myOwnQuotes
     }

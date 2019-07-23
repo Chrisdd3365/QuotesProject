@@ -14,7 +14,7 @@ class FavoritesQuotesTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     
     //MARK: - Property
-    var favoritesQuotesCellConfigure: FavoritesQuotes? {
+    var favoritesQuotesCellConfigure: FavoriteQuote? {
         didSet {
             quoteLabel.text = favoritesQuotesCellConfigure?.quote
             authorLabel.text = "- " + "\(favoritesQuotesCellConfigure?.author ?? "")"

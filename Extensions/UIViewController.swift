@@ -30,7 +30,40 @@ extension UIViewController {
         present(activityController, animated: true, completion: nil)
     }
     
-    func didTapFavoriteButton(quote: String, author: String) {
-        CoreDataManager.saveFavoritesQuotes(quote: quote, author: author)
+    func didTapShareButtonFavoriteQuote(view: FavoriteQuoteView) {
+        guard let image = RenderImageService.convertFavoriteQuoteViewIntoImage(view: view) else { return }
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+    }
+    
+    //Favorite
+    func didTapUnfavoriteButton(id: String?) {
+        CoreDataManager.deleteFavoriteFromList(id: id ?? "")
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func checkFavoriteQuote(favoritesQuotes: [FavoriteQuote], id: String) -> Bool {
+        var isAdded = false
+        guard favoritesQuotes.count != 0 else { return false }
+        for favoriteQuote in favoritesQuotes {
+            if id == favoriteQuote.id {
+                isAdded = true
+                break
+            }
+        }
+        return isAdded
+    }
+    
+    func updateButtonImage(check: Bool, checkedImage: String, uncheckedImage: String) -> UIImage {
+        var image: UIImage!
+        if check {
+            image = UIImage(named: checkedImage)
+        } else {
+            image = UIImage(named: uncheckedImage)
+        }
+        return image
     }
 }
+
+
+

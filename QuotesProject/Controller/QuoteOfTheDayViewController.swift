@@ -9,19 +9,27 @@
 import UIKit
 
 class QuoteOfTheDayViewController: UIViewController {
-    //MARK: - Outlet
+    //MARK: - Outlets
     @IBOutlet weak var quoteOfTheDayView: QuoteOfTheDayView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     //MARK: - Properties
     let quoteOfTheDayService = QuoteOfTheDayService()
-    var favoritesQuotes = FavoritesQuotes.all
+    var favoritesQuotes = FavoriteQuote.all
     var imagePicker: ImagePicker?
 
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchQuoteOfTheDayData()
+        buttonsSetImage()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        favoritesQuotes = FavoriteQuote.all
+        buttonsSetImage()
     }
     
     //MARK: - Actions
@@ -34,8 +42,7 @@ class QuoteOfTheDayViewController: UIViewController {
     }
     
     @IBAction func addToFavorite(_ sender: UIButton) {
-        didTapFavoriteButton(quote: quoteOfTheDayView.quoteLabel.text ?? "", author: quoteOfTheDayView.authorLabel.text ?? "")
-        favoritesQuotes = FavoritesQuotes.all
+        addToFavoritesListSetup()
     }
     
     //MARK: - Methods
@@ -50,6 +57,24 @@ class QuoteOfTheDayViewController: UIViewController {
             }
         }
     }
+    
+    private func addToFavoritesListSetup() {
+        guard let contentsResponse = quoteOfTheDayView.quoteOfTheDayViewConfigure else { return }
+        if checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: contentsResponse.contents.quotes[0].id) == false {
+            favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+            CoreDataManager.saveFavoriteQuote(contentsResponse: contentsResponse)
+            favoritesQuotes = FavoriteQuote.all
+        } else {
+            favoritesQuotes = FavoriteQuote.all
+            showAlert(title: "Sorry!", message: "You've already added this quote into your favorite list!")
+        }
+    }
+    
+    private func buttonsSetImage() {
+        guard let contentsResponse = quoteOfTheDayView.quoteOfTheDayViewConfigure else { return }
+        favoriteButton.setImage(updateButtonImage(check: checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: contentsResponse.contents.quotes[0].id), checkedImage: "favorite", uncheckedImage: "noFavorite"), for: .normal)
+    }
+    
 
 //    private func toggleActivityIndicator(shown: Bool) {
 //        quoteOfTheDayView.activityIndicator.isHidden = !shown

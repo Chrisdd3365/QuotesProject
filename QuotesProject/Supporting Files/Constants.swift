@@ -34,6 +34,7 @@ struct Constants {
     
     struct SeguesIdentifiers {
         static let timeIntervalSegue = "TimeIntervalSegue"
+        static let displayFavoriteQuoteSegue = "DisplayFavoriteQuoteSegue"
         static let displayMyOwnQuoteSegue = "DisplayMyOwnQuoteSegue"
     }
 }

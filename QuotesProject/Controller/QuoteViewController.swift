@@ -17,7 +17,7 @@ class QuoteViewController: UIViewController {
     //MARK: - Properties
     let quoteOfTheDayService = QuoteOfTheDayService()
     var quotes = [Quote]()
-    var favoritesQuotes = FavoritesQuotes.all
+    var favoritesQuotes = FavoriteQuote.all
     var timeInterval = 0
     var startHour = 0
     var startMinute = 0
