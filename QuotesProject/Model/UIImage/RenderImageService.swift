@@ -18,7 +18,7 @@ class RenderImageService {
         return image
     }
     
-    static func convertMyOwnQuoteViewIntoImage(view: MyOwnQuoteView) -> UIImage? {
+    static func convertCategoryQuoteViewIntoImage(view: CategoryQuoteView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
@@ -27,6 +27,14 @@ class RenderImageService {
     }
     
     static func convertFavoriteQuoteViewIntoImage(view: FavoriteQuoteView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    static func convertMyOwnQuoteViewIntoImage(view: MyOwnQuoteView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }

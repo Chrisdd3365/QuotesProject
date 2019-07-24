@@ -17,14 +17,14 @@ struct ContentsResponse: Decodable {
 }
 
 struct Quotes: Decodable {
-    let quotes: [Quote]
+    let quotes: [QuoteOfTheDay]
     
     enum CodingKeys: String, CodingKey {
         case quotes = "quotes"
     }
 }
 
-struct Quote: Decodable {
+struct QuoteOfTheDay: Decodable {
     let quote: String
     let author: String?
     let category: String

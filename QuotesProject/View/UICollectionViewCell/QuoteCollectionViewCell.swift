@@ -14,7 +14,7 @@ class QuoteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     
     //MARK: - Property
-    var quoteCollectionViewCellConfigure: Quote? {
+    var quoteCollectionViewCellConfigure: QuoteOfTheDay? {
         didSet {
             quoteTextView.text = quoteCollectionViewCellConfigure?.quote
             authorLabel.text = quoteCollectionViewCellConfigure?.author

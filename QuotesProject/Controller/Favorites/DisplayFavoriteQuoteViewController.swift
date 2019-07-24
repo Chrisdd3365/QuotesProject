@@ -46,5 +46,4 @@ extension DisplayFavoriteQuoteViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         self.favoriteQuoteView.backgroundImageView.image = image
     }
-    
 }

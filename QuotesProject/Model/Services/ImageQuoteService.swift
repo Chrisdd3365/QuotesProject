@@ -1,37 +1,40 @@
 //
-//  QuoteOfTheDayService.swift
+//  ImageQuoteService.swift
 //  QuotesProject
 //
-//  Created by Christophe DURAND on 12/06/2019.
+//  Created by Christophe DURAND on 24/07/2019.
 //  Copyright © 2019 Christophe DURAND. All rights reserved.
 //
 
 import Foundation
 
-class QuoteOfTheDayService {
+class ImageQuoteService {
     //MARK: - Properties
     var task: URLSessionDataTask?
-    private var quoteOfTheDaySession: URLSession
+    private var categoryQuoteSession: URLSession
     
     //MARK: - Initializers
-    init(quoteOfTheDaySession: URLSession = URLSession(configuration: .default)) {
-        self.quoteOfTheDaySession = quoteOfTheDaySession
+    init(categoryQuoteSession: URLSession = URLSession(configuration: .default)) {
+        self.categoryQuoteSession = categoryQuoteSession
     }
-    
+
     //MARK: - Methods
     //URL method
-    func quotesURL() -> String {
+    func imageQuoteURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
-        let quoteOfTheDayURL = Constants.TheySaidSoAPI.QuoteOfTheDayURL.quoteOfTheDayURL
+        let imageURL = Constants.TheySaidSoAPI.ImageQuoteURL.imageURL
+        let apiKeyURL = Constants.TheySaidSoAPI.ImageQuoteURL.apiKeyURL
+        let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
         
-        return baseURL + quoteOfTheDayURL
+        return baseURL + imageURL + apiKeyURL + apiKey
     }
     
     //API method
-    func getQuoteOfTheDay(callback: @escaping (Bool, ContentsResponse?) -> Void) {
-        guard let url = URL(string: quotesURL()) else { return }
+    func getImageQuote(callback: @escaping (Bool, ContentsImage?) -> Void) {
+        guard let url = URL(string: imageQuoteURL()) else { return }
+        print(url)
         task?.cancel()
-        task = quoteOfTheDaySession.dataTask(with: url) { data, response, error in
+        task = categoryQuoteSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
@@ -41,7 +44,7 @@ class QuoteOfTheDayService {
                     callback(false, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(ContentsResponse.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(ContentsImage.self, from: data) else {
                     callback(false, nil)
                     return
                 }

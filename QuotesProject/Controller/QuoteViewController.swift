@@ -16,7 +16,7 @@ class QuoteViewController: UIViewController {
     
     //MARK: - Properties
     let quoteOfTheDayService = QuoteOfTheDayService()
-    var quotes = [Quote]()
+    var quotes = [QuoteOfTheDay]()
     var favoritesQuotes = FavoriteQuote.all
     var timeInterval = 0
     var startHour = 0
@@ -58,7 +58,7 @@ class QuoteViewController: UIViewController {
 //        }
     }
 
-    private func notifications(quotes: [Quote]) {
+    private func notifications(quotes: [QuoteOfTheDay]) {
         //Content
         let content = UNMutableNotificationContent()
         content.title = quotes[0].author ?? ""

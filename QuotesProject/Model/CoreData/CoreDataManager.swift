@@ -22,7 +22,7 @@ class CoreDataManager {
     }
     
     //MARK: - FavoritesQuotes CoreDataManager's methods
-    static func saveFavoriteQuote(contentsResponse: ContentsResponse) {
+    static func saveQuoteOfTheDayToFavoritesQuotes(contentsResponse: ContentsResponse) {
         let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
         
         favoriteQuote.quote = contentsResponse.contents.quotes[0].quote
@@ -33,7 +33,19 @@ class CoreDataManager {
         saveContext()
     }
     
-    static func deleteFavoriteFromList(id: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
+    static func saveCategoryQuoteToFavoritesQuotes(contents: Contents) {
+        let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
+        favoriteQuote.quote = contents.contents.quote
+        favoriteQuote.author = contents.contents.author
+        //TODO
+        //favoriteQuote.backgroundImageURL =
+        favoriteQuote.id = contents.contents.id
+        
+        saveContext()
+    }
+    
+    
+    static func deleteFavoriteQuoteFromList(id: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<FavoriteQuote> = FavoriteQuote.fetchRequest()
         fetchRequest.predicate = NSPredicate.init(format: "id == %@", id)
         

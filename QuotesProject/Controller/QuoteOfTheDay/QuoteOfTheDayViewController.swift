@@ -38,7 +38,7 @@ class QuoteOfTheDayViewController: UIViewController {
     }
     
     @IBAction func shareQuoteOfTheDay(_ sender: UIButton) {
-        didTapShareButton(view: quoteOfTheDayView)
+        didTapShareButtonQuoteOfTheDay(view: quoteOfTheDayView)
     }
     
     @IBAction func addToFavorite(_ sender: UIButton) {
@@ -62,7 +62,7 @@ class QuoteOfTheDayViewController: UIViewController {
         guard let contentsResponse = quoteOfTheDayView.quoteOfTheDayViewConfigure else { return }
         if checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: contentsResponse.contents.quotes[0].id) == false {
             favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
-            CoreDataManager.saveFavoriteQuote(contentsResponse: contentsResponse)
+            CoreDataManager.saveQuoteOfTheDayToFavoritesQuotes(contentsResponse: contentsResponse)
             favoritesQuotes = FavoriteQuote.all
         } else {
             favoritesQuotes = FavoriteQuote.all

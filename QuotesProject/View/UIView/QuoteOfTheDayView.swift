@@ -15,7 +15,6 @@ class QuoteOfTheDayView: UIView {
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
 
-    
     //MARK: - Property
     var quoteOfTheDayViewConfigure: ContentsResponse? {
         didSet {

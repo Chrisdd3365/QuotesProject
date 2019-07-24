@@ -13,9 +13,11 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuTableView: UITableView!
     
     //MARK: - Properties
-    let cellsTitles = ["Reminders", "Categories", "Favorites", "My Own Quotes"]
-    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "favorites"), UIImage(named: "write")]
-    let seguesIdentifiers = ["Reminders", "Categories", "Favorites", "MyOwnQuotes"]
+    let cellsTitles = ["Reminders", "Categories", "Images", "Favorites", "My Own Quotes"]
+    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "image"), UIImage(named: "favorites"), UIImage(named: "write")]
+    let seguesIdentifiers = ["Reminders", "Categories", "Images", "Favorites", "MyOwnQuotes"]
+    let imageQuoteService = ImageQuoteService()
+    var imageQuote: ContentsImage?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -31,6 +33,28 @@ class SideMenuViewController: UIViewController {
     //MARK: - Actions
     @IBAction func dismissController(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - Methods
+    private func fetchImageQuoteData() {
+        imageQuoteService.getImageQuote { (success, contentsImage) in
+            if success {
+                self.imageQuote = contentsImage
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: self.seguesIdentifiers[2], sender: nil)
+                }
+            } else {
+                self.showAlert(title: "Sorry!", message: "Image not available!")
+            }
+        }
+    }
+    
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == seguesIdentifiers[2],
+            let displayImageQuoteVC = segue.destination as? DisplayImageQuoteViewController {
+            displayImageQuoteVC.imageQuote = imageQuote
+        }
     }
 }
 
@@ -58,7 +82,11 @@ extension SideMenuViewController: UITableViewDataSource {
 
 extension SideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: seguesIdentifiers[indexPath.row], sender: self)
+        if indexPath.row == 2 {
+            fetchImageQuoteData()
+        } else {
+            performSegue(withIdentifier: seguesIdentifiers[indexPath.row], sender: self)
+        }
     }
 }
 

@@ -18,8 +18,14 @@ extension UIViewController {
     }
     
     //Share
-    func didTapShareButton(view: QuoteOfTheDayView) {
+    func didTapShareButtonQuoteOfTheDay(view: QuoteOfTheDayView) {
         guard let image = RenderImageService.convertQuoteOfTheDayViewIntoImage(view: view) else { return }
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+    }
+    
+    func didTapShareButtonCategoryQuote(view: CategoryQuoteView) {
+        guard let image = RenderImageService.convertCategoryQuoteViewIntoImage(view: view) else { return }
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
@@ -38,7 +44,7 @@ extension UIViewController {
     
     //Favorite
     func didTapUnfavoriteButton(id: String?) {
-        CoreDataManager.deleteFavoriteFromList(id: id ?? "")
+        CoreDataManager.deleteFavoriteQuoteFromList(id: id ?? "")
         navigationController?.popViewController(animated: true)
     }
     
