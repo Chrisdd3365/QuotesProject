@@ -29,7 +29,8 @@ class DisplayMyOwnQuoteViewController: UIViewController {
     }
     
     @IBAction func shareMyOwnQuote(_ sender: UIButton) {
-        didTapShareButtonMyOwnQuote(view: myOwnQuoteView)
+        //didTapShareButtonMyOwnQuote(view: myOwnQuoteView)
+        didTapShareButton(view: myOwnQuoteView)
     }
     
     //MARK: - Method

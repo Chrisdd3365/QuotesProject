@@ -19,11 +19,10 @@ class QuoteOfTheDayView: UIView {
     var quoteOfTheDayViewConfigure: ContentsResponse? {
         didSet {
             quoteLabel.text = quoteOfTheDayViewConfigure?.contents.quotes[0].quote
-            quoteLabel.layer.shadowColor = UIColor.black.cgColor
-            quoteLabel.layer.shadowOpacity = 0.9
-            quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+            quoteLabel.setupShadowLabel(label: quoteLabel)
             
             authorLabel.text = quoteOfTheDayViewConfigure?.contents.quotes[0].author
+            authorLabel.setupShadowLabel(label: authorLabel)
 
             if let backgroundImageURL = quoteOfTheDayViewConfigure?.contents.quotes[0].background {
                 backgroundImageView.sd_setImage(with: URL(string: backgroundImageURL))

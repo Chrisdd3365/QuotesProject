@@ -23,7 +23,7 @@ class ImageQuoteService {
     func imageQuoteURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let imageURL = Constants.TheySaidSoAPI.ImageQuoteURL.imageURL
-        let apiKeyURL = Constants.TheySaidSoAPI.ImageQuoteURL.apiKeyURL
+        let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
         let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
         
         return baseURL + imageURL + apiKeyURL + apiKey

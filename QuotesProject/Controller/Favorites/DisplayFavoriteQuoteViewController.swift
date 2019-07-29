@@ -29,14 +29,14 @@ class DisplayFavoriteQuoteViewController: UIViewController {
     }
     
     @IBAction func shareFavoriteQuote(_ sender: UIButton) {
-        didTapShareButtonFavoriteQuote(view: favoriteQuoteView)
+        didTapShareButton(view: favoriteQuoteView)
     }
     
     @IBAction func removeFromFavorite(_ sender: UIButton) {
         didTapUnfavoriteButton(id: favoriteQuoteSelected?.id)
     }
     
-    //MARK: - Method
+    //MARK: - Methods
     private func favoriteQuoteViewSetup() {
         favoriteQuoteView.favoriteQuoteViewConfigure = favoriteQuoteSelected
     }

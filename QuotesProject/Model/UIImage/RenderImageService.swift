@@ -10,7 +10,7 @@ import UIKit
 
 //Class managing the conversion of UIView into image
 class RenderImageService {
-    static func convertQuoteOfTheDayViewIntoImage(view: QuoteOfTheDayView) -> UIImage? {
+    static func convertViewIntoImage(view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
@@ -18,27 +18,35 @@ class RenderImageService {
         return image
     }
     
-    static func convertCategoryQuoteViewIntoImage(view: CategoryQuoteView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    static func convertFavoriteQuoteViewIntoImage(view: FavoriteQuoteView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    static func convertMyOwnQuoteViewIntoImage(view: MyOwnQuoteView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-        UIGraphicsEndImageContext()
-        return image
-    }
+//    static func convertQuoteOfTheDayViewIntoImage(view: QuoteOfTheDayView) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
+//
+//    static func convertCategoryQuoteViewIntoImage(view: CategoryQuoteView) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
+//
+//    static func convertFavoriteQuoteViewIntoImage(view: FavoriteQuoteView) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
+//    
+//    static func convertMyOwnQuoteViewIntoImage(view: MyOwnQuoteView) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
 }

@@ -15,7 +15,7 @@ class CategoriesViewController: UIViewController {
     //MARK: - Properties
     let categoryQuoteService = CategoryQuoteService()
     var categoryQuote: Contents?
-    var categories = ["Family", "Friendship", "Wisdom", "Workout", "Work hard", "Love"]
+    var categories = ["Family", "Friendship", "Wisdom", "Workout", "Work", "Love", "Success", "Will", "Motivation", "Relationship", "Trust", "Optimism"]
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -44,13 +44,6 @@ class CategoriesViewController: UIViewController {
             displayCategoryQuoteVC.categoryQuote = categoryQuote
         }
     }
-
-    //Setup CollectionViewCell Layout
-    private func categoriesCollectionViewLayoutConfigure() {
-        let width = (view.frame.size.width) / 3
-        let layout = categoriesCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: width, height: width)
-    }
 }
 
 extension CategoriesViewController: UICollectionViewDataSource {
@@ -59,11 +52,15 @@ extension CategoriesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = categoriesCollectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell else {
+        guard let cell = categoriesCollectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifierCell, for: indexPath) as? CategoriesCollectionViewCell else {
             return UICollectionViewCell()
         }
-
+    
         cell.categoryLabel.text = categories[indexPath.row]
+        cell.categoryLabel.setupShadowLabel(label: cell.categoryLabel)
+        
+        cell.layer.cornerRadius = 5
+        cell.layer.masksToBounds = true
         
         return cell
     }
@@ -72,5 +69,14 @@ extension CategoriesViewController: UICollectionViewDataSource {
 extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         fetchCategoryQuoteData(category: categories[indexPath.row])
+    }
+}
+
+extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat =  50
+        let collectionViewSize = categoriesCollectionView.frame.size.width - padding
+        
+        return CGSize(width: collectionViewSize/2, height: collectionViewSize/4)
     }
 }

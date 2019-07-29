@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
-    //MARK: - MyOwnQuotes CoreDataManager's methods
+    //MARK: - MyOwnQuote CoreDataManager's methods
     static func saveMyOwnQuote(quote: String, author: String) -> MyOwnQuote {
         let myOwnQuotes = MyOwnQuote(context: AppDelegate.viewContext)
     
@@ -21,7 +21,33 @@ class CoreDataManager {
         return myOwnQuotes
     }
     
-    //MARK: - FavoritesQuotes CoreDataManager's methods
+    //MARK: - FavoriteImage CoreDataManager's methods
+    static func saveFavoriteImage(contentsImage: ContentsImage) {
+        let favoriteImage = FavoriteImage(context: AppDelegate.viewContext)
+        
+        favoriteImage.id = contentsImage.contents.qimage.id
+        favoriteImage.quoteId = contentsImage.contents.qimage.quoteId
+        favoriteImage.imageURL = contentsImage.contents.qimage.downloadUri
+        
+        saveContext()
+    }
+    
+    static func deleteFavoriteImage(id: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
+        let fetchRequest: NSFetchRequest<FavoriteImage> = FavoriteImage.fetchRequest()
+        fetchRequest.predicate = NSPredicate.init(format: "id == %@", id)
+        
+        do {
+            let favoritesImages = try context.fetch(fetchRequest)
+            for favoriteImage in favoritesImages {
+                context.delete(favoriteImage)
+            }
+            try context.save()
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    //MARK: - FavoriteQuote CoreDataManager's methods
     static func saveQuoteOfTheDayToFavoritesQuotes(contentsResponse: ContentsResponse) {
         let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
         

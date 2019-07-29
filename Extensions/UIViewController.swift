@@ -17,37 +17,44 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    //Activity Indicator
+    func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, button: UIButton) {
+        activityIndicator.isHidden = !shown
+        button.isHidden = shown
+    }
+    
     //Share
-    func didTapShareButtonQuoteOfTheDay(view: QuoteOfTheDayView) {
-        guard let image = RenderImageService.convertQuoteOfTheDayViewIntoImage(view: view) else { return }
+    func didTapShareButton(view: UIView) {
+        guard let image = RenderImageService.convertViewIntoImage(view: view) else { return }
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        present(activityController, animated: true, completion: nil)
+            present(activityController, animated: true, completion: nil)
+        }
+    
+    //UnLike
+    func didTapeUnlikeButton(id: String) {
+        CoreDataManager.deleteFavoriteImage(id: id)
+        navigationController?.popViewController(animated: true)
     }
     
-    func didTapShareButtonCategoryQuote(view: CategoryQuoteView) {
-        guard let image = RenderImageService.convertCategoryQuoteViewIntoImage(view: view) else { return }
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        present(activityController, animated: true, completion: nil)
+    func checkFavoriteImage(favoritesImages: [FavoriteImage], id: String) -> Bool {
+        var isAdded = false
+        guard favoritesImages.count != 0 else { return false }
+        for  favoriteImage in favoritesImages {
+            if id == favoriteImage.id {
+                isAdded = true
+                break
+            }
+        }
+        return isAdded
     }
     
-    func didTapShareButtonMyOwnQuote(view: MyOwnQuoteView) {
-        guard let image = RenderImageService.convertMyOwnQuoteViewIntoImage(view: view) else { return }
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        present(activityController, animated: true, completion: nil)
-    }
-    
-    func didTapShareButtonFavoriteQuote(view: FavoriteQuoteView) {
-        guard let image = RenderImageService.convertFavoriteQuoteViewIntoImage(view: view) else { return }
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        present(activityController, animated: true, completion: nil)
-    }
-    
-    //Favorite
+    //UnFavorite
     func didTapUnfavoriteButton(id: String?) {
         CoreDataManager.deleteFavoriteQuoteFromList(id: id ?? "")
         navigationController?.popViewController(animated: true)
     }
     
+    //Helper's methods FavoriteQuote
     func checkFavoriteQuote(favoritesQuotes: [FavoriteQuote], id: String) -> Bool {
         var isAdded = false
         guard favoritesQuotes.count != 0 else { return false }

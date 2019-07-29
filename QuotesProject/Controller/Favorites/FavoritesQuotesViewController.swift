@@ -57,6 +57,12 @@ extension FavoritesQuotesViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.favoritesQuotesCellConfigure = favoriteQuote
         
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = .lightGray
+        } else {
+            cell.backgroundColor = .white
+        }
+        
         return cell
     }
     

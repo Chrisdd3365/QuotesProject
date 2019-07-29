@@ -18,12 +18,10 @@ class CategoryQuoteView: UIView {
     var categoryQuoteViewConfigure: Contents? {
         didSet {
             quoteLabel.text = categoryQuoteViewConfigure?.contents.quote
-            quoteLabel.layer.shadowColor = UIColor.black.cgColor
-            quoteLabel.layer.shadowOpacity = 0.9
-            quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+            quoteLabel.setupShadowLabel(label: quoteLabel)
             
             authorLabel.text = categoryQuoteViewConfigure?.contents.author
+            authorLabel.setupShadowLabel(label: authorLabel)
         }
     }
-    
 }

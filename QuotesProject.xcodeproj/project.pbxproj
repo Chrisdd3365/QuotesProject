@@ -18,7 +18,7 @@
 		951A3BAD22B2914F009634EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAC22B2914F009634EF /* Constants.swift */; };
 		951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAE22B2935B009634EF /* QuotesView.swift */; };
 		951A3BB222B2992B009634EF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BB122B2992B009634EF /* UIViewController.swift */; };
-		953FE45F22D5F5AF009FDE7E /* FavoritesQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE45E22D5F5AF009FDE7E /* FavoritesQuotes.swift */; };
+		953FE45F22D5F5AF009FDE7E /* FavoriteQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE45E22D5F5AF009FDE7E /* FavoriteQuote.swift */; };
 		953FE46122D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE46022D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift */; };
 		953FE46322D601F3009FDE7E /* FavoritesQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE46222D601F3009FDE7E /* FavoritesQuotesViewController.swift */; };
 		95482B8322CF708D00A8B013 /* MyOwnQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95482B8222CF708D00A8B013 /* MyOwnQuote.swift */; };
@@ -35,6 +35,13 @@
 		956FC2FD22E8E69200009FAA /* ImageQuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956FC2FC22E8E69200009FAA /* ImageQuoteService.swift */; };
 		956FC30022E8EC7200009FAA /* DisplayImageQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956FC2FF22E8EC7200009FAA /* DisplayImageQuoteViewController.swift */; };
 		956FC30222E8ECAC00009FAA /* ImageQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956FC30122E8ECAC00009FAA /* ImageQuoteView.swift */; };
+		95731C6222EF62A800116876 /* FavoritesImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6122EF62A800116876 /* FavoritesImagesViewController.swift */; };
+		95731C6422EF638B00116876 /* FavoriteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6322EF638B00116876 /* FavoriteImage.swift */; };
+		95731C6622EF654800116876 /* FavoritesImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6522EF654800116876 /* FavoritesImagesCollectionViewCell.swift */; };
+		95731C6822EF6ADF00116876 /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6722EF6ADF00116876 /* FooterCollectionReusableView.swift */; };
+		95731C6A22EF6C1900116876 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6922EF6C1900116876 /* UIView.swift */; };
+		95731C6D22EF6E6600116876 /* DisplayFavoriteImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6C22EF6E6600116876 /* DisplayFavoriteImageViewController.swift */; };
+		95731C6F22EF73AC00116876 /* FavoriteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731C6E22EF73AC00116876 /* FavoriteImageView.swift */; };
 		9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */; };
 		9594DB3522C11ACD00189E7D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594DB3422C11ACD00189E7D /* RemindersViewController.swift */; };
 		95A6551D22E1F87300A46A25 /* QuoteOfTheDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6551C22E1F87300A46A25 /* QuoteOfTheDayViewController.swift */; };
@@ -42,6 +49,7 @@
 		95A6552422E2314E00A46A25 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6552322E2314E00A46A25 /* ImagePicker.swift */; };
 		95C4FDFF22E0C4C50035AF56 /* QuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4FDFE22E0C4C50035AF56 /* QuoteCollectionViewCell.swift */; };
 		95C4FE0122E0C50E0035AF56 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4FE0022E0C50E0035AF56 /* UICollectionViewCell.swift */; };
+		95D0B96F22EB2C8000CC0530 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0B96E22EB2C8000CC0530 /* UILabel.swift */; };
 		95FDDE2222B91EED00F7F1C0 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */; };
 		95FDDE2722B9248C00F7F1C0 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */; };
 		95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */; };
@@ -77,7 +85,7 @@
 		951A3BAC22B2914F009634EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		951A3BAE22B2935B009634EF /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		951A3BB122B2992B009634EF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		953FE45E22D5F5AF009FDE7E /* FavoritesQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesQuotes.swift; sourceTree = "<group>"; };
+		953FE45E22D5F5AF009FDE7E /* FavoriteQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteQuote.swift; sourceTree = "<group>"; };
 		953FE46022D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesQuotesTableViewCell.swift; sourceTree = "<group>"; };
 		953FE46222D601F3009FDE7E /* FavoritesQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesQuotesViewController.swift; sourceTree = "<group>"; };
 		9547A8B722BBB2760064FAA2 /* QuotesProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesProject.entitlements; sourceTree = "<group>"; };
@@ -95,6 +103,13 @@
 		956FC2FC22E8E69200009FAA /* ImageQuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuoteService.swift; sourceTree = "<group>"; };
 		956FC2FF22E8EC7200009FAA /* DisplayImageQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageQuoteViewController.swift; sourceTree = "<group>"; };
 		956FC30122E8ECAC00009FAA /* ImageQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuoteView.swift; sourceTree = "<group>"; };
+		95731C6122EF62A800116876 /* FavoritesImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesImagesViewController.swift; sourceTree = "<group>"; };
+		95731C6322EF638B00116876 /* FavoriteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImage.swift; sourceTree = "<group>"; };
+		95731C6522EF654800116876 /* FavoritesImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		95731C6722EF6ADF00116876 /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		95731C6922EF6C1900116876 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		95731C6C22EF6E6600116876 /* DisplayFavoriteImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFavoriteImageViewController.swift; sourceTree = "<group>"; };
+		95731C6E22EF73AC00116876 /* FavoriteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageView.swift; sourceTree = "<group>"; };
 		9594DB3222C11A2F00189E7D /* RemindersScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersScrollView.swift; sourceTree = "<group>"; };
 		9594DB3422C11ACD00189E7D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		95A6551C22E1F87300A46A25 /* QuoteOfTheDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDayViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +117,7 @@
 		95A6552322E2314E00A46A25 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		95C4FDFE22E0C4C50035AF56 /* QuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		95C4FE0022E0C50E0035AF56 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		95D0B96E22EB2C8000CC0530 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		95FDDE2622B9248C00F7F1C0 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		95FDDE2E22B9311C00F7F1C0 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +177,8 @@
 				951A3BB122B2992B009634EF /* UIViewController.swift */,
 				95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */,
 				95C4FE0022E0C50E0035AF56 /* UICollectionViewCell.swift */,
+				95D0B96E22EB2C8000CC0530 /* UILabel.swift */,
+				95731C6922EF6C1900116876 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,7 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				95482B8222CF708D00A8B013 /* MyOwnQuote.swift */,
-				953FE45E22D5F5AF009FDE7E /* FavoritesQuotes.swift */,
+				953FE45E22D5F5AF009FDE7E /* FavoriteQuote.swift */,
+				95731C6322EF638B00116876 /* FavoriteImage.swift */,
 			);
 			path = MyOwnQuotes;
 			sourceTree = "<group>";
@@ -233,6 +252,23 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		95731C6022EF628D00116876 /* FavoritesImages */ = {
+			isa = PBXGroup;
+			children = (
+				95731C6122EF62A800116876 /* FavoritesImagesViewController.swift */,
+				95731C6C22EF6E6600116876 /* DisplayFavoriteImageViewController.swift */,
+			);
+			path = FavoritesImages;
+			sourceTree = "<group>";
+		};
+		95731C6B22EF6D8A00116876 /* FooterCollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				95731C6722EF6ADF00116876 /* FooterCollectionReusableView.swift */,
+			);
+			path = FooterCollectionReusableView;
+			sourceTree = "<group>";
+		};
 		9594DB3122C119F500189E7D /* UIScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +322,7 @@
 				951A3BAE22B2935B009634EF /* QuotesView.swift */,
 				956FC2F822E8B53100009FAA /* CategoryQuoteView.swift */,
 				956FC30122E8ECAC00009FAA /* ImageQuoteView.swift */,
+				95731C6E22EF73AC00116876 /* FavoriteImageView.swift */,
 				95142F1822E7452700224CA3 /* FavoriteQuoteView.swift */,
 				9511BD9A22D4E11E00ACBD31 /* MyOwnQuoteView.swift */,
 			);
@@ -297,6 +334,7 @@
 			children = (
 				95C4FDFE22E0C4C50035AF56 /* QuoteCollectionViewCell.swift */,
 				956FC2F022E8A0ED00009FAA /* CategoriesCollectionViewCell.swift */,
+				95731C6522EF654800116876 /* FavoritesImagesCollectionViewCell.swift */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -370,6 +408,7 @@
 			children = (
 				95FDE07522A7EFF500849A91 /* Main.storyboard */,
 				95FDE07D22A7EFF600849A91 /* LaunchScreen.storyboard */,
+				95731C6B22EF6D8A00116876 /* FooterCollectionReusableView */,
 				95C4FDFD22E0C4A60035AF56 /* UICollectionViewCell */,
 				95FDDE2322B923E800F7F1C0 /* UITableViewCell */,
 				9594DB3122C119F500189E7D /* UIScrollView */,
@@ -398,6 +437,7 @@
 				956FC2E922E89C9100009FAA /* Reminders */,
 				956FC2EA22E89CA200009FAA /* Categories */,
 				956FC2FE22E8EC4300009FAA /* Images */,
+				95731C6022EF628D00116876 /* FavoritesImages */,
 				956FC2E722E89C5900009FAA /* Favorites */,
 				956FC2E822E89C7400009FAA /* MyOwnQuotes */,
 			);
@@ -565,20 +605,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				956FC2F722E8B3F100009FAA /* DisplayCategoryQuoteViewController.swift in Sources */,
-				953FE45F22D5F5AF009FDE7E /* FavoritesQuotes.swift in Sources */,
+				953FE45F22D5F5AF009FDE7E /* FavoriteQuote.swift in Sources */,
 				951A3BA922B13A30009634EF /* QuoteOfTheDayService.swift in Sources */,
 				956FC2F122E8A0ED00009FAA /* CategoriesCollectionViewCell.swift in Sources */,
 				9594DB3522C11ACD00189E7D /* RemindersViewController.swift in Sources */,
 				950CE8A622AEE25A00F67C4A /* QuoteViewController.swift in Sources */,
 				95142F1522E7432700224CA3 /* DisplayFavoriteQuoteViewController.swift in Sources */,
 				95FDDE2F22B9311C00F7F1C0 /* SideMenuTableViewCell.swift in Sources */,
+				95731C6422EF638B00116876 /* FavoriteImage.swift in Sources */,
 				956FC2F322E8A8EC00009FAA /* CategoryQuote.swift in Sources */,
 				95A6551D22E1F87300A46A25 /* QuoteOfTheDayViewController.swift in Sources */,
+				95731C6222EF62A800116876 /* FavoritesImagesViewController.swift in Sources */,
 				95C4FE0122E0C50E0035AF56 /* UICollectionViewCell.swift in Sources */,
+				95D0B96F22EB2C8000CC0530 /* UILabel.swift in Sources */,
 				95482B8522CF75DB00A8B013 /* CoreDataManager.swift in Sources */,
 				95FDE07A22A7EFF500849A91 /* QuotesProject.xcdatamodeld in Sources */,
 				95FDDE2722B9248C00F7F1C0 /* SideMenuViewController.swift in Sources */,
 				951A3BAB22B140EF009634EF /* QuoteOfTheDay.swift in Sources */,
+				95731C6622EF654800116876 /* FavoritesImagesCollectionViewCell.swift in Sources */,
 				95482B8322CF708D00A8B013 /* MyOwnQuote.swift in Sources */,
 				956FC2FD22E8E69200009FAA /* ImageQuoteService.swift in Sources */,
 				9511BD9922D4E0F100ACBD31 /* DisplayMyOwnQuoteViewController.swift in Sources */,
@@ -590,7 +634,10 @@
 				9502D2BC22CCCE1D0014EDFB /* MyOwnQuotesViewController.swift in Sources */,
 				95FDE07222A7EFF500849A91 /* AppDelegate.swift in Sources */,
 				956FC30022E8EC7200009FAA /* DisplayImageQuoteViewController.swift in Sources */,
+				95731C6A22EF6C1900116876 /* UIView.swift in Sources */,
 				95A6551F22E1F8A900A46A25 /* QuoteOfTheDayView.swift in Sources */,
+				95731C6F22EF73AC00116876 /* FavoriteImageView.swift in Sources */,
+				95731C6822EF6ADF00116876 /* FooterCollectionReusableView.swift in Sources */,
 				956FC2FB22E8E42600009FAA /* CategoryImage.swift in Sources */,
 				956FC2EF22E89CFC00009FAA /* CategoriesViewController.swift in Sources */,
 				953FE46322D601F3009FDE7E /* FavoritesQuotesViewController.swift in Sources */,
@@ -602,6 +649,7 @@
 				951A3BAD22B2914F009634EF /* Constants.swift in Sources */,
 				95C4FDFF22E0C4C50035AF56 /* QuoteCollectionViewCell.swift in Sources */,
 				956FC2F922E8B53100009FAA /* CategoryQuoteView.swift in Sources */,
+				95731C6D22EF6E6600116876 /* DisplayFavoriteImageViewController.swift in Sources */,
 				9594DB3322C11A2F00189E7D /* RemindersScrollView.swift in Sources */,
 				95482B8722CF7BD000A8B013 /* MyOwnQuotesTableViewCell.swift in Sources */,
 			);

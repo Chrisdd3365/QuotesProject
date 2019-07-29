@@ -38,7 +38,7 @@ class QuoteOfTheDayViewController: UIViewController {
     }
     
     @IBAction func shareQuoteOfTheDay(_ sender: UIButton) {
-        didTapShareButtonQuoteOfTheDay(view: quoteOfTheDayView)
+        didTapShareButton(view: quoteOfTheDayView)
     }
     
     @IBAction func addToFavorite(_ sender: UIButton) {

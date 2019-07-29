@@ -12,8 +12,12 @@ class DisplayCategoryQuoteViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var categoryQuoteView: CategoryQuoteView!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var newQuoteButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     //MARK: - Properties
+    let categoryQuoteService = CategoryQuoteService()
     var categoryQuote: Contents?
     var imagePicker: ImagePicker?
     var favoritesQuotes = FavoriteQuote.all
@@ -38,15 +42,31 @@ class DisplayCategoryQuoteViewController: UIViewController {
     }
     
     @IBAction func shareQuote(_ sender: UIButton) {
-        didTapShareButtonCategoryQuote(view: categoryQuoteView)
+        didTapShareButton(view: categoryQuoteView)
     }
     
     @IBAction func addToFavorite(_ sender: UIButton) {
         addToFavoritesListSetup()
     }
     
+    @IBAction func newQuoteButtonTapped(_ sender: UIButton) {
+        fetchCategoryQuoteData(category: categoryQuote?.contents.requestedCategory ?? "")
+    }
     
     //MARK: - Methods
+    private func fetchCategoryQuoteData(category: String) {
+        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newQuoteButton)
+        categoryQuoteService.getCategoryQuote(category: category) { (success, contents) in
+            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newQuoteButton)
+            if success {
+                self.categoryQuote = contents
+                self.categoryQuoteViewSetup()
+            } else {
+                self.showAlert(title: "Sorry!", message: "No quote for such category exists!")
+            }
+        }
+    }
+    
     private func categoryQuoteViewSetup() {
         categoryQuoteView.categoryQuoteViewConfigure = self.categoryQuote
     }

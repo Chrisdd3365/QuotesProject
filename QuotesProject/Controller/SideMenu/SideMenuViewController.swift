@@ -13,9 +13,9 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuTableView: UITableView!
     
     //MARK: - Properties
-    let cellsTitles = ["Reminders", "Categories", "Images", "Favorites", "My Own Quotes"]
-    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "image"), UIImage(named: "favorites"), UIImage(named: "write")]
-    let seguesIdentifiers = ["Reminders", "Categories", "Images", "Favorites", "MyOwnQuotes"]
+    let cellsTitles = ["Reminders", "Categories", "Images", "Favorites Images", "Favorites Quotes", "My Own Quotes"]
+    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "image"), UIImage(named: "favoritesImages"), UIImage(named: "favorites"), UIImage(named: "write")]
+    let seguesIdentifiers = ["Reminders", "Categories", "Images", "FavoritesImages", "Favorites", "MyOwnQuotes"]
     let imageQuoteService = ImageQuoteService()
     var imageQuote: ContentsImage?
     

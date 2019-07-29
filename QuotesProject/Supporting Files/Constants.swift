@@ -25,8 +25,7 @@ struct Constants {
         }
         
         struct ImageQuoteURL {
-            static let imageURL = "quote/image/search.json"
-            static let apiKeyURL = "?api_key="
+            static let imageURL = "quote/image/search.json?"
         }
     }
     
@@ -37,6 +36,7 @@ struct Constants {
     struct SeguesIdentifiers {
         static let timeIntervalSegue = "TimeIntervalSegue"
         static let displayCategoryQuoteSegue = "DisplayCategoryQuoteSegue"
+        static let displayFavoriteImageSegue = "DisplayFavoriteImageSegue"
         static let displayFavoriteQuoteSegue = "DisplayFavoriteQuoteSegue"
         static let displayMyOwnQuoteSegue = "DisplayMyOwnQuoteSegue"
     }

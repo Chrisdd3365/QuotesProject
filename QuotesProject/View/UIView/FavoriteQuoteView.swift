@@ -18,11 +18,10 @@ class FavoriteQuoteView: UIView {
     var favoriteQuoteViewConfigure: FavoriteQuote? {
         didSet {
             quoteLabel.text = favoriteQuoteViewConfigure?.quote
-            quoteLabel.layer.shadowColor = UIColor.black.cgColor
-            quoteLabel.layer.shadowOpacity = 0.9
-            quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+            quoteLabel.setupShadowLabel(label: quoteLabel)
             
             authorLabel.text = favoriteQuoteViewConfigure?.author
+            authorLabel.setupShadowLabel(label: authorLabel)
             if authorLabel.text == "" {
                 authorLabel.text = "- Anonymous Author"
             }

@@ -10,7 +10,7 @@ import UIKit
 
 //Setup UICollectionViewCell identifier
 extension UICollectionViewCell {
-    static var identifier: String {
+    static var identifierCell: String {
         return String(describing: self)
     }
 }

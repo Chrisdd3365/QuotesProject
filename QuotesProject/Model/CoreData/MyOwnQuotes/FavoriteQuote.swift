@@ -1,5 +1,5 @@
 //
-//  FavoritesQuotes.swift
+//  FavoriteQuote.swift
 //  QuotesProject
 //
 //  Created by Christophe DURAND on 10/07/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FavoriteQuote: NSManagedObject {
+public class FavoriteQuote: NSManagedObject {
     //MARK: - Property
     static var all: [FavoriteQuote] {
         let request: NSFetchRequest<FavoriteQuote> = FavoriteQuote.fetchRequest()
