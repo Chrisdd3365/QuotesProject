@@ -47,9 +47,7 @@ class QuoteOfTheDayViewController: UIViewController {
     
     //MARK: - Methods
     private func fetchQuoteOfTheDayData() {
-        //toggleActivityIndicator(shown: true)
         quoteOfTheDayService.getQuoteOfTheDay { (success, contentsResponse) in
-            //self.toggleActivityIndicator(shown: false)
             if success {
                 self.quoteOfTheDayView.quoteOfTheDayViewConfigure = contentsResponse
             } else {
@@ -74,11 +72,6 @@ class QuoteOfTheDayViewController: UIViewController {
         guard let contentsResponse = quoteOfTheDayView.quoteOfTheDayViewConfigure else { return }
         favoriteButton.setImage(updateButtonImage(check: checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: contentsResponse.contents.quotes[0].id), checkedImage: "favorite", uncheckedImage: "noFavorite"), for: .normal)
     }
-    
-
-//    private func toggleActivityIndicator(shown: Bool) {
-//        quoteOfTheDayView.activityIndicator.isHidden = !shown
-//    }
 }
 
 extension QuoteOfTheDayViewController: ImagePickerDelegate {

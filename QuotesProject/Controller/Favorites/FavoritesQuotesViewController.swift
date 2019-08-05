@@ -80,7 +80,7 @@ extension FavoritesQuotesViewController: UITableViewDataSource {
 
 extension FavoritesQuotesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return favoritesQuotes.isEmpty ? 220 : 0
+        return favoritesQuotes.isEmpty ? 300 : 0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

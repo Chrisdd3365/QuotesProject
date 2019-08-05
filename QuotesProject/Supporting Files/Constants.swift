@@ -30,12 +30,15 @@ struct Constants {
     }
     
     struct QuotesOnDesignAPI {
-        
+        static let baseURL = "https://quotesondesign.com/wp-json/posts?"
+        static let filterOrderURL = "filter[orderby]=rand"
+        static let filterPostsURL = "&filter[posts_per_page]=10"
     }
     
     struct SeguesIdentifiers {
         static let timeIntervalSegue = "TimeIntervalSegue"
         static let displayCategoryQuoteSegue = "DisplayCategoryQuoteSegue"
+        static let reminderSegue = "ReminderSegue"
         static let displayFavoriteImageSegue = "DisplayFavoriteImageSegue"
         static let displayFavoriteQuoteSegue = "DisplayFavoriteQuoteSegue"
         static let displayMyOwnQuoteSegue = "DisplayMyOwnQuoteSegue"

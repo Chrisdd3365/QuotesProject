@@ -54,6 +54,14 @@ class DisplayCategoryQuoteViewController: UIViewController {
     }
     
     //MARK: - Methods
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.reminderSegue,
+            let remindersVC = segue.destination as? RemindersViewController {
+            remindersVC.categoryQuote = categoryQuote
+        }
+    }
+    
     private func fetchCategoryQuoteData(category: String) {
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newQuoteButton)
         categoryQuoteService.getCategoryQuote(category: category) { (success, contents) in

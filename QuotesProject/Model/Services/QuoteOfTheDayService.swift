@@ -20,7 +20,7 @@ class QuoteOfTheDayService {
     
     //MARK: - Methods
     //URL method
-    func quotesURL() -> String {
+    func quoteOfTheDayURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let quoteOfTheDayURL = Constants.TheySaidSoAPI.QuoteOfTheDayURL.quoteOfTheDayURL
         
@@ -29,7 +29,7 @@ class QuoteOfTheDayService {
     
     //API method
     func getQuoteOfTheDay(callback: @escaping (Bool, ContentsResponse?) -> Void) {
-        guard let url = URL(string: quotesURL()) else { return }
+        guard let url = URL(string: quoteOfTheDayURL()) else { return }
         task?.cancel()
         task = quoteOfTheDaySession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {

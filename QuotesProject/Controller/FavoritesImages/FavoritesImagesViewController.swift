@@ -11,7 +11,7 @@ import UIKit
 class FavoritesImagesViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var favoritesImagesCollectionView: UICollectionView!
-    
+
     //MARK: - Properties
     var favoritesImages = FavoriteImage.all
     //CollectionView's property
@@ -58,19 +58,19 @@ extension FavoritesImagesViewController: UICollectionViewDataSource {
         
         cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
-    
+        
         return cell
     }
 }
 
 extension FavoritesImagesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.favoritesImages.remove(at: indexPath.row)
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+        AppDelegate.viewContext.delete(favoritesImages[indexPath.row])
+        favoritesImages.remove(at: indexPath.row)
+        CoreDataManager.saveContext()
         favoritesImagesCollectionView.deleteItems(at: [indexPath])
     }
 }
-
-
 
 //MARK: - CollectionViewDelegateFlowLayout's methods
 extension FavoritesImagesViewController: UICollectionViewDelegateFlowLayout {
@@ -90,7 +90,7 @@ extension FavoritesImagesViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return favoritesImages.isEmpty ? CGSize(width: view.frame.width, height: 100) : CGSize(width: 0, height: 0)
+        return favoritesImages.isEmpty ? CGSize(width: view.frame.width, height: 300) : CGSize(width: 0, height: 0)
     }
 }
 

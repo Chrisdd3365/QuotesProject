@@ -23,6 +23,11 @@ extension UIViewController {
         button.isHidden = shown
     }
     
+    func toggleActivityIndicator2(shown: Bool, activityIndicator: UIActivityIndicatorView, label: UILabel) {
+        activityIndicator.isHidden = !shown
+        label.isHidden = shown
+    }
+
     //Share
     func didTapShareButton(view: UIView) {
         guard let image = RenderImageService.convertViewIntoImage(view: view) else { return }

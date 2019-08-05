@@ -25,8 +25,13 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow us to take pictures with your camera!</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow us to use your pictures!</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -50,9 +55,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Allow us to take pictures with your camera!</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Allow us to use your pictures!</string>
 </dict>
 </plist>

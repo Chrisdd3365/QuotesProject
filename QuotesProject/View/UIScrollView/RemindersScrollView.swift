@@ -10,9 +10,11 @@ import UIKit
 
 class RemindersScrollView: UIScrollView {
     //MARK: - Outlets
+    @IBOutlet weak var localNotificationsSwitch: UISwitch!
     @IBOutlet weak var timesLabel: UILabel!
     @IBOutlet weak var startingTimeLabel: UILabel!
     @IBOutlet weak var endingTimeLabel: UILabel!
-    @IBOutlet weak var localNotificationsSwitch: UISwitch!
-    
+    @IBOutlet weak var timesSlider: UISlider!
+    @IBOutlet weak var startingTimeSlider: UISlider!
+    @IBOutlet weak var endingTimeSlider: UISlider!
 }

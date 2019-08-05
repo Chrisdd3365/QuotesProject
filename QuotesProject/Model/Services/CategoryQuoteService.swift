@@ -12,6 +12,7 @@ class CategoryQuoteService {
     //MARK: - Properties
     var task: URLSessionDataTask?
     private var categoryQuoteSession: URLSession
+
     
     //MARK: - Initializers
     init(categoryQuoteSession: URLSession = URLSession(configuration: .default)) {
@@ -54,4 +55,5 @@ class CategoryQuoteService {
         }
         task?.resume()
     }
+
 }

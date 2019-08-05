@@ -11,5 +11,6 @@ import UIKit
 class CategoriesCollectionViewCell: UICollectionViewCell {
     //MARK: - Outlets
     @IBOutlet weak var categoryLabel: UILabel!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
 }

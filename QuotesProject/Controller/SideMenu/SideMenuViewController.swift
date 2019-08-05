@@ -13,11 +13,14 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuTableView: UITableView!
     
     //MARK: - Properties
-    let cellsTitles = ["Reminders", "Categories", "Images", "Favorites Images", "Favorites Quotes", "My Own Quotes"]
-    let cellsImages = [UIImage(named: "reminders"), UIImage(named: "categories"), UIImage(named: "image"), UIImage(named: "favoritesImages"), UIImage(named: "favorites"), UIImage(named: "write")]
-    let seguesIdentifiers = ["Reminders", "Categories", "Images", "FavoritesImages", "Favorites", "MyOwnQuotes"]
+    let cellsTitles = ["Random Quotes", "Categories", "Images", "Favorites Images", "Favorites Quotes", "My Own Quotes"]
+    let cellsImages = [UIImage(named: "randomQuotes"), UIImage(named: "categories"), UIImage(named: "image"), UIImage(named: "favoritesImages"), UIImage(named: "favorites"), UIImage(named: "write")]
+    let seguesIdentifiers = ["RandomQuotes", "Categories", "Images", "FavoritesImages", "Favorites", "MyOwnQuotes"]
     let imageQuoteService = ImageQuoteService()
     var imageQuote: ContentsImage?
+    
+    let randomQuotesService = RandomQuotesService()
+    var randomQuotes: [RandomQuotes] = []
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -36,6 +39,19 @@ class SideMenuViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func fetchRandomQuotesData() {
+        randomQuotesService.getRandomQuotes { (success, randomQuotes) in
+            if success {
+                self.randomQuotes = randomQuotes
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: self.seguesIdentifiers[0], sender: nil)
+                }
+            } else {
+                self.showAlert(title: "Sorry!", message: "Random Quotes not available!")
+            }
+        }
+    }
+    
     private func fetchImageQuoteData() {
         imageQuoteService.getImageQuote { (success, contentsImage) in
             if success {
@@ -51,10 +67,20 @@ class SideMenuViewController: UIViewController {
     
     //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == seguesIdentifiers[2],
-            let displayImageQuoteVC = segue.destination as? DisplayImageQuoteViewController {
-            displayImageQuoteVC.imageQuote = imageQuote
+        switch segue.identifier {
+        case seguesIdentifiers[0]:
+            let randomQuotesVC = segue.destination as? RandomQuotesViewController
+            randomQuotesVC?.randomQuotes = randomQuotes
+        case seguesIdentifiers[2]:
+            let displayImageQuoteVC = segue.destination as? DisplayImageQuoteViewController
+            displayImageQuoteVC?.imageQuote = imageQuote
+        default:
+            break
         }
+//        if segue.identifier == seguesIdentifiers[2],
+//            let displayImageQuoteVC = segue.destination as? DisplayImageQuoteViewController {
+//            displayImageQuoteVC.imageQuote = imageQuote
+//        }
     }
 }
 
@@ -82,11 +108,22 @@ extension SideMenuViewController: UITableViewDataSource {
 
 extension SideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
-            fetchImageQuoteData()
-        } else {
-            performSegue(withIdentifier: seguesIdentifiers[indexPath.row], sender: self)
+        switch indexPath.row {
+            case 0:
+                fetchRandomQuotesData()
+            case 2:
+                fetchImageQuoteData()
+            default:
+                performSegue(withIdentifier: seguesIdentifiers[indexPath.row], sender: self)
         }
+        
+        
+        
+        //        if indexPath.row == 2 {
+        //            fetchImageQuoteData()
+        //        } else {
+        //            performSegue(withIdentifier: seguesIdentifiers[indexPath.row], sender: self)
+        //        }
     }
 }
 

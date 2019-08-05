@@ -13,9 +13,9 @@ class FooterCollectionReusableView: UICollectionReusableView {
     let label: UILabel = {
         let label = UILabel()
         label.text = "Hit the 'Like' Button to add images into the list!"
-        label.numberOfLines = 4
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        label.textColor = .lightGray
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.textColor = .gray
         label.textAlignment = .center
         return label
     }()
