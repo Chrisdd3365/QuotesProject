@@ -1,14 +1,15 @@
 //
-//  RandomQuotesCollectionViewCell.swift
+//  SlideView.swift
 //  QuotesProject
 //
-//  Created by Christophe DURAND on 05/08/2019.
+//  Created by Christophe DURAND on 06/08/2019.
 //  Copyright © 2019 Christophe DURAND. All rights reserved.
 //
 
 import UIKit
 
-class RandomQuotesCollectionViewCell: UICollectionViewCell {
+class SlideView: UIView {
     //MARK: - Outlets
     @IBOutlet weak var randomQuotesView: RandomQuotesView!
+    
 }

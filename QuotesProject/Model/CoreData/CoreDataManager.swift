@@ -70,6 +70,14 @@ class CoreDataManager {
         saveContext()
     }
     
+    static func saveRandomQuoteToFavoritesQuotes(contentRandomQuote: RandomQuotes) {
+        let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
+        favoriteQuote.quote = contentRandomQuote.content
+        favoriteQuote.author = contentRandomQuote.title
+        favoriteQuote.id = "\(contentRandomQuote.id)"
+        
+        saveContext()
+    }
     
     static func deleteFavoriteQuoteFromList(id: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<FavoriteQuote> = FavoriteQuote.fetchRequest()

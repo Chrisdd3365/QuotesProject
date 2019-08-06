@@ -15,7 +15,6 @@ class DisplayCategoryQuoteViewController: UIViewController {
     @IBOutlet weak var newQuoteButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     //MARK: - Properties
     let categoryQuoteService = CategoryQuoteService()
     var categoryQuote: Contents?

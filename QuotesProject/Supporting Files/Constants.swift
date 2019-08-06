@@ -32,7 +32,7 @@ struct Constants {
     struct QuotesOnDesignAPI {
         static let baseURL = "https://quotesondesign.com/wp-json/posts?"
         static let filterOrderURL = "filter[orderby]=rand"
-        static let filterPostsURL = "&filter[posts_per_page]=10"
+        static let filterPostsURL = "&filter[posts_per_page]=5"
     }
     
     struct SeguesIdentifiers {

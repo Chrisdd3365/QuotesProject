@@ -30,7 +30,6 @@ class RandomQuotesService {
     //API method
     func getRandomQuotes(callback: @escaping (Bool, [RandomQuotes]) -> Void) {
         guard let url = URL(string: randomQuotesURL()) else { return }
-        print(url)
         task?.cancel()
         task = randomQuotesSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
