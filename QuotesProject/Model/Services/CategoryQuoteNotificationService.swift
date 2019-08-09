@@ -26,7 +26,7 @@ class CategoryQuoteNotificationService {
     func categoryQuoteURL(category: String) -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let searchURL = Constants.TheySaidSoAPI.CategoryQuoteURL.searchURL
-        let categoryURL = Constants.TheySaidSoAPI.CategoryQuoteURL.categoryURL + category
+        let categoryURL = Constants.TheySaidSoAPI.BaseURL.categoryURL + category
         let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
         let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
         

@@ -25,7 +25,7 @@ class QuoteOfTheDayViewController: UIViewController {
         buttonsSetImage()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         favoritesQuotes = FavoriteQuote.all
@@ -50,6 +50,7 @@ class QuoteOfTheDayViewController: UIViewController {
         quoteOfTheDayService.getQuoteOfTheDay { (success, contentsResponse) in
             if success {
                 self.quoteOfTheDayView.quoteOfTheDayViewConfigure = contentsResponse
+                self.buttonsSetImage()
             } else {
                 self.showAlert(title: "Sorry!", message: "Quote of the day not available!")
             }

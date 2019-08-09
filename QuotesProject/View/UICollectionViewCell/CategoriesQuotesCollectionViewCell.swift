@@ -1,5 +1,5 @@
 //
-//  CategoriesCollectionViewCell.swift
+//  CategoriesQuotesCollectionViewCell.swift
 //  QuotesProject
 //
 //  Created by Christophe DURAND on 24/07/2019.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-class CategoriesCollectionViewCell: UICollectionViewCell {
+class CategoriesQuotesCollectionViewCell: UICollectionViewCell {
     //MARK: - Outlets
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
 }

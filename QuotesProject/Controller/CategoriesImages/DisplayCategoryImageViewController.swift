@@ -1,29 +1,30 @@
 //
-//  DisplayImageQuoteViewController.swift
+//  DisplayCategoryImageViewController.swift
 //  QuotesProject
 //
-//  Created by Christophe DURAND on 24/07/2019.
+//  Created by Christophe DURAND on 09/08/2019.
 //  Copyright © 2019 Christophe DURAND. All rights reserved.
 //
 
 import UIKit
 
-class DisplayImageQuoteViewController: UIViewController {
-    //MARK: - Outlet
-    @IBOutlet weak var imageQuoteView: ImageQuoteView!
+class DisplayCategoryImageViewController: UIViewController {
+    //MARK: - Outlets
+    @IBOutlet weak var displayCategoryImageView: DisplayCategoryImageView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var newImageButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: - Properties
-    var imageQuoteService = ImageQuoteService()
-    var imageQuote: ContentsImage?
+    let imageQuoteService = ImageQuoteService()
+    var categoryImage: ContentsImage?
     var favoritesImages = FavoriteImage.all
+    var categoryLabel: String?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageQuoteViewSetup()
+        displayCategoryImageViewSetup()
         buttonsSetImage()
     }
     
@@ -34,39 +35,40 @@ class DisplayImageQuoteViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func tappedNewImageButton(_ sender: UIButton) {
-        fetchImageQuoteData()
-        favoriteButton.setImage(UIImage(named: "unlike"), for: .normal)
+    @IBAction func shareImage(_ sender: UIButton) {
+        didTapShareButton(view: displayCategoryImageView)
     }
     
-    @IBAction func tappedShareButton(_ sender: UIButton) {
-        didTapShareButton(view: imageQuoteView)
+    @IBAction func didTapNewImageButon(_ sender: UIButton) {
+        fetchCategoryImageData(category: categoryLabel ?? "")
     }
     
-    @IBAction func tappedFavoriteButton(_ sender: UIButton) {
+    @IBAction func didTapFavoriteButton(_ sender: UIButton) {
         addToFavoritesListSetup()
     }
     
     //MARK: - Methods
-    private func fetchImageQuoteData() {
+    private func fetchCategoryImageData(category: String) {
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newImageButton)
-        imageQuoteService.getImageQuote { (success, contentsImage) in
+        
+        imageQuoteService.getCategoryImageQuote(category: category) { (success, contentsImage) in
             self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newImageButton)
             if success {
-                self.imageQuote = contentsImage
-                self.imageQuoteViewSetup()
+                self.categoryImage = contentsImage
+                self.displayCategoryImageViewSetup()
+                self.buttonsSetImage()
             } else {
-                self.showAlert(title: "Sorry!", message: "Image not available!")
+                self.showAlert(title: "Sorry!", message: "No image for such category exists!")
             }
         }
     }
     
-    private func imageQuoteViewSetup() {
-        imageQuoteView.imageQuoteViewConfigure = self.imageQuote
+    private func displayCategoryImageViewSetup() {
+        displayCategoryImageView.categoryImageViewConfigure = self.categoryImage
     }
     
     private func addToFavoritesListSetup() {
-        guard let contentsImage = imageQuoteView.imageQuoteViewConfigure else { return }
+        guard let contentsImage = displayCategoryImageView.categoryImageViewConfigure else { return }
         if checkFavoriteImage(favoritesImages: favoritesImages, id: contentsImage.contents.qimage.id) == false {
             favoriteButton.setImage(UIImage(named: "like"), for: .normal)
             CoreDataManager.saveFavoriteImage(contentsImage: contentsImage)
@@ -78,8 +80,7 @@ class DisplayImageQuoteViewController: UIViewController {
     }
     
     private func buttonsSetImage() {
-        guard let contentsImage = imageQuoteView.imageQuoteViewConfigure else { return }
+        guard let contentsImage = displayCategoryImageView.categoryImageViewConfigure else { return }
         favoriteButton.setImage(updateButtonImage(check: checkFavoriteImage(favoritesImages: favoritesImages, id: contentsImage.contents.qimage.id), checkedImage: "like", uncheckedImage: "unlike"), for: .normal)
     }
 }
-

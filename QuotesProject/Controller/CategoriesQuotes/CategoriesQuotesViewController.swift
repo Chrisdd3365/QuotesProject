@@ -1,5 +1,5 @@
 //
-//  CategoriesViewController.swift
+//  CategoriesQuotesViewController.swift
 //  QuotesProject
 //
 //  Created by Christophe DURAND on 24/07/2019.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController {
+class CategoriesQuotesViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet weak var categoriesCollectionView: UICollectionView!
+    @IBOutlet weak var categoriesQuotesCollectionView: UICollectionView!
     
     //MARK: - Properties
     let categoryQuoteService = CategoryQuoteService()
@@ -46,13 +46,13 @@ class CategoriesViewController: UIViewController {
     }
 }
 
-extension CategoriesViewController: UICollectionViewDataSource {
+extension CategoriesQuotesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = categoriesCollectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifierCell, for: indexPath) as? CategoriesCollectionViewCell else {
+        guard let cell = categoriesQuotesCollectionView.dequeueReusableCell(withReuseIdentifier: CategoriesQuotesCollectionViewCell.identifierCell, for: indexPath) as? CategoriesQuotesCollectionViewCell else {
             return UICollectionViewCell()
         }
     
@@ -66,16 +66,16 @@ extension CategoriesViewController: UICollectionViewDataSource {
     }
 }
 
-extension CategoriesViewController: UICollectionViewDelegate {
+extension CategoriesQuotesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         fetchCategoryQuoteData(category: categories[indexPath.row])
     }
 }
 
-extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+extension CategoriesQuotesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  50
-        let collectionViewSize = categoriesCollectionView.frame.size.width - padding
+        let collectionViewSize = categoriesQuotesCollectionView.frame.size.width - padding
         
         return CGSize(width: collectionViewSize/2, height: collectionViewSize/4)
     }

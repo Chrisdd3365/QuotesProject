@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             completionHandler(.newData)
             print(responseJSON)
-            self.schedulerLocalNotification(authorTitle: responseJSON.contents.author ?? "", quoteBody: responseJSON.contents.quote, startTimer: 0, endTimer: 3600, interval: 20)
+            self.schedulerLocalNotification(authorTitle: responseJSON.contents.author ?? "", quoteBody: responseJSON.contents.quote, startTimer: 0, endTimer: 3600, interval: 600)
         }).resume()
     }
 

@@ -68,6 +68,7 @@ class DisplayCategoryQuoteViewController: UIViewController {
             if success {
                 self.categoryQuote = contents
                 self.categoryQuoteViewSetup()
+                self.buttonsSetImage()
             } else {
                 self.showAlert(title: "Sorry!", message: "No quote for such category exists!")
             }

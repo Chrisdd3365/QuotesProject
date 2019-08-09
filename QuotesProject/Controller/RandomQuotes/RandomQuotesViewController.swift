@@ -37,12 +37,6 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
         
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        buttonsSetImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,6 +135,8 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         if randomQuotesScrollView.contentOffset.y > 0 || randomQuotesScrollView.contentOffset.y < 0 {
             randomQuotesScrollView.contentOffset.y = 0
         }
+        
+        buttonsSetImage()
     }
     
     

@@ -29,9 +29,44 @@ class ImageQuoteService {
         return baseURL + imageURL + apiKeyURL + apiKey
     }
     
+    func CategoryimageQuoteURL(category: String) -> String {
+        let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
+        let imageURL = Constants.TheySaidSoAPI.ImageQuoteURL.imageURL
+        let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
+        let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
+        let categoryURL = Constants.TheySaidSoAPI.BaseURL.categoryURL
+        
+        return baseURL + imageURL + apiKeyURL + apiKey + categoryURL + category
+    }
+    
     //API method
     func getImageQuote(callback: @escaping (Bool, ContentsImage?) -> Void) {
         guard let url = URL(string: imageQuoteURL()) else { return }
+        print(url)
+        task?.cancel()
+        task = categoryQuoteSession.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(false, nil)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(false, nil)
+                    return
+                }
+                guard let responseJSON = try? JSONDecoder().decode(ContentsImage.self, from: data) else {
+                    callback(false, nil)
+                    return
+                }
+                callback(true, responseJSON)
+                print(responseJSON)
+            }
+        }
+        task?.resume()
+    }
+    
+    func getCategoryImageQuote(category: String, callback: @escaping (Bool, ContentsImage?) -> Void) {
+        guard let url = URL(string: CategoryimageQuoteURL(category: category)) else { return }
         print(url)
         task?.cancel()
         task = categoryQuoteSession.dataTask(with: url) { data, response, error in

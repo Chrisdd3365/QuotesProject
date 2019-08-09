@@ -13,7 +13,6 @@ class CategoryQuoteService {
     var task: URLSessionDataTask?
     private var categoryQuoteSession: URLSession
 
-    
     //MARK: - Initializers
     init(categoryQuoteSession: URLSession = URLSession(configuration: .default)) {
         self.categoryQuoteSession = categoryQuoteSession
@@ -24,16 +23,17 @@ class CategoryQuoteService {
     func categoryQuoteURL(category: String) -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let searchURL = Constants.TheySaidSoAPI.CategoryQuoteURL.searchURL
-        let categoryURL = Constants.TheySaidSoAPI.CategoryQuoteURL.categoryURL + category
         let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
         let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
+        let categoryURL = Constants.TheySaidSoAPI.BaseURL.categoryURL + category
         
-        return baseURL + searchURL + categoryURL + apiKeyURL + apiKey
+        return baseURL + searchURL + apiKeyURL + apiKey + categoryURL 
     }
     
     //API method
     func getCategoryQuote(category: String, callback: @escaping (Bool, Contents?) -> Void) {
         guard let url = URL(string: categoryQuoteURL(category: category)) else { return }
+        print(url)
         task?.cancel()
         task = categoryQuoteSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {

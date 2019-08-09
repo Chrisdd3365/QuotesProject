@@ -14,10 +14,10 @@ struct Constants {
             static let baseURL = "http://quotes.rest/"
             static let apiKeyURL = "&api_key="
             static let apiKey = "CxkSS12F9mpQP234kwCv7AeF"
+            static let categoryURL = "&category="
         }
         struct CategoryQuoteURL {
             static let searchURL = "quote/search.json?"
-            static let categoryURL = "category="
         }
         
         struct QuoteOfTheDayURL {
@@ -38,6 +38,7 @@ struct Constants {
     struct SeguesIdentifiers {
         static let timeIntervalSegue = "TimeIntervalSegue"
         static let displayCategoryQuoteSegue = "DisplayCategoryQuoteSegue"
+        static let displayCategoryImageSegue = "DisplayCategoryImageSegue"
         static let reminderSegue = "ReminderSegue"
         static let displayFavoriteImageSegue = "DisplayFavoriteImageSegue"
         static let displayFavoriteQuoteSegue = "DisplayFavoriteQuoteSegue"
