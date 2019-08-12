@@ -20,7 +20,7 @@ struct CategoryQuote: Decodable {
     let quote: String
     let author: String?
     let id: String
-    let requestedCategory: String
+    let requestedCategory: String?
     
     enum CodingKeys: String, CodingKey {
         case quote = "quote"

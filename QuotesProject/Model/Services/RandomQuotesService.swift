@@ -27,7 +27,40 @@ class RandomQuotesService {
         return baseURL + filterOrderURL + filterPostsURL 
     }
     
-    //API method
+    func randomQuoteURL() -> String {
+        let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
+        let randomQuoteURL = Constants.TheySaidSoAPI.RandomQuoteURL.randomQuoteURL
+        let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
+        let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
+        
+        return baseURL + randomQuoteURL + apiKeyURL + apiKey
+    }
+    
+    //API methods
+    func getRandomQuote(callback: @escaping (Bool, Contents?) -> Void) {
+        guard let url = URL(string: randomQuoteURL()) else { return }
+        task?.cancel()
+        task = randomQuotesSession.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(false, nil)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(false, nil)
+                    return
+                }
+                guard let responseJSON = try? JSONDecoder().decode(Contents.self, from: data) else {
+                    callback(false, nil)
+                    return
+                }
+                callback(true, responseJSON)
+                print(responseJSON)
+            }
+        }
+        task?.resume()
+    }
+    
     func getRandomQuotes(callback: @escaping (Bool, [RandomQuotes]) -> Void) {
         guard let url = URL(string: randomQuotesURL()) else { return }
         task?.cancel()

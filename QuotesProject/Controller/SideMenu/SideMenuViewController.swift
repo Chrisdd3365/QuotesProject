@@ -13,11 +13,11 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuTableView: UITableView!
     
     //MARK: - Properties
-    let cellsTitles = ["Random Quotes", "Categories of Quotes", "Favorites Quotes", "My Own Quotes", "Random Images", "Categories of Images", "Favorites Images"]
+    let cellsTitles = ["Random Quotes", "Categories of Quotes", "Favorites Quotes", "My Own Quotes", "Random Images", "Categories of Images", "Favorites Images", "Reminders"]
     
-    let cellsImages = [UIImage(named: "randomQuotes"), UIImage(named: "categories"), UIImage(named: "favoritesQuotes"), UIImage(named: "write"), UIImage(named: "image"), UIImage(named: "categoriesImages"), UIImage(named: "favoritesImages")]
+    let cellsImages = [UIImage(named: "randomQuotes"), UIImage(named: "categories"), UIImage(named: "favoritesQuotes"), UIImage(named: "write"), UIImage(named: "image"), UIImage(named: "categoriesImages"), UIImage(named: "favoritesImages"), UIImage(named: "reminders")]
     
-    let seguesIdentifiers = ["RandomQuotes", "CategoriesQuotes", "FavoritesQuotes", "MyOwnQuotes", "RandomImages", "CategoriesImages", "FavoritesImages"]
+    let seguesIdentifiers = ["RandomQuotes", "CategoriesQuotes", "FavoritesQuotes", "MyOwnQuotes", "RandomImages", "CategoriesImages", "FavoritesImages", "Reminders"]
     
     let randomQuotesService = RandomQuotesService()
     var randomQuotes: [RandomQuotes] = []

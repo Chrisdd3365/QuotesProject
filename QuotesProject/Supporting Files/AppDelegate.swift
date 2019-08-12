@@ -15,22 +15,26 @@ import DLLocalNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-  
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UIApplication.shared.setMinimumBackgroundFetchInterval(60)
-        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         UIApplication.shared.registerForRemoteNotifications()
         //UserNotificationCenter
         let center = UNUserNotificationCenter.current()
         center.delegate = self
-        // Override point for customization after application launch.
+        //Override point for customization after application launch.
         registerForPushNotifications()
         return true
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let url = URL(string: "http://quotes.rest/quote/search.json?category=love&api_key=CxkSS12F9mpQP234kwCv7AeF") else { return }
-
+        fetchQuoteData(completionHandler: completionHandler)
+    }
+    
+    @objc func fetchQuoteData(completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        guard let url = URL(string: "http://quotes.rest/quote/random.json?api_key=CxkSS12F9mpQP234kwCv7AeF") else { return }
+        print(url)
+        
         URLSession.shared.dataTask(with: url, completionHandler:  { data, response, error in
             guard let data = data, error == nil else {
                 completionHandler(.failed)
@@ -46,16 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             completionHandler(.newData)
             print(responseJSON)
-            self.schedulerLocalNotification(authorTitle: responseJSON.contents.author ?? "", quoteBody: responseJSON.contents.quote, startTimer: 0, endTimer: 3600, interval: 600)
+            NotificationsManager.schedulerLocalNotification(authorTitle: responseJSON.contents.author ?? "", quoteBody: responseJSON.contents.quote, startTimer: 0, endTimer: 3600, interval: 3600)
         }).resume()
-    }
-
-    private func schedulerLocalNotification(authorTitle: String, quoteBody: String, startTimer: Double, endTimer: Double, interval: Double) {
-        let scheduler = DLNotificationScheduler()
-        // This notification repeats every 15 seconds from a time period starting from 15 seconds from the current time till 5 minutes from the current time
-        scheduler.repeatsFromToDate(identifier: "Reminder Notification", alertTitle: authorTitle, alertBody: quoteBody, fromDate: Date().addingTimeInterval(TimeInterval(startTimer)), toDate: Date().addingTimeInterval(TimeInterval(endTimer)), interval: interval, repeats: .none)
-        
-        scheduler.scheduleAllNotifications()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

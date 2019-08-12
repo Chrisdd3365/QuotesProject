@@ -16,6 +16,11 @@ struct Constants {
             static let apiKey = "CxkSS12F9mpQP234kwCv7AeF"
             static let categoryURL = "&category="
         }
+        
+        struct RandomQuoteURL {
+            static let randomQuoteURL = "quote/random.json?"
+        }
+        
         struct CategoryQuoteURL {
             static let searchURL = "quote/search.json?"
         }

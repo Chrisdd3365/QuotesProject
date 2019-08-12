@@ -4,23 +4,27 @@ PODS:
   - SDWebImage (4.4.7):
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
+  - UnsplashPhotoPicker (1.0.1)
 
 DEPENDENCIES:
   - DLLocalNotifications
   - HTMLString (~> 5.0)
   - SDWebImage (~> 4.0)
+  - UnsplashPhotoPicker (~> 1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DLLocalNotifications
     - HTMLString
     - SDWebImage
+    - UnsplashPhotoPicker
 
 SPEC CHECKSUMS:
   DLLocalNotifications: 5d358a73284efab757b4a4c07f3e5987b8afcef5
   HTMLString: 20374dc0195423d02569e87561f01153fca0c364
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
+  UnsplashPhotoPicker: 3669aef6d3cd8bc45f19d681eef0af5920325c79
 
-PODFILE CHECKSUM: 4178a79b95fa86cc58ba70b6fd47ccc1408a010c
+PODFILE CHECKSUM: 93cdbb00f0d454617be249e6f8e8fe48fc0b7829
 
 COCOAPODS: 1.7.5
