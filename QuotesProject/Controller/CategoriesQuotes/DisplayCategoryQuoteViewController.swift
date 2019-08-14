@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class DisplayCategoryQuoteViewController: UIViewController {
     //MARK: - Outlets
@@ -14,7 +15,7 @@ class DisplayCategoryQuoteViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var newQuoteButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     //MARK: - Properties
     let categoryQuoteService = CategoryQuoteService()
     var categoryQuote: Contents?
@@ -27,6 +28,7 @@ class DisplayCategoryQuoteViewController: UIViewController {
         categoryQuoteViewSetup()
         buttonsSetImage()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,9 +56,11 @@ class DisplayCategoryQuoteViewController: UIViewController {
     
     //MARK: - Methods
     private func fetchCategoryQuoteData(category: String) {
-        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newQuoteButton)
+        activityIndicatorView.startAnimating()
+       //toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newQuoteButton)
         categoryQuoteService.getCategoryQuote(category: category) { (success, contents) in
-            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newQuoteButton)
+            self.activityIndicatorView.stopAnimating()
+            //self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newQuoteButton)
             if success {
                 self.categoryQuote = contents
                 self.categoryQuoteViewSetup()

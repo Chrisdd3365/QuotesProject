@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class CategoriesQuotesViewController: UIViewController {
     //MARK: - Outlets
@@ -17,15 +18,19 @@ class CategoriesQuotesViewController: UIViewController {
     var categoryQuote: Contents?
     var categories = ["Family", "Friendship", "Wisdom", "Workout", "Work", "Love", "Success", "Will", "Motivation", "Relationship", "Trust", "Optimism"]
     
+
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
     }
 
     //MARK: - Methods
     private func fetchCategoryQuoteData(category: String) {
+        KRProgressHUD.show()
+        KRProgressHUD.show(withMessage: "Loading...")
         categoryQuoteService.getCategoryQuote(category: category) { (success, contents) in
+            KRProgressHUD.dismiss()
             if success {
                 self.categoryQuote = contents
                 DispatchQueue.main.async {

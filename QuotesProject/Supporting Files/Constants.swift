@@ -13,7 +13,7 @@ struct Constants {
         struct BaseURL {
             static let baseURL = "http://quotes.rest/"
             static let apiKeyURL = "&api_key="
-            static let apiKey = "CxkSS12F9mpQP234kwCv7AeF"
+            static let apiKey = "xer_FmS5cB3jV6YL832tFQeF"
             static let categoryURL = "&category="
         }
         

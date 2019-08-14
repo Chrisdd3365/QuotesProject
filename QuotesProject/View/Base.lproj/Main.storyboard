@@ -114,6 +114,16 @@
                                 </constraints>
                                 <color key="color" red="0.70560358499999998" green="0.1901195889" blue="0.17422154149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSU-YX-h0O" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="114" y="438" width="93" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.70560358499999998" green="0.1901195889" blue="0.17422154149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="pacman"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.94686630226704915" blue="0.96189620778359763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -126,15 +136,20 @@
                             <constraint firstItem="MZZ-2y-ZAv" firstAttribute="bottom" secondItem="P7v-aT-uER" secondAttribute="bottom" constant="11" id="FKs-RT-ApM"/>
                             <constraint firstItem="MZZ-2y-ZAv" firstAttribute="bottom" secondItem="pBX-YE-zY3" secondAttribute="bottom" constant="15" id="GDf-Xb-cgC"/>
                             <constraint firstItem="ako-Wy-W8e" firstAttribute="centerX" secondItem="hc0-2y-frb" secondAttribute="centerX" id="Hfu-nr-Ogg"/>
+                            <constraint firstItem="P7v-aT-uER" firstAttribute="top" secondItem="qSU-YX-h0O" secondAttribute="bottom" constant="18" id="M6g-Ec-hH5"/>
                             <constraint firstItem="V1r-eE-at0" firstAttribute="leading" secondItem="MZZ-2y-ZAv" secondAttribute="leading" constant="16" id="d0z-UH-EkI"/>
                             <constraint firstItem="P7v-aT-uER" firstAttribute="centerX" secondItem="hc0-2y-frb" secondAttribute="centerX" id="e2x-3C-XwT"/>
+                            <constraint firstItem="MZZ-2y-ZAv" firstAttribute="trailing" secondItem="qSU-YX-h0O" secondAttribute="trailing" constant="113" id="liS-5x-Ipx"/>
                             <constraint firstItem="MZZ-2y-ZAv" firstAttribute="trailing" secondItem="Ohz-D6-2fX" secondAttribute="trailing" constant="15" id="oPp-2P-lGX"/>
                             <constraint firstItem="V1r-eE-at0" firstAttribute="top" secondItem="6Nu-oM-vLI" secondAttribute="bottom" constant="20" id="rC3-cy-P2R"/>
+                            <constraint firstItem="qSU-YX-h0O" firstAttribute="top" secondItem="V1r-eE-at0" secondAttribute="bottom" constant="21" id="wbd-bf-Nmb"/>
+                            <constraint firstItem="qSU-YX-h0O" firstAttribute="leading" secondItem="MZZ-2y-ZAv" secondAttribute="leading" constant="114" id="xKN-IP-uyy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MZZ-2y-ZAv"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="P7v-aT-uER" id="OZf-P9-eYX"/>
+                        <outlet property="activityIndicatorView" destination="qSU-YX-h0O" id="Dto-Ma-ULK"/>
                         <outlet property="categoryQuoteView" destination="V1r-eE-at0" id="xrB-rA-vcH"/>
                         <outlet property="favoriteButton" destination="Ohz-D6-2fX" id="81K-58-g0h"/>
                         <outlet property="newQuoteButton" destination="ako-Wy-W8e" id="vVa-9S-1Kn"/>
@@ -142,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOm-tA-Ev4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668" y="1789"/>
+            <point key="canvasLocation" x="-669.375" y="1788.3802816901409"/>
         </scene>
         <!--Random Quotes View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -234,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1556" y="958"/>
+            <point key="canvasLocation" x="-1513" y="956"/>
         </scene>
         <!--Quote Of The Day View Controller-->
         <scene sceneID="Zck-IM-r4f">
@@ -251,7 +266,7 @@
                                 </constraints>
                                 <state key="normal" image="menu"/>
                                 <connections>
-                                    <segue destination="NA9-Mr-gX8" kind="showDetail" id="ekZ-5x-NnX"/>
+                                    <segue destination="NA9-Mr-gX8" kind="show" id="ekZ-5x-NnX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0p-FV-7Xa">
@@ -328,10 +343,15 @@
                                     <outlet property="quoteLabel" destination="4g1-Gk-onf" id="Wq0-pn-CJl"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8a-2D-zJf" customClass="FanMenu" customModule="FanMenu">
+                                <rect key="frame" x="40" y="385" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.95853930096216999" blue="0.92436486837846021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8Jp-3H-hm1" firstAttribute="trailing" secondItem="hRK-qj-cPc" secondAttribute="trailing" constant="16" id="046-Kr-htV"/>
+                            <constraint firstItem="8Jp-3H-hm1" firstAttribute="trailing" secondItem="i8a-2D-zJf" secondAttribute="trailing" constant="40" id="1Lz-7N-grM"/>
                             <constraint firstItem="ZAt-nE-UMp" firstAttribute="leading" secondItem="8Jp-3H-hm1" secondAttribute="leading" constant="15" id="52b-Ua-5KU"/>
                             <constraint firstItem="ZAt-nE-UMp" firstAttribute="top" secondItem="8Jp-3H-hm1" secondAttribute="top" constant="15" id="5iC-43-dAM"/>
                             <constraint firstItem="8Jp-3H-hm1" firstAttribute="bottom" secondItem="j0p-FV-7Xa" secondAttribute="bottom" constant="15" id="Ehl-JB-qen"/>
@@ -340,14 +360,19 @@
                             <constraint firstItem="j0p-FV-7Xa" firstAttribute="leading" secondItem="8Jp-3H-hm1" secondAttribute="leading" constant="15" id="a3k-h7-iJW"/>
                             <constraint firstItem="8Jp-3H-hm1" firstAttribute="bottom" secondItem="jw6-R5-xtM" secondAttribute="bottom" constant="15" id="aj4-wS-TfU"/>
                             <constraint firstItem="8Jp-3H-hm1" firstAttribute="trailing" secondItem="ZoD-D1-FIr" secondAttribute="trailing" constant="15" id="dbY-RU-hN6"/>
+                            <constraint firstItem="i8a-2D-zJf" firstAttribute="top" secondItem="hRK-qj-cPc" secondAttribute="bottom" constant="12" id="pFW-Wv-WoV"/>
                             <constraint firstItem="ZoD-D1-FIr" firstAttribute="top" secondItem="8Jp-3H-hm1" secondAttribute="top" constant="15" id="tls-bk-mvT"/>
                             <constraint firstItem="8Jp-3H-hm1" firstAttribute="trailing" secondItem="jw6-R5-xtM" secondAttribute="trailing" constant="15" id="uBK-bm-v5J"/>
+                            <constraint firstItem="i8a-2D-zJf" firstAttribute="leading" secondItem="8Jp-3H-hm1" secondAttribute="leading" constant="40" id="x3z-Yl-sF4"/>
+                            <constraint firstItem="j0p-FV-7Xa" firstAttribute="top" secondItem="i8a-2D-zJf" secondAttribute="bottom" constant="8" id="zdn-C4-51N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Jp-3H-hm1"/>
                     </view>
                     <connections>
+                        <outlet property="fanMenuView" destination="i8a-2D-zJf" id="frQ-fi-Fyj"/>
                         <outlet property="favoriteButton" destination="jw6-R5-xtM" id="Ebb-gX-LMi"/>
                         <outlet property="quoteOfTheDayView" destination="hRK-qj-cPc" id="fuN-90-X7O"/>
+                        <outlet property="sideMenuButton" destination="ZAt-nE-UMp" id="u4v-Ha-shG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raa-Q5-eK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,6 +426,7 @@
                                                 <constraint firstItem="1cg-kv-Xk9" firstAttribute="centerY" secondItem="3i4-wE-A3A" secondAttribute="centerY" id="5nx-jv-noJ"/>
                                                 <constraint firstItem="wMD-dL-9ev" firstAttribute="leading" secondItem="1cg-kv-Xk9" secondAttribute="trailing" constant="15" id="AJV-Xx-WUg"/>
                                                 <constraint firstAttribute="trailing" secondItem="EIK-7W-fhw" secondAttribute="trailing" constant="15" id="Bn9-ps-i28"/>
+                                                <constraint firstItem="EIK-7W-fhw" firstAttribute="leading" secondItem="wMD-dL-9ev" secondAttribute="trailing" constant="50" id="GQd-eH-JA7"/>
                                                 <constraint firstItem="wMD-dL-9ev" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="10" id="ItR-hM-qPt"/>
                                                 <constraint firstAttribute="bottom" secondItem="1cg-kv-Xk9" secondAttribute="bottom" constant="25" id="N3f-f6-dMl"/>
                                                 <constraint firstItem="1cg-kv-Xk9" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="25" id="Ptu-eG-y9V"/>
@@ -467,9 +493,9 @@
                         <segue destination="Yym-c2-Ach" kind="show" identifier="CategoriesQuotes" id="gTQ-pw-Ngj"/>
                         <segue destination="BKg-ag-8DE" kind="show" identifier="RandomImages" id="IYf-3y-Del"/>
                         <segue destination="mUD-l3-rWG" kind="show" identifier="FavoritesImages" id="Tvf-1t-oO1"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="RandomQuotes" id="dcj-ke-fnp"/>
                         <segue destination="hFL-eX-5uK" kind="show" identifier="CategoriesImages" id="bL4-27-DJW"/>
                         <segue destination="fPC-yi-6ln" kind="show" identifier="Reminders" id="1Pm-NA-eWL"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="RandomQuotes" id="vQO-FP-ZE4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx8-PV-g10" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1144,7 +1170,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-p9-huK" customClass="FavoriteImageView" customModule="QuotesProject" customModuleProvider="target">
                                 <rect key="frame" x="16" y="164" width="288" height="288"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxY-Kd-0K0">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxY-Kd-0K0">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="288"/>
                                     </imageView>
                                 </subviews>

@@ -481,9 +481,8 @@
 		95FDE09722A7F04200849A91 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				956FC2E922E89C9100009FAA /* Reminders */,
-				956FC2EC22E89CC200009FAA /* SideMenu */,
 				956FC2EB22E89CB000009FAA /* QuoteOfTheDay */,
+				956FC2EC22E89CC200009FAA /* SideMenu */,
 				950389E722F85A5F001FF74F /* RandomQuotes */,
 				956FC2EA22E89CA200009FAA /* CategoriesQuotes */,
 				956FC2E722E89C5900009FAA /* FavoritesQuotes */,
@@ -491,6 +490,7 @@
 				956FC2FE22E8EC4300009FAA /* RandomImages */,
 				95B4ABD122FDB5D5007E49E0 /* CategoriesImages */,
 				95731C6022EF628D00116876 /* FavoritesImages */,
+				956FC2E922E89C9100009FAA /* Reminders */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

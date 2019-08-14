@@ -25,6 +25,7 @@ class SideMenuViewController: UIViewController {
     let imageQuoteService = ImageQuoteService()
     var imageQuote: ContentsImage?
     
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()

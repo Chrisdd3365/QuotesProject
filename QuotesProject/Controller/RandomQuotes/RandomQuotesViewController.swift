@@ -21,6 +21,7 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
     var slidesViews = [SlideView]()
     var imagePicker: ImagePicker?
     var favoritesQuotes = FavoriteQuote.all
+   
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         view.bringSubviewToFront(pageControl)
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+        
         
     }
     
