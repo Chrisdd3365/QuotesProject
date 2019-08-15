@@ -9,7 +9,7 @@
 import UIKit
 
 class DisplayMyOwnQuoteViewController: UIViewController {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var myOwnQuoteView: MyOwnQuoteView!
     
     //MARK: - Properties
@@ -20,7 +20,8 @@ class DisplayMyOwnQuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myOwnQuoteViewSetup()
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+        imagePickerDelegate()
+        navigationItem.title = "My Own Quote"
     }
     
     //MARK: - Actions
@@ -29,11 +30,14 @@ class DisplayMyOwnQuoteViewController: UIViewController {
     }
     
     @IBAction func shareMyOwnQuote(_ sender: UIButton) {
-        //didTapShareButtonMyOwnQuote(view: myOwnQuoteView)
         didTapShareButton(view: myOwnQuoteView)
     }
     
-    //MARK: - Method
+    //MARK: - Methods
+    private func imagePickerDelegate() {
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+    }
+    
     private func myOwnQuoteViewSetup () {
         myOwnQuoteView.myOwnQuoteViewConfigure = myOwnQuoteSelected
     }

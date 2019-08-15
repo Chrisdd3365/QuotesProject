@@ -9,17 +9,16 @@
 import UIKit
 
 class DisplayFavoriteImageViewController: UIViewController {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var favoriteImageQuoteView: FavoriteImageView!
     
-    //MARK: - Properties
+    //MARK: - Property
     var favoriteImageSelected: FavoriteImage?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteImageQuoteViewSetup()
-        
     }
     
     //MARK: - Actions

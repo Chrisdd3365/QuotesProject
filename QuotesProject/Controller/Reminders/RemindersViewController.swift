@@ -8,28 +8,36 @@
 
 import UIKit
 import UserNotifications
-import DLLocalNotifications
 
 class RemindersViewController: UIViewController {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var hourLabel: UILabel!
     
     //MARK: - Properties
     let randomQuotesService = RandomQuotesService()
-    var randomQuote: Contents?
+    var randomQuote: ContentsCategoryQuote?
     var hours = 0
     var minutes = 0
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "Reminders"
     }
     
     //MARK: - Actions
     @IBAction func hoursValueChanged(_ sender: UISlider) {
+        hoursSliderConfigure(sender)
+    }
+    
+    @IBAction func doneAction(_ sender: UIButton) {
+        fetchRandomQuoteData()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - Methods
+    private func hoursSliderConfigure(_ sender: UISlider) {
         let countmin = Int(Double(sender.value) * 14.4)
-        //var string = ""
         var hour = countmin / 60
         let mins = countmin - (hour * 60)
         
@@ -40,43 +48,42 @@ class RemindersViewController: UIViewController {
         hours = hour
         minutes = roundToFives(x: Double(mins))
         
-        // This fixes when you have hh:60. For instance, it fixes 7:60 to 8:00
         if minutes == 60 {
             hours = hour + 1
             minutes = 0
         }
         
-        self.hourLabel.text = "\(String(format: "%02d", hours)):\(String(format: "%02d", minutes)) "
+        self.hourLabel.text = "\(String(format: "%02d", hours)):\(String(format: "%02d", minutes))"
     }
     
-    @IBAction func doneAction(_ sender: UIButton) {
-        fetchRandomQuoteData()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //MARK: - Methods
+    //Helper's methods to convert Double into Int (Minutes)
     private func roundToFives(x : Double) -> Int {
         return 5 * Int(round(x / 5.0))
     }
-    
-    //Fetch random quote data
+}
+
+//MARK: - Fetch Data
+extension RemindersViewController {
     private func fetchRandomQuoteData() {
-        randomQuotesService.getRandomQuote { (success, contents) in
+        randomQuotesService.getRandomQuote { (success, contentsCategoryQuote) in
             if success {
-                self.randomQuote = contents
-                self.notificationsSetup(randomQuote: contents)
+                self.randomQuote = contentsCategoryQuote
+                self.notificationsSetup(quote: contentsCategoryQuote)
             } else {
                 self.showAlert(title: "Sorry!", message: "No quote for such category exists!")
             }
         }
     }
-    
-    private func notificationsSetup(randomQuote: Contents?) {
+}
+
+//MARK: - Local Notifications Setup
+extension RemindersViewController {
+    private func notificationsSetup(quote: ContentsCategoryQuote?) {
         let center = UNUserNotificationCenter.current()
         
         let content = UNMutableNotificationContent()
-        content.title = randomQuote?.contents.author ?? ""
-        content.body = randomQuote?.contents.quote ?? ""
+        content.title = quote?.contents.author ?? ""
+        content.body = quote?.contents.quote ?? ""
         content.sound = UNNotificationSound.default
         
         let gregorian = Calendar(identifier: .gregorian)

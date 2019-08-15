@@ -162,7 +162,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BubbleTransition/BubbleTransition.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/DLLocalNotifications/DLLocalNotifications.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FanMenu/FanMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HTMLString/HTMLString.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework"
@@ -174,7 +173,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BubbleTransition/BubbleTransition.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/DLLocalNotifications/DLLocalNotifications.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FanMenu/FanMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HTMLString/HTMLString.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework"

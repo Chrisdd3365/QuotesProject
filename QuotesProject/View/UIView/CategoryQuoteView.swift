@@ -15,7 +15,7 @@ class CategoryQuoteView: UIView {
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     //MARK: - Property
-    var categoryQuoteViewConfigure: Contents? {
+    var categoryQuoteViewConfigure: ContentsCategoryQuote? {
         didSet {
             quoteLabel.text = categoryQuoteViewConfigure?.contents.quote
             quoteLabel.setupShadowLabel(label: quoteLabel)

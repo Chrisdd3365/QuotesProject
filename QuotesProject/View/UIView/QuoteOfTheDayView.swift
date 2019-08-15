@@ -16,7 +16,7 @@ class QuoteOfTheDayView: UIView {
     @IBOutlet weak var authorLabel: UILabel!
 
     //MARK: - Property
-    var quoteOfTheDayViewConfigure: ContentsResponse? {
+    var quoteOfTheDayViewConfigure: ContentsQuoteOfTheDay? {
         didSet {
             quoteLabel.text = quoteOfTheDayViewConfigure?.contents.quotes[0].quote
             quoteLabel.setupShadowLabel(label: quoteLabel)

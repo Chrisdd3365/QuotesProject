@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class MyOwnQuotesViewController: UIViewController {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var myOwnQuotesTableView: UITableView!
 
     //MARK: - Properties
@@ -24,14 +24,28 @@ class MyOwnQuotesViewController: UIViewController {
         super.viewDidLoad()
         addQuoteButtonConfigure()
         myOwnQuotesTableView.tableFooterView = UIView()
+        navigationItem.title = "My Own Quotes"
     }
     
     //MARK: - Methods
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.displayMyOwnQuoteSegue,
+            let displayMyOwnQuoteVC = segue.destination as? DisplayMyOwnQuoteViewController,
+            let indexPath = self.myOwnQuotesTableView.indexPathForSelectedRow {
+            let myOwnQuoteSelected = myOwnQuotes[indexPath.row]
+            displayMyOwnQuoteVC.myOwnQuoteSelected = myOwnQuoteSelected
+        }
+    }
+}
+
+//MARK: - Alert Configure
+extension MyOwnQuotesViewController {
     private func addQuoteButtonConfigure() {
         let addQuoteButton = UIButton(type: .custom)
         addQuoteButton.setImage(UIImage(named: "write.png"), for: .normal)
         addQuoteButton.addTarget(self, action: #selector(alertConfigure), for: .touchUpInside)
-        addQuoteButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+        addQuoteButton.frame = CGRect(x: 0, y: 0, width: 53, height: 53)
         
         let addQuoteBarButton = UIBarButtonItem(customView: addQuoteButton)
         self.navigationItem.rightBarButtonItem = addQuoteBarButton
@@ -49,11 +63,11 @@ class MyOwnQuotesViewController: UIViewController {
             self.authorTextField.placeholder = "Author (Optional)"
             self.authorTextField.delegate = self
         }
-
+        
         saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let textFieldQuote = alert.textFields?[0], let quote = textFieldQuote.text else { return }
             guard let textFieldAuthor = alert.textFields?[1], let author = textFieldAuthor.text else { return }
-
+            
             self.myOwnQuotes.append(CoreDataManager.saveMyOwnQuote(quote: quote, author: author))
             self.myOwnQuotes = MyOwnQuote.all
             self.myOwnQuotesTableView.reloadData()
@@ -67,16 +81,6 @@ class MyOwnQuotesViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
-    }
-    
-    //Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.displayMyOwnQuoteSegue,
-            let displayMyOwnQuoteVC = segue.destination as? DisplayMyOwnQuoteViewController,
-            let indexPath = self.myOwnQuotesTableView.indexPathForSelectedRow {
-            let myOwnQuoteSelected = myOwnQuotes[indexPath.row]
-            displayMyOwnQuoteVC.myOwnQuoteSelected = myOwnQuoteSelected
-        }
     }
 }
 
@@ -132,7 +136,7 @@ extension MyOwnQuotesViewController: UITableViewDataSource {
 
 extension MyOwnQuotesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return myOwnQuotes.isEmpty ? 220 : 0
+        return myOwnQuotes.isEmpty ? 300 : 0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

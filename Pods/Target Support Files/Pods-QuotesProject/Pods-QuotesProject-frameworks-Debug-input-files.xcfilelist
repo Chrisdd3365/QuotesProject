@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-QuotesProject/Pods-QuotesProject-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BubbleTransition/BubbleTransition.framework
-${BUILT_PRODUCTS_DIR}/DLLocalNotifications/DLLocalNotifications.framework
 ${BUILT_PRODUCTS_DIR}/FanMenu/FanMenu.framework
 ${BUILT_PRODUCTS_DIR}/HTMLString/HTMLString.framework
 ${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework

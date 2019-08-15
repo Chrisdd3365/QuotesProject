@@ -18,15 +18,8 @@ class RandomQuotesService {
         self.randomQuotesSession = randomQuotesSession
     }
     
-    //MARK: - Methods
-    func randomQuotesURL() -> String {
-        let baseURL = Constants.QuotesOnDesignAPI.baseURL
-        let filterOrderURL = Constants.QuotesOnDesignAPI.filterOrderURL
-        let filterPostsURL = Constants.QuotesOnDesignAPI.filterPostsURL
-        
-        return baseURL + filterOrderURL + filterPostsURL 
-    }
-    
+    //MARK: - TheySaidSoAPI Methods
+    //TheySaidSoAPI URL
     func randomQuoteURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let randomQuoteURL = Constants.TheySaidSoAPI.RandomQuoteURL.randomQuoteURL
@@ -36,8 +29,8 @@ class RandomQuotesService {
         return baseURL + randomQuoteURL + apiKeyURL + apiKey
     }
     
-    //API methods
-    func getRandomQuote(callback: @escaping (Bool, Contents?) -> Void) {
+    //TheySaidSoAPI call
+    func getRandomQuote(callback: @escaping (Bool, ContentsCategoryQuote?) -> Void) {
         guard let url = URL(string: randomQuoteURL()) else { return }
         task?.cancel()
         task = randomQuotesSession.dataTask(with: url) { data, response, error in
@@ -50,17 +43,27 @@ class RandomQuotesService {
                     callback(false, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(Contents.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(ContentsCategoryQuote.self, from: data) else {
                     callback(false, nil)
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()
     }
     
+    //MARK: - QuotesOnDesignAPI Methods
+    //QuotesOnDesignAPI URL
+    func randomQuotesURL() -> String {
+        let baseURL = Constants.QuotesOnDesignAPI.baseURL
+        let filterOrderURL = Constants.QuotesOnDesignAPI.filterOrderURL
+        let filterPostsURL = Constants.QuotesOnDesignAPI.filterPostsURL
+        
+        return baseURL + filterOrderURL + filterPostsURL
+    }
+
+    //QuotesOnDesignAPI call
     func getRandomQuotes(callback: @escaping (Bool, [RandomQuotes]) -> Void) {
         guard let url = URL(string: randomQuotesURL()) else { return }
         task?.cancel()
@@ -79,7 +82,6 @@ class RandomQuotesService {
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()

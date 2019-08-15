@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class RandomImagesViewController: UIViewController {
-    //MARK: - Outlet
+    //MARK: - Outlets
     @IBOutlet weak var imageQuoteView: ImageQuoteView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var newImageButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     //MARK: - Properties
     var imageQuoteService = ImageQuoteService()
@@ -25,6 +26,7 @@ class RandomImagesViewController: UIViewController {
         super.viewDidLoad()
         imageQuoteViewSetup()
         buttonsSetImage()
+        navigationItem.title = "Random Images"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,10 +49,21 @@ class RandomImagesViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func imageQuoteViewSetup() {
+        imageQuoteView.imageQuoteViewConfigure = self.imageQuote
+    }
+}
+
+//MARK: - Fetch Data
+extension RandomImagesViewController {
     private func fetchImageQuoteData() {
-        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newImageButton)
+        activityIndicatorView.startAnimating()
+        toggleActivityIndicator(shown: true, activityIndicatorView: activityIndicatorView, button: newImageButton)
+        
         imageQuoteService.getImageQuote { (success, contentsImage) in
-            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newImageButton)
+            self.activityIndicatorView.stopAnimating()
+            self.toggleActivityIndicator(shown: false, activityIndicatorView: self.activityIndicatorView, button: self.newImageButton)
+            
             if success {
                 self.imageQuote = contentsImage
                 self.imageQuoteViewSetup()
@@ -60,11 +73,10 @@ class RandomImagesViewController: UIViewController {
             }
         }
     }
-    
-    private func imageQuoteViewSetup() {
-        imageQuoteView.imageQuoteViewConfigure = self.imageQuote
-    }
-    
+}
+
+//MARK: - Favorite Setup Methods
+extension RandomImagesViewController {
     private func addToFavoritesListSetup() {
         guard let contentsImage = imageQuoteView.imageQuoteViewConfigure else { return }
         if checkFavoriteImage(favoritesImages: favoritesImages, id: contentsImage.contents.qimage.id) == false {
@@ -82,4 +94,3 @@ class RandomImagesViewController: UIViewController {
         favoriteButton.setImage(updateButtonImage(check: checkFavoriteImage(favoritesImages: favoritesImages, id: contentsImage.contents.qimage.id), checkedImage: "like", uncheckedImage: "unlike"), for: .normal)
     }
 }
-

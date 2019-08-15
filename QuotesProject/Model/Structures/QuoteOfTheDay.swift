@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ContentsResponse: Decodable {
+struct ContentsQuoteOfTheDay: Decodable {
     let contents: Quotes
     
     enum CodingKeys: String, CodingKey {

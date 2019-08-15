@@ -19,7 +19,7 @@ class QuoteOfTheDayService {
     }
     
     //MARK: - Methods
-    //URL method
+    //TheySaidSoAPI URL
     func quoteOfTheDayURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let quoteOfTheDayURL = Constants.TheySaidSoAPI.QuoteOfTheDayURL.quoteOfTheDayURL
@@ -27,8 +27,8 @@ class QuoteOfTheDayService {
         return baseURL + quoteOfTheDayURL
     }
     
-    //API method
-    func getQuoteOfTheDay(callback: @escaping (Bool, ContentsResponse?) -> Void) {
+    //TheySaidSoAPI call
+    func getQuoteOfTheDay(callback: @escaping (Bool, ContentsQuoteOfTheDay?) -> Void) {
         guard let url = URL(string: quoteOfTheDayURL()) else { return }
         task?.cancel()
         task = quoteOfTheDaySession.dataTask(with: url) { data, response, error in
@@ -41,12 +41,11 @@ class QuoteOfTheDayService {
                     callback(false, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(ContentsResponse.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(ContentsQuoteOfTheDay.self, from: data) else {
                     callback(false, nil)
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()

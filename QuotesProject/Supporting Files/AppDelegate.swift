@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import UserNotifications
-import DLLocalNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,32 +26,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        fetchQuoteData(completionHandler: completionHandler)
-    }
-    
-    @objc func fetchQuoteData(completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let url = URL(string: "http://quotes.rest/quote/random.json?api_key=CxkSS12F9mpQP234kwCv7AeF") else { return }
-        print(url)
-        
-        URLSession.shared.dataTask(with: url, completionHandler:  { data, response, error in
-            guard let data = data, error == nil else {
-                completionHandler(.failed)
-                return
-            }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completionHandler(.failed)
-                return
-            }
-            guard let responseJSON = try? JSONDecoder().decode(Contents.self, from: data) else {
-                completionHandler(.failed)
-                return
-            }
-            completionHandler(.newData)
-            print(responseJSON)
-            NotificationsManager.schedulerLocalNotification(authorTitle: responseJSON.contents.author ?? "", quoteBody: responseJSON.contents.quote, startTimer: 0, endTimer: 3600, interval: 3600)
-        }).resume()
-    }
+//    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        fetchQuoteData(completionHandler: completionHandler)
+//    }
+//    
+//    @objc func fetchQuoteData(completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        guard let url = URL(string: "http://quotes.rest/quote/random.json?api_key=CxkSS12F9mpQP234kwCv7AeF") else { return }
+//        print(url)
+//        
+//        URLSession.shared.dataTask(with: url, completionHandler:  { data, response, error in
+//            guard let data = data, error == nil else {
+//                completionHandler(.failed)
+//                return
+//            }
+//            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                completionHandler(.failed)
+//                return
+//            }
+//            guard let responseJSON = try? JSONDecoder().decode(ContentsCategoryQuote.self, from: data) else {
+//                completionHandler(.failed)
+//                return
+//            }
+//            completionHandler(.newData)
+//            print(responseJSON)
+//            NotificationsManager.schedulerLocalNotification(authorTitle: responseJSON.contents.author ?? "", quoteBody: responseJSON.contents.quote, startTimer: 0, endTimer: 3600, interval: 3600)
+//        }).resume()
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

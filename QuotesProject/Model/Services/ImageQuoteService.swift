@@ -19,7 +19,7 @@ class ImageQuoteService {
     }
 
     //MARK: - Methods
-    //URL method
+    //TheySaidSoAPI URL
     func imageQuoteURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let imageURL = Constants.TheySaidSoAPI.ImageQuoteURL.imageURL
@@ -29,7 +29,7 @@ class ImageQuoteService {
         return baseURL + imageURL + apiKeyURL + apiKey
     }
     
-    func CategoryimageQuoteURL(category: String) -> String {
+    func CategoryImageQuoteURL(category: String) -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let imageURL = Constants.TheySaidSoAPI.ImageQuoteURL.imageURL
         let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
@@ -39,10 +39,9 @@ class ImageQuoteService {
         return baseURL + imageURL + apiKeyURL + apiKey + categoryURL + category
     }
     
-    //API method
+    //TheySaidSoAPI call (Random Image Quote)
     func getImageQuote(callback: @escaping (Bool, ContentsImage?) -> Void) {
         guard let url = URL(string: imageQuoteURL()) else { return }
-        print(url)
         task?.cancel()
         task = categoryQuoteSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
@@ -59,15 +58,14 @@ class ImageQuoteService {
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()
     }
     
+    //TheySaidSoAPI call (Category Image Quote)
     func getCategoryImageQuote(category: String, callback: @escaping (Bool, ContentsImage?) -> Void) {
-        guard let url = URL(string: CategoryimageQuoteURL(category: category)) else { return }
-        print(url)
+        guard let url = URL(string: CategoryImageQuoteURL(category: category)) else { return }
         task?.cancel()
         task = categoryQuoteSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
@@ -84,7 +82,6 @@ class ImageQuoteService {
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()

@@ -22,23 +22,14 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
     var imagePicker: ImagePicker?
     var favoritesQuotes = FavoriteQuote.all
    
-    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        randomQuotesScrollView.delegate = self
-    
         slidesViews = createSlides()
         setupSlideScrollView(slidesViews: slidesViews)
-        
-        pageControl.numberOfPages = slidesViews.count
-        pageControl.currentPage = 0
-        view.bringSubviewToFront(pageControl)
-        
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
-        
-        
+        pageControlConfigure()
+        imagePickerDelegate()
+        navigationItem.title = "Random Quotes"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,18 +42,9 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func takePicturesButtonTapped(_ sender: UIButton) {
         self.imagePicker?.present(from: sender)
     }
-    
-    @IBAction func newQuotesButtonTapped(_ sender: UIButton) {
-        fetchRandomQuotesData()
-    }
-    
+
     @IBAction func shareButtonTapped(_ sender: UIButton) {
-        for i in 0 ..< randomQuotes.count  {
-            if i == pageControl.currentPage {
-                didTapShareButton(view: slidesViews[i].randomQuotesView)
-                print(i)
-            }
-        }
+        shareButtonConfigure()
     }
 
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
@@ -70,6 +52,27 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
     }
 
     //MARK: - Methods
+    private func imagePickerDelegate() {
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+    }
+    
+    private func pageControlConfigure() {
+        pageControl.numberOfPages = slidesViews.count
+        pageControl.currentPage = 0
+        view.bringSubviewToFront(pageControl)
+    }
+    
+    private func shareButtonConfigure() {
+        for i in 0 ..< randomQuotes.count  {
+            if i == pageControl.currentPage {
+                didTapShareButton(view: slidesViews[i].randomQuotesView)
+            }
+        }
+    }
+}
+
+//MARK: - Slides Setup Methods
+extension RandomQuotesViewController {
     private func createSlides() -> [SlideView] {
         let slideView0: SlideView = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! SlideView
         slideView0.randomQuotesView.randomQuotesViewConfigure = randomQuotes[0]
@@ -85,14 +88,14 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         
         let slideView4: SlideView = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! SlideView
         slideView4.randomQuotesView.randomQuotesViewConfigure = randomQuotes[4]
-
+        
         return [slideView0, slideView1, slideView2, slideView3, slideView4]
     }
     
     private func setupSlideScrollView(slidesViews: [SlideView]) {
         randomQuotesScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         randomQuotesScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slidesViews.count), height: view.frame.height)
-    
+        
         for i in 0 ..< slidesViews.count {
             slidesViews[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
             randomQuotesScrollView.addSubview(slidesViews[i])
@@ -103,21 +106,20 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         let pageIndex = round(randomQuotesScrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
         
+        //Horizontal
         let maximumHorizontalOffset: CGFloat = randomQuotesScrollView.contentSize.width - randomQuotesScrollView.frame.width
         let currentHorizontalOffset: CGFloat = randomQuotesScrollView.contentOffset.x
         
-        // vertical
+        //Vertical
         let maximumVerticalOffset: CGFloat = randomQuotesScrollView.contentSize.height - randomQuotesScrollView.frame.height
         let currentVerticalOffset: CGFloat = randomQuotesScrollView.contentOffset.y
         
         let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
         let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
         
-        
         let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
         
         if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-            
             slidesViews[0].randomQuotesView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
             slidesViews[1].randomQuotesView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
             
@@ -140,22 +142,10 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         
         buttonsSetImage()
     }
-    
-    
+}
 
-    
-    private func fetchRandomQuotesData() {
-        randomQuotesService.getRandomQuotes { (success, randomQuotes) in
-            if success {
-                self.randomQuotes = randomQuotes
-                self.slidesViews = self.createSlides()
-                self.setupSlideScrollView(slidesViews: self.slidesViews)
-            } else {
-                self.showAlert(title: "Sorry!", message: "Image not available!")
-            }
-        }
-    }
-    
+//MARK: - Favorites Setup Methods
+extension RandomQuotesViewController {
     private func addToFavoritesListSetup() {
         for i in 0 ..< randomQuotes.count  {
             if i == pageControl.currentPage {
@@ -180,35 +170,6 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
-    
-
-//    private func notifications(quotes: [QuoteOfTheDay]) {
-//        //Content
-//        let content = UNMutableNotificationContent()
-//        content.title = quotes[0].author ?? ""
-//        content.body = quotes[0].quote
-//        content.sound = UNNotificationSound.default
-//
-//        //Trigger
-//        var dateComponents = DateComponents()
-//        dateComponents.hour = 15
-//        dateComponents.minute = 38
-//        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeIntervalTrigger()), repeats: true)
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: false)
-//        //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//
-//        //Request
-//        let request = UNNotificationRequest(identifier: "TestIdentifier", content: content, trigger: trigger)
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//    }
-    
-//    //HELPER
-//    private func timeIntervalTrigger() -> Int {
-//        if timeInterval == 0 {
-//            return 3600/1
-//        }
-//        return 3600 / timeInterval
-//    }
 }
 
 extension RandomQuotesViewController: ImagePickerDelegate {
@@ -216,7 +177,6 @@ extension RandomQuotesViewController: ImagePickerDelegate {
         for i in 0 ..< randomQuotes.count  {
             if i == pageControl.currentPage {
                 slidesViews[i].randomQuotesView.backgroundImageView.image = image
-                print(i)
             }
         }
     }

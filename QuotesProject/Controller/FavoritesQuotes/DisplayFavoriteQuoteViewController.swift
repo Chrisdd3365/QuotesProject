@@ -20,7 +20,8 @@ class DisplayFavoriteQuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteQuoteViewSetup()
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+        imagePickerDelegate()
+        navigationItem.title = " My Favorite Quote"
     }
     
     //MARK: - Actions
@@ -37,6 +38,10 @@ class DisplayFavoriteQuoteViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func imagePickerDelegate() {
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+    }
+    
     private func favoriteQuoteViewSetup() {
         favoriteQuoteView.favoriteQuoteViewConfigure = favoriteQuoteSelected
     }

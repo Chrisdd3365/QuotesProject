@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class DisplayCategoryImageViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var displayCategoryImageView: DisplayCategoryImageView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var newImageButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     //MARK: - Properties
     let imageQuoteService = ImageQuoteService()
@@ -26,6 +27,7 @@ class DisplayCategoryImageViewController: UIViewController {
         super.viewDidLoad()
         displayCategoryImageViewSetup()
         buttonsSetImage()
+        navigationItem.title = categoryLabel ?? "" 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,11 +50,21 @@ class DisplayCategoryImageViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func displayCategoryImageViewSetup() {
+        displayCategoryImageView.categoryImageViewConfigure = self.categoryImage
+    }
+}
+
+//MARK: - Fetch Data
+extension DisplayCategoryImageViewController {
     private func fetchCategoryImageData(category: String) {
-        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newImageButton)
+        activityIndicatorView.startAnimating()
+        toggleActivityIndicator(shown: true, activityIndicatorView: activityIndicatorView, button: newImageButton)
         
         imageQuoteService.getCategoryImageQuote(category: category) { (success, contentsImage) in
-            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newImageButton)
+            self.activityIndicatorView.stopAnimating()
+            self.toggleActivityIndicator(shown: false, activityIndicatorView: self.activityIndicatorView, button: self.newImageButton)
+            
             if success {
                 self.categoryImage = contentsImage
                 self.displayCategoryImageViewSetup()
@@ -62,11 +74,10 @@ class DisplayCategoryImageViewController: UIViewController {
             }
         }
     }
-    
-    private func displayCategoryImageViewSetup() {
-        displayCategoryImageView.categoryImageViewConfigure = self.categoryImage
-    }
-    
+}
+
+//MARK: - Favorites Setup Methods
+extension DisplayCategoryImageViewController {
     private func addToFavoritesListSetup() {
         guard let contentsImage = displayCategoryImageView.categoryImageViewConfigure else { return }
         if checkFavoriteImage(favoritesImages: favoritesImages, id: contentsImage.contents.qimage.id) == false {

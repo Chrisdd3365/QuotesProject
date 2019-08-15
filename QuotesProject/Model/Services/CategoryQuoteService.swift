@@ -19,7 +19,7 @@ class CategoryQuoteService {
     }
     
     //MARK: - Methods
-    //URL method
+    //TheySaidSoAPI URL
     func categoryQuoteURL(category: String) -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let searchURL = Constants.TheySaidSoAPI.CategoryQuoteURL.searchURL
@@ -30,10 +30,9 @@ class CategoryQuoteService {
         return baseURL + searchURL + apiKeyURL + apiKey + categoryURL 
     }
     
-    //API method
-    func getCategoryQuote(category: String, callback: @escaping (Bool, Contents?) -> Void) {
+    //TheySaidSoAPI call
+    func getCategoryQuote(category: String, callback: @escaping (Bool, ContentsCategoryQuote?) -> Void) {
         guard let url = URL(string: categoryQuoteURL(category: category)) else { return }
-        print(url)
         task?.cancel()
         task = categoryQuoteSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
@@ -45,15 +44,13 @@ class CategoryQuoteService {
                     callback(false, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(Contents.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(ContentsCategoryQuote.self, from: data) else {
                     callback(false, nil)
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()
     }
-
 }

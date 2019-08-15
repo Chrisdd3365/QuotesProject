@@ -14,11 +14,11 @@ class DisplayCategoryQuoteViewController: UIViewController {
     @IBOutlet weak var categoryQuoteView: CategoryQuoteView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var newQuoteButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
+    
     //MARK: - Properties
     let categoryQuoteService = CategoryQuoteService()
-    var categoryQuote: Contents?
+    var categoryQuote: ContentsCategoryQuote?
     var imagePicker: ImagePicker?
     var favoritesQuotes = FavoriteQuote.all
 
@@ -27,8 +27,9 @@ class DisplayCategoryQuoteViewController: UIViewController {
         super.viewDidLoad()
         categoryQuoteViewSetup()
         buttonsSetImage()
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
-
+        imagePickerDelegate()
+        newQuoteButtonSetup()
+        navigationItem.title = categoryQuote?.contents.requestedCategory ?? ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,12 +56,29 @@ class DisplayCategoryQuoteViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func imagePickerDelegate() {
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self as ImagePickerDelegate)
+    }
+    
+    private func categoryQuoteViewSetup() {
+        categoryQuoteView.categoryQuoteViewConfigure = self.categoryQuote
+    }
+    
+    private func newQuoteButtonSetup() {
+        newQuoteButton.layer.cornerRadius = 5
+    }
+}
+
+//MARK: - Fetch Data
+extension DisplayCategoryQuoteViewController {
     private func fetchCategoryQuoteData(category: String) {
         activityIndicatorView.startAnimating()
-       //toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, button: newQuoteButton)
+        toggleActivityIndicator(shown: true, activityIndicatorView: activityIndicatorView, button: newQuoteButton)
+        
         categoryQuoteService.getCategoryQuote(category: category) { (success, contents) in
             self.activityIndicatorView.stopAnimating()
-            //self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, button: self.newQuoteButton)
+            self.toggleActivityIndicator(shown: false, activityIndicatorView: self.activityIndicatorView, button: self.newQuoteButton)
+            
             if success {
                 self.categoryQuote = contents
                 self.categoryQuoteViewSetup()
@@ -70,16 +88,15 @@ class DisplayCategoryQuoteViewController: UIViewController {
             }
         }
     }
-    
-    private func categoryQuoteViewSetup() {
-        categoryQuoteView.categoryQuoteViewConfigure = self.categoryQuote
-    }
-    
+}
+
+//MARK: - Favorites Setup Methods
+extension DisplayCategoryQuoteViewController {
     private func addToFavoritesListSetup() {
-        guard let contents = categoryQuoteView.categoryQuoteViewConfigure else { return }
-        if checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: contents.contents.id) == false {
+        guard let contentsCategoryQuote = categoryQuoteView.categoryQuoteViewConfigure else { return }
+        if checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: contentsCategoryQuote.contents.id) == false {
             favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
-            CoreDataManager.saveCategoryQuoteToFavoritesQuotes(contents: contents)
+            CoreDataManager.saveCategoryQuoteToFavoritesQuotes(contentsCategoryQuote: contentsCategoryQuote)
             favoritesQuotes = FavoriteQuote.all
         } else {
             favoritesQuotes = FavoriteQuote.all

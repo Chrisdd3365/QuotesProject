@@ -15,38 +15,44 @@ class CategoriesQuotesViewController: UIViewController {
     
     //MARK: - Properties
     let categoryQuoteService = CategoryQuoteService()
-    var categoryQuote: Contents?
-    var categories = ["Family", "Friendship", "Wisdom", "Workout", "Work", "Love", "Success", "Will", "Motivation", "Relationship", "Trust", "Optimism"]
+    var categoryQuote: ContentsCategoryQuote?
     
-
+    var categories = ["Bible", "Books", "Breakup", "Buddhism", "Business", "Courage", "Death", "Family", "Friendship", "Happiness", "Jewish", "Life", "Loneliness", "Love", "Motivation", "Movies", "Optimism", "Positivity", "Quran", "Sadness", "Self-esteem", "Sports", "Songs", "Success", "Trust", "Relationship", "Will", "Wisdom", "Women", "Work"]
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        navigationItem.title = "Categories Quotes"
     }
 
     //MARK: - Methods
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.displayCategoryQuoteSegue,
+            let displayCategoryQuoteVC = segue.destination as? DisplayCategoryQuoteViewController {
+            displayCategoryQuoteVC.categoryQuote = categoryQuote
+        }
+    }
+}
+
+//MARK: - Fetch Data
+extension CategoriesQuotesViewController {
     private func fetchCategoryQuoteData(category: String) {
         KRProgressHUD.show()
         KRProgressHUD.show(withMessage: "Loading...")
+        
         categoryQuoteService.getCategoryQuote(category: category) { (success, contents) in
             KRProgressHUD.dismiss()
+            
             if success {
                 self.categoryQuote = contents
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: Constants.SeguesIdentifiers.displayCategoryQuoteSegue, sender: nil)
                 }
             } else {
+                KRProgressHUD.dismiss()
                 self.showAlert(title: "Sorry!", message: "No quote for such category exists!")
             }
-        }
-    }
-    
-    //Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.displayCategoryQuoteSegue,
-            let displayCategoryQuoteVC = segue.destination as? DisplayCategoryQuoteViewController {
-            displayCategoryQuoteVC.categoryQuote = categoryQuote
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class SideMenuViewController: UIViewController {
     //MARK: - Outlet
@@ -25,11 +26,11 @@ class SideMenuViewController: UIViewController {
     let imageQuoteService = ImageQuoteService()
     var imageQuote: ContentsImage?
     
-    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenuTableView.tableFooterView = UIView()
+        navigationItem.title = "Menu"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,32 +44,6 @@ class SideMenuViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func fetchRandomQuotesData() {
-        randomQuotesService.getRandomQuotes { (success, randomQuotes) in
-            if success {
-                self.randomQuotes = randomQuotes
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: self.seguesIdentifiers[0], sender: nil)
-                }
-            } else {
-                self.showAlert(title: "Sorry!", message: "Random Quotes not available!")
-            }
-        }
-    }
-    
-    private func fetchRandomImageQuoteData() {
-        imageQuoteService.getImageQuote { (success, contentsImage) in
-            if success {
-                self.imageQuote = contentsImage
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: self.seguesIdentifiers[4], sender: nil)
-                }
-            } else {
-                self.showAlert(title: "Sorry!", message: "Image not available!")
-            }
-        }
-    }
-    
     //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -80,6 +55,47 @@ class SideMenuViewController: UIViewController {
             randomImagesVC?.imageQuote = imageQuote
         default:
             break
+        }
+    }
+}
+
+//MARK: - Fetch Data
+extension SideMenuViewController {
+    private func fetchRandomQuotesData() {
+        KRProgressHUD.show()
+        KRProgressHUD.show(withMessage: "Loading...")
+        
+        randomQuotesService.getRandomQuotes { (success, randomQuotes) in
+            KRProgressHUD.dismiss()
+    
+            if success {
+                self.randomQuotes = randomQuotes
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: self.seguesIdentifiers[0], sender: nil)
+                }
+            } else {
+                KRProgressHUD.dismiss()
+                self.showAlert(title: "Sorry!", message: "Random Quotes not available!")
+            }
+        }
+    }
+    
+    private func fetchRandomImageQuoteData() {
+        KRProgressHUD.show()
+        KRProgressHUD.show(withMessage: "Loading...")
+        
+        imageQuoteService.getImageQuote { (success, contentsImage) in
+            KRProgressHUD.dismiss()
+            
+            if success {
+                self.imageQuote = contentsImage
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: self.seguesIdentifiers[4], sender: nil)
+                }
+            } else {
+                KRProgressHUD.dismiss()
+                self.showAlert(title: "Sorry!", message: "Image not available!")
+            }
         }
     }
 }
@@ -118,5 +134,3 @@ extension SideMenuViewController: UITableViewDelegate {
         }
     }
 }
-
-

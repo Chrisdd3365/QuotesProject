@@ -7,42 +7,51 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class CategoriesImagesViewController: UIViewController {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var categoriesImagesCollectionView: UICollectionView!
     
     //MARK: - Properties
     let imageQuoteService = ImageQuoteService()
     var categoryImage: ContentsImage?
-    var categories = ["Family", "Friendship", "Wisdom", "Workout", "Work", "Love", "Success", "Will", "Motivation", "Relationship", "Trust", "Optimism"]
+    
+    var categories = ["Bible", "Books", "Breakup", "Buddhism", "Business", "Courage", "Death", "Family", "Friendship", "Happiness", "Jewish", "Life", "Loneliness", "Love", "Motivation", "Movies", "Optimism", "Positivity", "Quran", "Sadness", "Self-esteem", "Sports", "Songs", "Success", "Trust", "Relationship", "Will", "Wisdom", "Women", "Work"]
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "Categories Images"
     }
     
     //MARK: - Methods
-    private func fetchCategoryImageData(category: String) {
-        imageQuoteService.getCategoryImageQuote(category: category) { (success, contentsImages) in
-            if success {
-                self.categoryImage = contentsImages
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: Constants.SeguesIdentifiers.displayCategoryImageSegue, sender: nil)
-                }
-            } else {
-                self.showAlert(title: "Sorry!", message: "No image for such category exists!")
-            }
-        }
-    }
-    
     //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.displayCategoryImageSegue,
             let displayCategoryImageVC = segue.destination as? DisplayCategoryImageViewController, let indexPath = categoriesImagesCollectionView.indexPathsForSelectedItems?.first {
             displayCategoryImageVC.categoryImage = categoryImage
             displayCategoryImageVC.categoryLabel = categories[indexPath.row]
+        }
+    }
+}
+
+//MARK: - Fetch Data
+extension CategoriesImagesViewController {
+    private func fetchCategoryImageData(category: String) {
+        KRProgressHUD.show()
+        KRProgressHUD.show(withMessage: "Loading...")
+        imageQuoteService.getCategoryImageQuote(category: category) { (success, contentsImages) in
+            KRProgressHUD.dismiss()
+            if success {
+                self.categoryImage = contentsImages
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: Constants.SeguesIdentifiers.displayCategoryImageSegue, sender: nil)
+                }
+            } else {
+                KRProgressHUD.dismiss()
+                self.showAlert(title: "Sorry!", message: "No image for such category exists!")
+            }
         }
     }
 }

@@ -21,7 +21,6 @@
 		951A3BAD22B2914F009634EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAC22B2914F009634EF /* Constants.swift */; };
 		951A3BAF22B2935B009634EF /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BAE22B2935B009634EF /* QuotesView.swift */; };
 		951A3BB222B2992B009634EF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3BB122B2992B009634EF /* UIViewController.swift */; };
-		951B012D22F1DAD00012FB4E /* CategoryQuoteNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951B012C22F1DAD00012FB4E /* CategoryQuoteNotificationService.swift */; };
 		953FE45F22D5F5AF009FDE7E /* FavoriteQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE45E22D5F5AF009FDE7E /* FavoriteQuote.swift */; };
 		953FE46122D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE46022D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift */; };
 		953FE46322D601F3009FDE7E /* FavoritesQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FE46222D601F3009FDE7E /* FavoritesQuotesViewController.swift */; };
@@ -97,7 +96,6 @@
 		951A3BAC22B2914F009634EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		951A3BAE22B2935B009634EF /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		951A3BB122B2992B009634EF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		951B012C22F1DAD00012FB4E /* CategoryQuoteNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryQuoteNotificationService.swift; sourceTree = "<group>"; };
 		953FE45E22D5F5AF009FDE7E /* FavoriteQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteQuote.swift; sourceTree = "<group>"; };
 		953FE46022D5F751009FDE7E /* FavoritesQuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesQuotesTableViewCell.swift; sourceTree = "<group>"; };
 		953FE46222D601F3009FDE7E /* FavoritesQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesQuotesViewController.swift; sourceTree = "<group>"; };
@@ -200,11 +198,11 @@
 		951A3BB022B29912009634EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				951A3BB122B2992B009634EF /* UIViewController.swift */,
-				95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */,
 				95C4FE0022E0C50E0035AF56 /* UICollectionViewCell.swift */,
+				95FDDE2122B91EED00F7F1C0 /* UITableViewCell.swift */,
 				95D0B96E22EB2C8000CC0530 /* UILabel.swift */,
 				95731C6922EF6C1900116876 /* UIView.swift */,
+				951A3BB122B2992B009634EF /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,7 +333,6 @@
 				951A3BA822B13A30009634EF /* QuoteOfTheDayService.swift */,
 				950389E822F85B5F001FF74F /* RandomQuotesService.swift */,
 				956FC2F422E8AA5E00009FAA /* CategoryQuoteService.swift */,
-				951B012C22F1DAD00012FB4E /* CategoryQuoteNotificationService.swift */,
 				956FC2FC22E8E69200009FAA /* ImageQuoteService.swift */,
 			);
 			path = Services;
@@ -663,7 +660,6 @@
 				956FC2F322E8A8EC00009FAA /* CategoryQuote.swift in Sources */,
 				95B4C33222F9C08900897505 /* SlideView.swift in Sources */,
 				95A6551D22E1F87300A46A25 /* QuoteOfTheDayViewController.swift in Sources */,
-				951B012D22F1DAD00012FB4E /* CategoryQuoteNotificationService.swift in Sources */,
 				95731C6222EF62A800116876 /* FavoritesImagesViewController.swift in Sources */,
 				95C4FE0122E0C50E0035AF56 /* UICollectionViewCell.swift in Sources */,
 				95D0B96F22EB2C8000CC0530 /* UILabel.swift in Sources */,

@@ -12,13 +12,14 @@ class FavoritesQuotesViewController: UIViewController {
     //MARK: - Outlet
     @IBOutlet weak var favoritesQuotesTableView: UITableView!
     
-    //MARK: - Properties
+    //MARK: - Property
     var favoritesQuotes = FavoriteQuote.all
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         favoritesQuotesTableView.tableFooterView = UIView()
+        navigationItem.title = "My Favorites Quotes"
     }
     
     override func viewWillAppear(_ animated: Bool) {
