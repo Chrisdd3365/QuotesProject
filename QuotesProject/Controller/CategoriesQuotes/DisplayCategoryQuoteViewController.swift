@@ -28,7 +28,8 @@ class DisplayCategoryQuoteViewController: UIViewController {
         categoryQuoteViewSetup()
         buttonsSetImage()
         imagePickerDelegate()
-        newQuoteButtonSetup()
+        setupButton(button: newQuoteButton)
+        categoryQuoteView.setupBorder(view: categoryQuoteView)
         navigationItem.title = categoryQuote?.contents.requestedCategory ?? ""
     }
     
@@ -62,10 +63,6 @@ class DisplayCategoryQuoteViewController: UIViewController {
     
     private func categoryQuoteViewSetup() {
         categoryQuoteView.categoryQuoteViewConfigure = self.categoryQuote
-    }
-    
-    private func newQuoteButtonSetup() {
-        newQuoteButton.layer.cornerRadius = 5
     }
 }
 

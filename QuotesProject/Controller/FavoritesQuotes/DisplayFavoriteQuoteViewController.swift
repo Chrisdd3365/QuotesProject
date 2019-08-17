@@ -21,6 +21,7 @@ class DisplayFavoriteQuoteViewController: UIViewController {
         super.viewDidLoad()
         favoriteQuoteViewSetup()
         imagePickerDelegate()
+        favoriteQuoteView.setupBorder(view: favoriteQuoteView)
         navigationItem.title = " My Favorite Quote"
     }
     

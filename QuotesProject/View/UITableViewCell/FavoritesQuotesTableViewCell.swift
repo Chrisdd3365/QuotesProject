@@ -16,12 +16,12 @@ class FavoritesQuotesTableViewCell: UITableViewCell {
     //MARK: - Property
     var favoritesQuotesCellConfigure: FavoriteQuote? {
         didSet {
-            quoteLabel.text = favoritesQuotesCellConfigure?.quote
-            authorLabel.text = "- " + "\(favoritesQuotesCellConfigure?.author ?? "")"
-            
-            if authorLabel.text == "- " {
-                authorLabel.text = "- Anonymous Author"
-            }
+            let content = favoritesQuotesCellConfigure?.quote
+            let contentHtmlTagsRemoved = content?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+            let favoriteQuoteLabel = contentHtmlTagsRemoved?.removingHTMLEntities
+            quoteLabel.text = favoriteQuoteLabel
+   
+            authorLabel.text = favoritesQuotesCellConfigure?.author ?? ""
         }
     }
 }

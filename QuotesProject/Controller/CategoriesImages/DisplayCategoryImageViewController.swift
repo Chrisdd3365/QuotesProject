@@ -27,6 +27,7 @@ class DisplayCategoryImageViewController: UIViewController {
         super.viewDidLoad()
         displayCategoryImageViewSetup()
         buttonsSetImage()
+        setupButton(button: newImageButton)
         navigationItem.title = categoryLabel ?? "" 
     }
     

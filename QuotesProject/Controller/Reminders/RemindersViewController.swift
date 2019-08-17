@@ -8,101 +8,85 @@
 
 import UIKit
 import UserNotifications
+import DLLocalNotifications
+import DateTimePicker
+import KRProgressHUD
 
 class RemindersViewController: UIViewController {
     //MARK: - Outlet
-    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var createReminderButton: UIButton!
     
     //MARK: - Properties
     let randomQuotesService = RandomQuotesService()
     var randomQuote: ContentsCategoryQuote?
-    var hours = 0
-    var minutes = 0
-    
+    var date: Date?
+
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Reminders"
+        createReminderButtonIsEnabled(enabled: false)
     }
     
     //MARK: - Actions
-    @IBAction func hoursValueChanged(_ sender: UISlider) {
-        hoursSliderConfigure(sender)
+    @IBAction func time(_ sender: UITapGestureRecognizer) {
+        createDateTimePicker()
     }
     
     @IBAction func doneAction(_ sender: UIButton) {
-        fetchRandomQuoteData()
+        fetchRandomQuoteData(date: date)
         dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Methods
-    private func hoursSliderConfigure(_ sender: UISlider) {
-        let countmin = Int(Double(sender.value) * 14.4)
-        var hour = countmin / 60
-        let mins = countmin - (hour * 60)
-        
-        if hour >= 24 {
-            hour -= 24
-        }
-        
-        hours = hour
-        minutes = roundToFives(x: Double(mins))
-        
-        if minutes == 60 {
-            hours = hour + 1
-            minutes = 0
-        }
-        
-        self.hourLabel.text = "\(String(format: "%02d", hours)):\(String(format: "%02d", minutes))"
-    }
-    
-    //Helper's methods to convert Double into Int (Minutes)
-    private func roundToFives(x : Double) -> Int {
-        return 5 * Int(round(x / 5.0))
+    private func createReminderButtonIsEnabled(enabled: Bool) {
+        createReminderButton.isEnabled = enabled
     }
 }
 
 //MARK: - Fetch Data
 extension RemindersViewController {
-    private func fetchRandomQuoteData() {
+    private func fetchRandomQuoteData(date: Date?) {
         randomQuotesService.getRandomQuote { (success, contentsCategoryQuote) in
             if success {
                 self.randomQuote = contentsCategoryQuote
-                self.notificationsSetup(quote: contentsCategoryQuote)
+                NotificationsManager.localNotificationsSetup(contentsCategoryQuote: contentsCategoryQuote, date: date)
+                KRProgressHUD.showSuccess()
+                KRProgressHUD.showSuccess(withMessage: "Reminder Created")
             } else {
-                self.showAlert(title: "Sorry!", message: "No quote for such category exists!")
+                self.showAlert(title: "Sorry!", message: "Random Quote not available!")
             }
         }
     }
 }
 
-//MARK: - Local Notifications Setup
-extension RemindersViewController {
-    private func notificationsSetup(quote: ContentsCategoryQuote?) {
-        let center = UNUserNotificationCenter.current()
+//MARK: - Date Time Picker Setup Methods and Delegate
+extension RemindersViewController: DateTimePickerDelegate {
+    private func createDateTimePicker() {
+        let min = Date().addingTimeInterval(-60 * 60 * 24 * 4)
+        let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
+        let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
         
-        let content = UNMutableNotificationContent()
-        content.title = quote?.contents.author ?? ""
-        content.body = quote?.contents.quote ?? ""
-        content.sound = UNNotificationSound.default
+        picker.includeMonth = true
+        picker.highlightColor = UIColor.black
+        picker.darkColor = UIColor.black
+        picker.doneButtonTitle = "Done"
+        picker.doneBackgroundColor = UIColor.black
+        picker.completionHandler = { date in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "hh:mm aa dd/MM/YYYY"
+            self.title = formatter.string(from: date)
+        }
+        picker.delegate = self
+        picker.show()
+    }
+
+    func dateTimePicker(_ picker: DateTimePicker, didSelectDate: Date) {
+        title = picker.selectedDateString
+        date = picker.selectedDate
         
-        let gregorian = Calendar(identifier: .gregorian)
-        let now = Date()
-        
-        var dateComponents = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-        dateComponents.hour = hours
-        dateComponents.minute = minutes
-        dateComponents.second = 0
-        
-        guard let date = gregorian.date(from: dateComponents) else { return }
-        
-        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        center.add(request)
-        
-        print(hours)
-        print(minutes)
+        if date == picker.selectedDate {
+            createReminderButtonIsEnabled(enabled: true)
+        }
     }
 }

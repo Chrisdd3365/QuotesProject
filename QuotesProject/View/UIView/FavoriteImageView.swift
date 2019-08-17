@@ -9,10 +9,10 @@
 import UIKit
 
 class FavoriteImageView: UIView {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var favoriteImageView: UIImageView!
     
-    //MARK: - Properties
+    //MARK: - Property
     var favoriteImageViewConfigure: FavoriteImage? {
         didSet {
             if let downloadUri = favoriteImageViewConfigure?.imageURL {

@@ -26,6 +26,7 @@ class RandomImagesViewController: UIViewController {
         super.viewDidLoad()
         imageQuoteViewSetup()
         buttonsSetImage()
+        setupButton(button: newImageButton)
         navigationItem.title = "Random Images"
     }
     
@@ -47,7 +48,7 @@ class RandomImagesViewController: UIViewController {
     @IBAction func tappedFavoriteButton(_ sender: UIButton) {
         addToFavoritesListSetup()
     }
-    
+
     //MARK: - Methods
     private func imageQuoteViewSetup() {
         imageQuoteView.imageQuoteViewConfigure = self.imageQuote

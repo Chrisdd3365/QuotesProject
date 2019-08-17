@@ -21,6 +21,7 @@ class DisplayMyOwnQuoteViewController: UIViewController {
         super.viewDidLoad()
         myOwnQuoteViewSetup()
         imagePickerDelegate()
+        myOwnQuoteView.setupBorder(view: myOwnQuoteView)
         navigationItem.title = "My Own Quote"
     }
     

@@ -14,7 +14,7 @@ class FavoritesImagesViewController: UIViewController {
 
     //MARK: - Properties
     var favoritesImages = FavoriteImage.all
-    //CollectionView's property
+    //CollectionView Footer Setup property
     lazy var collectionView: UICollectionView = {
         favoritesImagesCollectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCollectionReusableView.identifier)
         return favoritesImagesCollectionView

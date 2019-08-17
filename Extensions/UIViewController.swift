@@ -31,7 +31,7 @@ extension UIViewController {
             present(activityController, animated: true, completion: nil)
         }
     
-    //UnLike
+    //UnLike (Images)
     func didTapeUnlikeButton(id: String) {
         CoreDataManager.deleteFavoriteImage(id: id)
         navigationController?.popViewController(animated: true)
@@ -49,7 +49,7 @@ extension UIViewController {
         return isAdded
     }
     
-    //UnFavorite
+    //UnFavorite (Quotes)
     func didTapUnfavoriteButton(id: String?) {
         CoreDataManager.deleteFavoriteQuoteFromList(id: id ?? "")
         navigationController?.popViewController(animated: true)
@@ -76,6 +76,10 @@ extension UIViewController {
             image = UIImage(named: uncheckedImage)
         }
         return image
+    }
+    
+    func setupButton(button: UIButton) {
+        button.layer.cornerRadius = 5
     }
 }
 

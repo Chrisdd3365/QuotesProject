@@ -23,7 +23,7 @@ class QuoteOfTheDayView: UIView {
             
             authorLabel.text = quoteOfTheDayViewConfigure?.contents.quotes[0].author
             authorLabel.setupShadowLabel(label: authorLabel)
-
+            
             if let backgroundImageURL = quoteOfTheDayViewConfigure?.contents.quotes[0].background {
                 backgroundImageView.sd_setImage(with: URL(string: backgroundImageURL))
             } 

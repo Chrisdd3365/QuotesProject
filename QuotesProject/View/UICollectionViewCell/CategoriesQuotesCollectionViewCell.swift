@@ -9,6 +9,6 @@
 import UIKit
 
 class CategoriesQuotesCollectionViewCell: UICollectionViewCell {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var categoryLabel: UILabel!
 }

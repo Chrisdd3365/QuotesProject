@@ -9,7 +9,7 @@
 import UIKit
 
 class DisplayCategoryImageView: UIView {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var categoryImageView: UIImageView!
     
     //MARK: - Property

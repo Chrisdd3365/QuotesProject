@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageQuoteView: UIView {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var imageQuote: UIImageView!
     
     //MARK: - Property

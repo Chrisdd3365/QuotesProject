@@ -16,7 +16,7 @@ class SideMenuViewController: UIViewController {
     //MARK: - Properties
     let cellsTitles = ["Random Quotes", "Categories of Quotes", "Favorites Quotes", "My Own Quotes", "Random Images", "Categories of Images", "Favorites Images", "Reminders"]
     
-    let cellsImages = [UIImage(named: "randomQuotes"), UIImage(named: "categories"), UIImage(named: "favoritesQuotes"), UIImage(named: "write"), UIImage(named: "image"), UIImage(named: "categoriesImages"), UIImage(named: "favoritesImages"), UIImage(named: "reminders")]
+    let cellsImages = [UIImage(named: "randomQuotes"), UIImage(named: "categories"), UIImage(named: "favorite"), UIImage(named: "write"), UIImage(named: "image"), UIImage(named: "categoriesImages"), UIImage(named: "favoritesImages"), UIImage(named: "reminder")]
     
     let seguesIdentifiers = ["RandomQuotes", "CategoriesQuotes", "FavoritesQuotes", "MyOwnQuotes", "RandomImages", "CategoriesImages", "FavoritesImages", "Reminders"]
     

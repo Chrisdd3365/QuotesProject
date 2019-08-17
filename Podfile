@@ -8,4 +8,6 @@ target 'QuotesProject' do
   pod 'FanMenu'
   pod 'NVActivityIndicatorView'
   pod "KRProgressHUD"
+  pod 'DLLocalNotifications'
+  pod 'DateTimePicker'
 end

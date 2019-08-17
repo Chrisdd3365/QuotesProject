@@ -99,6 +99,7 @@ extension RandomQuotesViewController {
         for i in 0 ..< slidesViews.count {
             slidesViews[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
             randomQuotesScrollView.addSubview(slidesViews[i])
+            randomQuotesScrollView.setupBorder(view: slidesViews[i])
         }
     }
     

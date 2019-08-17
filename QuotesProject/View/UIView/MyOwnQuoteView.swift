@@ -22,9 +22,6 @@ class MyOwnQuoteView: UIView {
             
             authorLabel.text = myOwnQuoteViewConfigure?.author
             authorLabel.setupShadowLabel(label: authorLabel)
-            if authorLabel.text == "" {
-                authorLabel.text = "- Anonymous Author"
-            }
         }
     }
 }

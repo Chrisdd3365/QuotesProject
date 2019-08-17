@@ -9,7 +9,7 @@
 import UIKit
 
 class FavoritesImagesCollectionViewCell: UICollectionViewCell {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var favoriteImageView: UIImageView!
 
     //MARK: - Properties
@@ -24,6 +24,7 @@ class FavoritesImagesCollectionViewCell: UICollectionViewCell {
     var deleteLabel1: UILabel!
     var deleteLabel2: UILabel!
     
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -34,6 +35,7 @@ class FavoritesImagesCollectionViewCell: UICollectionViewCell {
         commonInit()
     }
     
+    //MARK: - Methods
     private func commonInit() {
         self.contentView.backgroundColor = UIColor.gray
         self.backgroundColor = UIColor.red

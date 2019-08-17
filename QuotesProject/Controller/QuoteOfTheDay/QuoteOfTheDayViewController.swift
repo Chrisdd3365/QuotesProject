@@ -8,6 +8,7 @@
 
 import UIKit
 import BubbleTransition
+import KRProgressHUD
 
 class QuoteOfTheDayViewController: UIViewController {
     //MARK: - Outlets
@@ -17,6 +18,8 @@ class QuoteOfTheDayViewController: UIViewController {
     
     //MARK: - Properties
     let quoteOfTheDayService = QuoteOfTheDayService()
+    let randomQuotesService = RandomQuotesService()
+    var randomQuote: ContentsCategoryQuote?
     var favoritesQuotes = FavoriteQuote.all
     var imagePicker: ImagePicker?
     let transition = BubbleTransition()
@@ -27,6 +30,7 @@ class QuoteOfTheDayViewController: UIViewController {
         fetchQuoteOfTheDayData()
         buttonsSetImage()
         imagePickerDelegate()
+        quoteOfTheDayView.setupBorder(view: quoteOfTheDayView)
     }
 
     override func viewWillAppear(_ animated: Bool) {

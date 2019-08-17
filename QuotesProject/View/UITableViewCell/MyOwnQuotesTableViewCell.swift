@@ -17,11 +17,7 @@ class MyOwnQuotesTableViewCell: UITableViewCell {
     var myOwnQuotesCellConfigure: MyOwnQuote? {
         didSet {
             quoteLabel.text = myOwnQuotesCellConfigure?.quote
-            authorLabel.text = "- " + "\(myOwnQuotesCellConfigure?.author ?? "")"
-            
-            if authorLabel.text == "- " {
-                authorLabel.text = "- Anonymous Author"
-            }
+            authorLabel.text = myOwnQuotesCellConfigure?.author ?? ""
         }
     }
 }

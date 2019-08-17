@@ -17,15 +17,15 @@ class FavoriteQuoteView: UIView {
     //MARK: - Property
     var favoriteQuoteViewConfigure: FavoriteQuote? {
         didSet {
-            quoteLabel.text = favoriteQuoteViewConfigure?.quote
+            let content = favoriteQuoteViewConfigure?.quote
+            let contentHtmlTagsRemoved = content?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+            let favoriteQuoteLabel = contentHtmlTagsRemoved?.removingHTMLEntities
+            quoteLabel.text = favoriteQuoteLabel
             quoteLabel.setupShadowLabel(label: quoteLabel)
             
             authorLabel.text = favoriteQuoteViewConfigure?.author
             authorLabel.setupShadowLabel(label: authorLabel)
-            if authorLabel.text == "" {
-                authorLabel.text = "- Anonymous Author"
-            }
-            
+
             if let backgroundImageURL = favoriteQuoteViewConfigure?.backgroundImageURL {
                 backgroundImageView.sd_setImage(with: URL(string: backgroundImageURL))
             }

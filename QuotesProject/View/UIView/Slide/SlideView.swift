@@ -9,7 +9,6 @@
 import UIKit
 
 class SlideView: UIView {
-    //MARK: - Outlets
+    //MARK: - Outlet
     @IBOutlet weak var randomQuotesView: RandomQuotesView!
-    
 }

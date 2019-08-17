@@ -83,4 +83,11 @@ extension UIView {
         
         return collectionView.indexPath(for: cell)
     }
+    
+    func setupBorder(view: UIView) {
+        view.layer.borderWidth = 3
+        view.layer.borderColor = UIColor.black.cgColor
+    }
 }
+
+
