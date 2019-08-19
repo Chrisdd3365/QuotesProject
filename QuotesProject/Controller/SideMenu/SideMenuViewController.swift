@@ -23,7 +23,7 @@ class SideMenuViewController: UIViewController {
     let randomQuotesService = RandomQuotesService()
     var randomQuotes: [RandomQuotes] = []
     
-    let imageQuoteService = ImageQuoteService()
+    let randomImageService = RandomImageService()
     var imageQuote: ContentsImage?
     
     //MARK: - View Life Cycle
@@ -84,7 +84,7 @@ extension SideMenuViewController {
         KRProgressHUD.show()
         KRProgressHUD.show(withMessage: "Loading...")
         
-        imageQuoteService.getImageQuote { (success, contentsImage) in
+        randomImageService.getRandomImage { (success, contentsImage) in
             KRProgressHUD.dismiss()
             
             if success {

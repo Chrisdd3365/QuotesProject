@@ -17,7 +17,7 @@ class RandomImagesViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     //MARK: - Properties
-    var imageQuoteService = ImageQuoteService()
+    var randomImageService = RandomImageService()
     var imageQuote: ContentsImage?
     var favoritesImages = FavoriteImage.all
     
@@ -61,7 +61,7 @@ extension RandomImagesViewController {
         activityIndicatorView.startAnimating()
         toggleActivityIndicator(shown: true, activityIndicatorView: activityIndicatorView, button: newImageButton)
         
-        imageQuoteService.getImageQuote { (success, contentsImage) in
+        randomImageService.getRandomImage { (success, contentsImage) in
             self.activityIndicatorView.stopAnimating()
             self.toggleActivityIndicator(shown: false, activityIndicatorView: self.activityIndicatorView, button: self.newImageButton)
             

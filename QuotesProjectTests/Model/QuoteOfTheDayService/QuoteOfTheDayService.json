@@ -1,0 +1,27 @@
+{
+    "success": {
+        "total": 1
+    },
+    "contents": {
+        "quotes": [
+            {
+                "quote": "The best way to not feel hopeless is to get up and do something. Don’t wait for good things to happen to you. If you go out and make some good things happen, you will fill the world with hope, you will fill yourself with hope.",
+                "length": "233",
+                "author": "Barack Obama",
+                "tags": [
+                    "action",
+                    "hope",
+                    "inspire",
+                    "tod"
+                ],
+                "category": "inspire",
+                "date": "2019-08-19",
+                "permalink": "https://theysaidso.com/quote/barack-obama-the-best-way-to-not-feel-hopeless-is-to-get-up-and-do-something-don",
+                "title": "Inspiring Quote of the day",
+                "background": "https://theysaidso.com/img/bgs/man_on_the_mountain.jpg",
+                "id": "v1_D_2k_NFsdZUhB2xaiZgeF"
+            }
+        ],
+        "copyright": "2017-19 theysaidso.com"
+    }
+}

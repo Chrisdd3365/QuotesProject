@@ -17,42 +17,7 @@ class RandomQuotesService {
     init(randomQuotesSession: URLSession = URLSession(configuration: .default)) {
         self.randomQuotesSession = randomQuotesSession
     }
-    
-    //MARK: - TheySaidSoAPI Methods
-    //TheySaidSoAPI URL
-    func randomQuoteURL() -> String {
-        let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
-        let randomQuoteURL = Constants.TheySaidSoAPI.RandomQuoteURL.randomQuoteURL
-        let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
-        let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
-        
-        return baseURL + randomQuoteURL + apiKeyURL + apiKey
-    }
-    
-    //TheySaidSoAPI call
-    func getRandomQuote(callback: @escaping (Bool, ContentsCategoryQuote?) -> Void) {
-        guard let url = URL(string: randomQuoteURL()) else { return }
-        task?.cancel()
-        task = randomQuotesSession.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(false, nil)
-                    return
-                }
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil)
-                    return
-                }
-                guard let responseJSON = try? JSONDecoder().decode(ContentsCategoryQuote.self, from: data) else {
-                    callback(false, nil)
-                    return
-                }
-                callback(true, responseJSON)
-            }
-        }
-        task?.resume()
-    }
-    
+
     //MARK: - QuotesOnDesignAPI Methods
     //QuotesOnDesignAPI URL
     func randomQuotesURL() -> String {

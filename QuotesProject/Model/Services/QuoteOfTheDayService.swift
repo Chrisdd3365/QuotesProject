@@ -23,8 +23,10 @@ class QuoteOfTheDayService {
     func quoteOfTheDayURL() -> String {
         let baseURL = Constants.TheySaidSoAPI.BaseURL.baseURL
         let quoteOfTheDayURL = Constants.TheySaidSoAPI.QuoteOfTheDayURL.quoteOfTheDayURL
+        let apiKeyURL = Constants.TheySaidSoAPI.BaseURL.apiKeyURL
+        let apiKey = Constants.TheySaidSoAPI.BaseURL.apiKey
         
-        return baseURL + quoteOfTheDayURL
+        return baseURL + quoteOfTheDayURL + apiKeyURL + apiKey
     }
     
     //TheySaidSoAPI call

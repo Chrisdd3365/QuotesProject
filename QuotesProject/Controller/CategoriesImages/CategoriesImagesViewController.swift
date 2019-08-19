@@ -14,10 +14,10 @@ class CategoriesImagesViewController: UIViewController {
     @IBOutlet weak var categoriesImagesCollectionView: UICollectionView!
     
     //MARK: - Properties
-    let imageQuoteService = ImageQuoteService()
+    let categoryImageService = CategoryImageService()
     var categoryImage: ContentsImage?
     
-    var categories = ["Bible", "Books", "Breakup", "Buddhism", "Business", "Courage", "Death", "Family", "Friendship", "Happiness", "Jewish", "Life", "Loneliness", "Love", "Motivation", "Movies", "Optimism", "Positivity", "Quran", "Sadness", "Self-esteem", "Sports", "Songs", "Success", "Trust", "Relationship", "Will", "Wisdom", "Women", "Work"]
+    var categories = ["Books", "Business", "Courage", "Death", "Family", "Friendship", "Happiness", "Life", "Love", "Motivation", "Self-esteem", "Success", "Trust", "Relationship", "Wisdom", "Women", "Work"]
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -41,8 +41,10 @@ extension CategoriesImagesViewController {
     private func fetchCategoryImageData(category: String) {
         KRProgressHUD.show()
         KRProgressHUD.show(withMessage: "Loading...")
-        imageQuoteService.getCategoryImageQuote(category: category) { (success, contentsImages) in
+        
+        categoryImageService.getCategoryImage(category: category) { (success, contentsImages) in
             KRProgressHUD.dismiss()
+            
             if success {
                 self.categoryImage = contentsImages
                 DispatchQueue.main.async {

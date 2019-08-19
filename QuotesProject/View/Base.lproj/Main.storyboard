@@ -57,7 +57,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMl-rr-ov3">
                                         <rect key="frame" x="8" y="8" width="272" height="244"/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -66,7 +66,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cDh-X0-ajU" secondAttribute="height" multiplier="68:5" id="8MF-e2-oS3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -276,7 +276,7 @@
                                         <rect key="frame" x="8" y="8" width="272" height="244"/>
                                         <gestureRecognizers/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -285,7 +285,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Eed-na-5iQ" secondAttribute="height" multiplier="68:5" id="eoD-sJ-wPx"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -370,14 +370,14 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="EIK-7W-fhw">
                                                     <rect key="frame" x="285" y="25" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="2i5-Xj-cyN"/>
-                                                        <constraint firstAttribute="width" constant="20" id="Hs6-4u-Zx1"/>
+                                                        <constraint firstAttribute="width" constant="20" id="e6x-fv-f6h"/>
+                                                        <constraint firstAttribute="height" constant="20" id="rei-Ks-B1q"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMD-dL-9ev">
                                                     <rect key="frame" x="60" y="10" width="175" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="wMD-dL-9ev" secondAttribute="height" multiplier="7:2" id="2uy-eM-h9W"/>
+                                                        <constraint firstAttribute="width" secondItem="wMD-dL-9ev" secondAttribute="height" multiplier="7:2" id="gwp-q4-x7W"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -386,23 +386,21 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-kv-Xk9">
                                                     <rect key="frame" x="25" y="25" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="1cg-kv-Xk9" secondAttribute="height" multiplier="1:1" id="cvd-rD-2Hk"/>
-                                                        <constraint firstAttribute="height" constant="20" id="oew-Ln-tzL"/>
-                                                        <constraint firstAttribute="width" constant="20" id="wco-ur-P2x"/>
+                                                        <constraint firstAttribute="height" constant="20" id="QNp-6T-Psg"/>
+                                                        <constraint firstAttribute="width" constant="20" id="ow1-Z8-POZ"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="wMD-dL-9ev" secondAttribute="bottom" constant="10" id="2AD-FZ-hAY"/>
-                                                <constraint firstItem="1cg-kv-Xk9" firstAttribute="centerY" secondItem="3i4-wE-A3A" secondAttribute="centerY" id="5nx-jv-noJ"/>
-                                                <constraint firstItem="wMD-dL-9ev" firstAttribute="leading" secondItem="1cg-kv-Xk9" secondAttribute="trailing" constant="15" id="AJV-Xx-WUg"/>
-                                                <constraint firstAttribute="trailing" secondItem="EIK-7W-fhw" secondAttribute="trailing" constant="15" id="Bn9-ps-i28"/>
-                                                <constraint firstItem="EIK-7W-fhw" firstAttribute="leading" secondItem="wMD-dL-9ev" secondAttribute="trailing" constant="50" id="GQd-eH-JA7"/>
-                                                <constraint firstItem="wMD-dL-9ev" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="10" id="ItR-hM-qPt"/>
-                                                <constraint firstAttribute="bottom" secondItem="1cg-kv-Xk9" secondAttribute="bottom" constant="25" id="N3f-f6-dMl"/>
-                                                <constraint firstItem="1cg-kv-Xk9" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="25" id="Ptu-eG-y9V"/>
-                                                <constraint firstItem="1cg-kv-Xk9" firstAttribute="leading" secondItem="3i4-wE-A3A" secondAttribute="leading" constant="25" id="cGd-Tm-Fmo"/>
-                                                <constraint firstItem="EIK-7W-fhw" firstAttribute="centerY" secondItem="3i4-wE-A3A" secondAttribute="centerY" id="cU6-td-NND"/>
+                                                <constraint firstItem="wMD-dL-9ev" firstAttribute="leading" secondItem="1cg-kv-Xk9" secondAttribute="trailing" constant="15" id="0Vf-98-ZFo"/>
+                                                <constraint firstAttribute="bottom" secondItem="wMD-dL-9ev" secondAttribute="bottom" constant="10" id="2fq-uO-Hot"/>
+                                                <constraint firstAttribute="bottom" secondItem="1cg-kv-Xk9" secondAttribute="bottom" constant="25" id="6OK-B3-vSj"/>
+                                                <constraint firstItem="wMD-dL-9ev" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="10" id="H26-dK-9cM"/>
+                                                <constraint firstItem="EIK-7W-fhw" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="25" id="Jz0-cf-Ohn"/>
+                                                <constraint firstItem="1cg-kv-Xk9" firstAttribute="leading" secondItem="3i4-wE-A3A" secondAttribute="leading" constant="25" id="LQg-Bf-TgM"/>
+                                                <constraint firstAttribute="trailing" secondItem="EIK-7W-fhw" secondAttribute="trailing" constant="15" id="PvI-ID-PAb"/>
+                                                <constraint firstItem="1cg-kv-Xk9" firstAttribute="top" secondItem="3i4-wE-A3A" secondAttribute="top" constant="25" id="d3d-Ba-pzX"/>
+                                                <constraint firstItem="EIK-7W-fhw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wMD-dL-9ev" secondAttribute="trailing" constant="8" symbolic="YES" id="yqf-1O-rz8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -765,41 +763,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOJ-AF-9Dh">
-                                <rect key="frame" x="92.5" y="338" width="135" height="30"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up a reminder at the time you want." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1E-nY-m9Q">
+                                <rect key="frame" x="16" y="84" width="288" height="36"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOJ-AF-9Dh">
+                                <rect key="frame" x="70" y="264" width="180" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="HOJ-AF-9Dh" secondAttribute="height" multiplier="9:2" id="OXs-MZ-ZCy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="gmx-wA-6Vd"/>
+                                    <constraint firstAttribute="width" secondItem="HOJ-AF-9Dh" secondAttribute="height" multiplier="9:2" id="u4E-35-Sef"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="CREATE REMINDER"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                <state key="normal" title="CREATE REMINDER">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="doneAction:" destination="aKH-IL-tNS" eventType="touchUpInside" id="vuz-jk-bcC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1E-nY-m9Q">
-                                <rect key="frame" x="114" y="274" width="93.5" height="20.5"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Y1E-nY-m9Q" secondAttribute="height" multiplier="91:20" id="52D-1q-PFp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="mRb-wG-hnY" appends="YES" id="YnN-2k-kq2"/>
-                                </connections>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qUq-1V-Aep" firstAttribute="bottom" secondItem="HOJ-AF-9Dh" secondAttribute="bottom" constant="200" id="C1Q-cy-dnU"/>
-                            <constraint firstItem="qUq-1V-Aep" firstAttribute="trailing" secondItem="HOJ-AF-9Dh" secondAttribute="trailing" constant="92.5" id="Jhh-6T-8ns"/>
-                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="leading" secondItem="qUq-1V-Aep" secondAttribute="leading" constant="92.5" id="UA0-sY-LeN"/>
-                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="centerX" secondItem="6U2-b8-m3e" secondAttribute="centerX" id="ead-LD-XJu"/>
-                            <constraint firstItem="qUq-1V-Aep" firstAttribute="trailing" secondItem="Y1E-nY-m9Q" secondAttribute="trailing" constant="112.5" id="fA2-2O-cDR"/>
-                            <constraint firstItem="Y1E-nY-m9Q" firstAttribute="leading" secondItem="qUq-1V-Aep" secondAttribute="leading" constant="114" id="qQ0-Hq-of1"/>
-                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="top" secondItem="Y1E-nY-m9Q" secondAttribute="bottom" constant="43.5" id="yVy-oA-OQQ"/>
-                            <constraint firstItem="Y1E-nY-m9Q" firstAttribute="top" secondItem="qUq-1V-Aep" secondAttribute="top" constant="210" id="yXp-c9-Yzy"/>
+                            <constraint firstItem="Y1E-nY-m9Q" firstAttribute="leading" secondItem="qUq-1V-Aep" secondAttribute="leading" constant="16" id="TvY-ug-rYL"/>
+                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="centerX" secondItem="6U2-b8-m3e" secondAttribute="centerX" id="Vk9-DS-5Gt"/>
+                            <constraint firstItem="Y1E-nY-m9Q" firstAttribute="top" secondItem="qUq-1V-Aep" secondAttribute="top" constant="20" id="iNR-3v-gMa"/>
+                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="centerY" secondItem="6U2-b8-m3e" secondAttribute="centerY" id="jUC-wV-PNu"/>
+                            <constraint firstItem="qUq-1V-Aep" firstAttribute="trailing" secondItem="Y1E-nY-m9Q" secondAttribute="trailing" constant="16" id="wTp-dk-ax5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qUq-1V-Aep"/>
                     </view>
@@ -808,11 +801,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caT-0Q-8XA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="mRb-wG-hnY">
-                    <connections>
-                        <action selector="time:" destination="aKH-IL-tNS" id="GHc-9q-MOX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4582.5" y="955.9859154929577"/>
         </scene>
@@ -1180,14 +1168,14 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SyS-hB-whO" secondAttribute="height" multiplier="68:5" id="nCn-SF-6Rq"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-tn-hov">
                                         <rect key="frame" x="8" y="8" width="272" height="244"/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1283,7 +1271,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPU-3l-G5c">
                                         <rect key="frame" x="8" y="8" width="272" height="244"/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1292,7 +1280,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aUD-9X-Ki6" secondAttribute="height" multiplier="68:5" id="o3n-KX-Rt9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>

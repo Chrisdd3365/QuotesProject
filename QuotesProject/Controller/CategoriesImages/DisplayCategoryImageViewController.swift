@@ -17,7 +17,7 @@ class DisplayCategoryImageViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     //MARK: - Properties
-    let imageQuoteService = ImageQuoteService()
+    let categoryImageService = CategoryImageService()
     var categoryImage: ContentsImage?
     var favoritesImages = FavoriteImage.all
     var categoryLabel: String?
@@ -62,7 +62,7 @@ extension DisplayCategoryImageViewController {
         activityIndicatorView.startAnimating()
         toggleActivityIndicator(shown: true, activityIndicatorView: activityIndicatorView, button: newImageButton)
         
-        imageQuoteService.getCategoryImageQuote(category: category) { (success, contentsImage) in
+        categoryImageService.getCategoryImage(category: category) { (success, contentsImage) in
             self.activityIndicatorView.stopAnimating()
             self.toggleActivityIndicator(shown: false, activityIndicatorView: self.activityIndicatorView, button: self.newImageButton)
             

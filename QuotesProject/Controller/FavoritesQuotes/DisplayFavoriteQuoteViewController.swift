@@ -22,7 +22,7 @@ class DisplayFavoriteQuoteViewController: UIViewController {
         favoriteQuoteViewSetup()
         imagePickerDelegate()
         favoriteQuoteView.setupBorder(view: favoriteQuoteView)
-        navigationItem.title = " My Favorite Quote"
+        navigationItem.title = "My Favorite Quote"
     }
     
     //MARK: - Actions

@@ -11,6 +11,7 @@ import CoreData
 
 class CoreDataManager {
     //MARK: - MyOwnQuote CoreDataManager's methods
+    //MyOwnQuote
     static func saveMyOwnQuote(quote: String, author: String) -> MyOwnQuote {
         let myOwnQuotes = MyOwnQuote(context: AppDelegate.viewContext)
     
@@ -21,37 +22,42 @@ class CoreDataManager {
         return myOwnQuotes
     }
     
+    static func deleteAllMyOwnQuotes(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: MyOwnQuote.fetchRequest())
+        let _ = try? viewContext.execute(deleteRequest)
+    }
+    
     //MARK: - FavoriteQuote CoreDataManager's methods
-    //Quote Of The Day
-    static func saveQuoteOfTheDayToFavoritesQuotes(contentsQuoteOfTheDay: ContentsQuoteOfTheDay) {
+    //QuoteOfTheDay
+    static func saveQuoteOfTheDayToFavoritesQuotes(contentsQuoteOfTheDay: ContentsQuoteOfTheDay?) {
         let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
         
-        favoriteQuote.quote = contentsQuoteOfTheDay.contents.quotes[0].quote
-        favoriteQuote.author = contentsQuoteOfTheDay.contents.quotes[0].author
-        favoriteQuote.backgroundImageURL = contentsQuoteOfTheDay.contents.quotes[0].background
-        favoriteQuote.id = contentsQuoteOfTheDay.contents.quotes[0].id
+        favoriteQuote.quote = contentsQuoteOfTheDay?.contents.quotes[0].quote
+        favoriteQuote.author = contentsQuoteOfTheDay?.contents.quotes[0].author
+        favoriteQuote.backgroundImageURL = contentsQuoteOfTheDay?.contents.quotes[0].background
+        favoriteQuote.id = contentsQuoteOfTheDay?.contents.quotes[0].id
         
         saveContext()
     }
     
     //CategoryQuote
-    static func saveCategoryQuoteToFavoritesQuotes(contentsCategoryQuote: ContentsCategoryQuote) {
+    static func saveCategoryQuoteToFavoritesQuotes(contentsCategoryQuote: ContentsCategoryQuote?) {
         let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
         
-        favoriteQuote.quote = contentsCategoryQuote.contents.quote
-        favoriteQuote.author = contentsCategoryQuote.contents.author
-        favoriteQuote.id = contentsCategoryQuote.contents.id
+        favoriteQuote.quote = contentsCategoryQuote?.contents.quote
+        favoriteQuote.author = contentsCategoryQuote?.contents.author
+        favoriteQuote.id = contentsCategoryQuote?.contents.id
         
         saveContext()
     }
     
     //RandomQuote
-    static func saveRandomQuoteToFavoritesQuotes(contentRandomQuote: RandomQuotes) {
+    static func saveRandomQuoteToFavoritesQuotes(contentRandomQuote: RandomQuotes?) {
         let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
         
-        favoriteQuote.quote = contentRandomQuote.content
-        favoriteQuote.author = contentRandomQuote.title
-        favoriteQuote.id = "\(contentRandomQuote.id)"
+        favoriteQuote.quote = contentRandomQuote?.content
+        favoriteQuote.author = contentRandomQuote?.title
+        favoriteQuote.id = "\(String(describing: contentRandomQuote?.id))"
         
         saveContext()
     }
@@ -71,13 +77,18 @@ class CoreDataManager {
         }
     }
     
+    static func deleteAllFavoritesQuotes(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: FavoriteQuote.fetchRequest())
+        let _ = try? viewContext.execute(deleteRequest)
+    }
+    
     //MARK: - FavoriteImage CoreDataManager's methods
-    static func saveFavoriteImage(contentsImage: ContentsImage) {
+    static func saveFavoriteImage(contentsImage: ContentsImage?) {
         let favoriteImage = FavoriteImage(context: AppDelegate.viewContext)
         
-        favoriteImage.id = contentsImage.contents.qimage.id
-        favoriteImage.quoteId = contentsImage.contents.qimage.quoteId
-        favoriteImage.imageURL = contentsImage.contents.qimage.downloadUri
+        favoriteImage.id = contentsImage?.contents.qimage.id
+        favoriteImage.quoteId = contentsImage?.contents.qimage.quoteId
+        favoriteImage.imageURL = contentsImage?.contents.qimage.downloadUri
         
         saveContext()
     }
@@ -95,6 +106,11 @@ class CoreDataManager {
         } catch let error as NSError {
             print(error)
         }
+    }
+    
+    static func deleteAllFavoritesImages(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: FavoriteImage.fetchRequest())
+        let _ = try? viewContext.execute(deleteRequest)
     }
     
     //MARK: - Helper's methods

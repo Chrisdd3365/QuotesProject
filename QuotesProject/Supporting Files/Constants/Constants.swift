@@ -17,6 +17,10 @@ struct Constants {
             static let categoryURL = "&category="
         }
         
+        struct QuoteOfTheDayURL {
+            static let quoteOfTheDayURL = "qod.json?"
+        }
+        
         struct RandomQuoteURL {
             static let randomQuoteURL = "quote/random.json?"
         }
@@ -24,11 +28,7 @@ struct Constants {
         struct CategoryQuoteURL {
             static let searchURL = "quote/search.json?"
         }
-        
-        struct QuoteOfTheDayURL {
-            static let quoteOfTheDayURL = "qod.json"
-        }
-        
+    
         struct ImageQuoteURL {
             static let imageURL = "quote/image/search.json?"
         }

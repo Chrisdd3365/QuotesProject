@@ -1,5 +1,5 @@
 //
-//  ImageQuoteService.swift
+//  RandomImageService.swift
 //  QuotesProject
 //
 //  Created by Christophe DURAND on 24/07/2019.

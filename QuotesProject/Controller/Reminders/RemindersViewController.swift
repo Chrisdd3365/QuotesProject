@@ -17,22 +17,21 @@ class RemindersViewController: UIViewController {
     @IBOutlet weak var createReminderButton: UIButton!
     
     //MARK: - Properties
-    let randomQuotesService = RandomQuotesService()
+    let randomQuoteService = RandomQuoteService()
     var randomQuote: ContentsCategoryQuote?
     var date: Date?
 
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Reminders"
-        createReminderButtonIsEnabled(enabled: false)
-    }
-    
-    //MARK: - Actions
-    @IBAction func time(_ sender: UITapGestureRecognizer) {
         createDateTimePicker()
+        setupButton(button: createReminderButton)
+        createReminderButtonIsEnabled(enabled: false)
+        createReminderButtonBackgroundColorSetup()
+        navigationItem.title = "Reminders"
     }
     
+    //MARK: - Action
     @IBAction func doneAction(_ sender: UIButton) {
         fetchRandomQuoteData(date: date)
         dismiss(animated: true, completion: nil)
@@ -42,12 +41,16 @@ class RemindersViewController: UIViewController {
     private func createReminderButtonIsEnabled(enabled: Bool) {
         createReminderButton.isEnabled = enabled
     }
+    
+    private func createReminderButtonBackgroundColorSetup() {
+        createReminderButton.backgroundColor = .lightGray
+    }
 }
 
 //MARK: - Fetch Data
 extension RemindersViewController {
     private func fetchRandomQuoteData(date: Date?) {
-        randomQuotesService.getRandomQuote { (success, contentsCategoryQuote) in
+        randomQuoteService.getRandomQuote { (success, contentsCategoryQuote) in
             if success {
                 self.randomQuote = contentsCategoryQuote
                 NotificationsManager.localNotificationsSetup(contentsCategoryQuote: contentsCategoryQuote, date: date)
@@ -87,6 +90,7 @@ extension RemindersViewController: DateTimePickerDelegate {
         
         if date == picker.selectedDate {
             createReminderButtonIsEnabled(enabled: true)
+            createReminderButton.backgroundColor = .black
         }
     }
 }
