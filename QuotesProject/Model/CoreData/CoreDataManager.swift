@@ -13,13 +13,13 @@ class CoreDataManager {
     //MARK: - MyOwnQuote CoreDataManager's methods
     //MyOwnQuote
     static func saveMyOwnQuote(quote: String, author: String) -> MyOwnQuote {
-        let myOwnQuotes = MyOwnQuote(context: AppDelegate.viewContext)
+        let myOwnQuote = MyOwnQuote(context: AppDelegate.viewContext)
     
-        myOwnQuotes.quote = quote
-        myOwnQuotes.author = author
+        myOwnQuote.quote = quote
+        myOwnQuote.author = author
         
         saveContext()
-        return myOwnQuotes
+        return myOwnQuote
     }
     
     static func deleteAllMyOwnQuotes(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
@@ -52,12 +52,12 @@ class CoreDataManager {
     }
     
     //RandomQuote
-    static func saveRandomQuoteToFavoritesQuotes(contentRandomQuote: RandomQuotes?) {
+    static func saveRandomQuoteToFavoritesQuotes(contentRandomQuote: RandomQuotes) {
         let favoriteQuote = FavoriteQuote(context: AppDelegate.viewContext)
         
-        favoriteQuote.quote = contentRandomQuote?.content
-        favoriteQuote.author = contentRandomQuote?.title
-        favoriteQuote.id = "\(String(describing: contentRandomQuote?.id))"
+        favoriteQuote.quote = contentRandomQuote.content
+        favoriteQuote.author = contentRandomQuote.title
+        favoriteQuote.id = "\(String(describing: contentRandomQuote.id))"
         
         saveContext()
     }

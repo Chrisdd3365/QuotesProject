@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
+class RandomQuotesViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var randomQuotesScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -29,13 +29,14 @@ class RandomQuotesViewController: UIViewController, UIScrollViewDelegate {
         setupSlideScrollView(slidesViews: slidesViews)
         pageControlConfigure()
         imagePickerDelegate()
+        buttonsSetImage()
         navigationItem.title = "Random Quotes"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        favoritesQuotes = FavoriteQuote.all
         buttonsSetImage()
+        favoritesQuotes = FavoriteQuote.all
     }
     
     //MARK: - Actions
@@ -102,7 +103,37 @@ extension RandomQuotesViewController {
             randomQuotesScrollView.setupBorder(view: slidesViews[i])
         }
     }
+}
+
+//MARK: - Favorites Setup Methods
+extension RandomQuotesViewController {
+    private func addToFavoritesListSetup() {
+        for i in 0 ..< randomQuotes.count  {
+            if i == pageControl.currentPage {
+                guard let contentRandomQuote = slidesViews[i].randomQuotesView.randomQuotesViewConfigure else { return }
+                if checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: "\(contentRandomQuote.id)") == false {
+                    favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+                    CoreDataManager.saveRandomQuoteToFavoritesQuotes(contentRandomQuote: contentRandomQuote)
+                    favoritesQuotes = FavoriteQuote.all
+                } else {
+                    favoritesQuotes = FavoriteQuote.all
+                    showAlert(title: "Sorry!", message: "You've already added this quote into your favorite list!")
+                }
+            }
+        }
+    }
     
+    private func buttonsSetImage() {
+        for i in 0 ..< randomQuotes.count  {
+            if i == pageControl.currentPage {
+                guard let contentRandomQuote = slidesViews[i].randomQuotesView.randomQuotesViewConfigure else { return }
+                favoriteButton.setImage(updateButtonImage(check: checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: "\(String(describing: contentRandomQuote.id))"), checkedImage: "favorite", uncheckedImage: "noFavorite"), for: .normal)
+            }
+        }
+    }
+}
+
+extension RandomQuotesViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(randomQuotesScrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
@@ -142,34 +173,6 @@ extension RandomQuotesViewController {
         }
         
         buttonsSetImage()
-    }
-}
-
-//MARK: - Favorites Setup Methods
-extension RandomQuotesViewController {
-    private func addToFavoritesListSetup() {
-        for i in 0 ..< randomQuotes.count  {
-            if i == pageControl.currentPage {
-                guard let contentRandomQuote = slidesViews[i].randomQuotesView.randomQuotesViewConfigure else { return }
-                if checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: "\(contentRandomQuote.id)") == false {
-                    favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
-                    CoreDataManager.saveRandomQuoteToFavoritesQuotes(contentRandomQuote: contentRandomQuote)
-                    favoritesQuotes = FavoriteQuote.all
-                } else {
-                    favoritesQuotes = FavoriteQuote.all
-                    showAlert(title: "Sorry!", message: "You've already added this quote into your favorite list!")
-                }
-            }
-        }
-    }
-    
-    private func buttonsSetImage() {
-        for i in 0 ..< randomQuotes.count  {
-            if i == pageControl.currentPage {
-                guard let contentRandomQuote = slidesViews[i].randomQuotesView.randomQuotesViewConfigure else { return }
-                favoriteButton.setImage(updateButtonImage(check: checkFavoriteQuote(favoritesQuotes: favoritesQuotes, id: "\(contentRandomQuote.id)"), checkedImage: "favorite", uncheckedImage: "noFavorite"), for: .normal)
-            }
-        }
     }
 }
 

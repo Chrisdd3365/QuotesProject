@@ -196,7 +196,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2E-7V-ayU">
                                 <rect key="frame" x="0.0" y="114" width="320" height="319"/>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5Wn-6G-JKf"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lf5-K9-UvS"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -220,7 +220,7 @@
                     </view>
                     <connections>
                         <outlet property="favoriteButton" destination="hVt-xA-pHq" id="T15-pG-DE9"/>
-                        <outlet property="pageControl" destination="Ghg-jN-FkS" id="aig-qJ-JaW"/>
+                        <outlet property="pageControl" destination="Ghg-jN-FkS" id="dt0-c0-YYz"/>
                         <outlet property="randomQuotesScrollView" destination="Z2E-7V-ayU" id="uWZ-qb-FAL"/>
                     </connections>
                 </viewController>
@@ -771,11 +771,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOJ-AF-9Dh">
-                                <rect key="frame" x="70" y="264" width="180" height="40"/>
+                                <rect key="frame" x="70" y="513" width="180" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="gmx-wA-6Vd"/>
-                                    <constraint firstAttribute="width" secondItem="HOJ-AF-9Dh" secondAttribute="height" multiplier="9:2" id="u4E-35-Sef"/>
+                                    <constraint firstAttribute="width" secondItem="HOJ-AF-9Dh" secondAttribute="height" multiplier="9:2" id="7RY-hV-nvD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                 <state key="normal" title="CREATE REMINDER">
@@ -788,10 +787,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qUq-1V-Aep" firstAttribute="bottom" secondItem="HOJ-AF-9Dh" secondAttribute="bottom" constant="15" id="6yT-7h-gJ6"/>
+                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="leading" secondItem="qUq-1V-Aep" secondAttribute="leading" constant="70" id="Blr-Ia-FWg"/>
+                            <constraint firstItem="qUq-1V-Aep" firstAttribute="trailing" secondItem="HOJ-AF-9Dh" secondAttribute="trailing" constant="70" id="OgC-FV-4DU"/>
                             <constraint firstItem="Y1E-nY-m9Q" firstAttribute="leading" secondItem="qUq-1V-Aep" secondAttribute="leading" constant="16" id="TvY-ug-rYL"/>
-                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="centerX" secondItem="6U2-b8-m3e" secondAttribute="centerX" id="Vk9-DS-5Gt"/>
                             <constraint firstItem="Y1E-nY-m9Q" firstAttribute="top" secondItem="qUq-1V-Aep" secondAttribute="top" constant="20" id="iNR-3v-gMa"/>
-                            <constraint firstItem="HOJ-AF-9Dh" firstAttribute="centerY" secondItem="6U2-b8-m3e" secondAttribute="centerY" id="jUC-wV-PNu"/>
                             <constraint firstItem="qUq-1V-Aep" firstAttribute="trailing" secondItem="Y1E-nY-m9Q" secondAttribute="trailing" constant="16" id="wTp-dk-ax5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qUq-1V-Aep"/>
@@ -903,15 +903,15 @@
                                                     <rect key="frame" x="15" y="10" width="290" height="49.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPx-tR-MpG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="27"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="22.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="WPx-tR-MpG" secondAttribute="height" multiplier="290:27" id="gwD-hE-0Te"/>
+                                                                <constraint firstAttribute="width" secondItem="WPx-tR-MpG" secondAttribute="height" multiplier="295:23" id="gwD-hE-0Te"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-ST-70y">
-                                                            <rect key="frame" x="0.0" y="35" width="290" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="30.5" width="290" height="19"/>
                                                             <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

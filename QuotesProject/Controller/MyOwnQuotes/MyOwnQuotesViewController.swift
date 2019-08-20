@@ -43,7 +43,7 @@ class MyOwnQuotesViewController: UIViewController {
 extension MyOwnQuotesViewController {
     private func addQuoteButtonConfigure() {
         let addQuoteButton = UIButton(type: .custom)
-        addQuoteButton.setImage(UIImage(named: "write.png"), for: .normal)
+        addQuoteButton.setImage(UIImage(named: "writeQuote.png"), for: .normal)
         addQuoteButton.addTarget(self, action: #selector(alertConfigure), for: .touchUpInside)
         addQuoteButton.frame = CGRect(x: 0, y: 0, width: 53, height: 53)
         

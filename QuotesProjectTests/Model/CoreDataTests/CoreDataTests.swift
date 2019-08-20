@@ -14,11 +14,11 @@ class CoreDataTests: XCTestCase {
     //MARK: - Properties
     var container: NSPersistentContainer!
     let quoteOfTheDay: ContentsQuoteOfTheDay? = nil
-    let randomQuotes: RandomQuotes? = nil
+    var randomQuotes: RandomQuotes? = nil
     let categoryQuote: ContentsCategoryQuote? = nil
     let image: ContentsImage? = nil
     let favoriteQuote: FavoriteQuote? = nil
-    let myOwnQuote: MyOwnQuote? = nil
+    var myOwnQuote: MyOwnQuote? = nil
     let favoriteImage: FavoriteImage? = nil
     
     //MARK: - Tests Life Cycle
@@ -73,7 +73,8 @@ class CoreDataTests: XCTestCase {
     }
     
     func testSaveFavoriteRandomQuotesItemInPersistentContainer() {
-        CoreDataManager.saveRandomQuoteToFavoritesQuotes(contentRandomQuote: randomQuotes)
+        let randomQuote = RandomQuotes(id: 0, title: "quote", content: "author", link: "")
+        CoreDataManager.saveRandomQuoteToFavoritesQuotes(contentRandomQuote: randomQuotes ?? randomQuote)
         
         XCTAssert(true)
     }
@@ -139,9 +140,10 @@ class CoreDataTests: XCTestCase {
     }
     
     func testSaveMyOwnQuoteItemInPersistentContainer() {
-        CoreDataManager.saveMyOwnQuote(quote: "my own quote", author: "author")
-        
-        XCTAssert(true)
+        myOwnQuote = CoreDataManager.saveMyOwnQuote(quote: "my own quote", author: "author")
+ 
+        XCTAssertEqual(myOwnQuote?.quote, myOwnQuote?.quote)
+        XCTAssertEqual(myOwnQuote?.author, myOwnQuote?.author)
     }
     
     func testDeleteAllMyOwnQuoteItemsInPersistentContainer() {

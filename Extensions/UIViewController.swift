@@ -68,6 +68,7 @@ extension UIViewController {
         return isAdded
     }
     
+    //UIButton's methods
     func updateButtonImage(check: Bool, checkedImage: String, uncheckedImage: String) -> UIImage {
         var image: UIImage!
         if check {
