@@ -2,27 +2,21 @@ PODS:
   - BubbleTransition (3.2.0)
   - DateTimePicker (2.2.0)
   - DLLocalNotifications (0.07)
-  - FanMenu (0.7.3):
-    - Macaw
   - HTMLString (5.0.0)
   - KRActivityIndicatorView (3.0.2)
   - KRProgressHUD (3.4.1):
     - KRActivityIndicatorView (= 3.0.2)
-  - Macaw (0.9.5):
-    - SWXMLHash
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
   - SDWebImage (4.4.7):
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
-  - SWXMLHash (4.9.0)
 
 DEPENDENCIES:
   - BubbleTransition (~> 3.2.0)
   - DateTimePicker
   - DLLocalNotifications
-  - FanMenu
   - HTMLString (~> 5.0)
   - KRProgressHUD
   - NVActivityIndicatorView
@@ -33,28 +27,22 @@ SPEC REPOS:
     - BubbleTransition
     - DateTimePicker
     - DLLocalNotifications
-    - FanMenu
     - HTMLString
     - KRActivityIndicatorView
     - KRProgressHUD
-    - Macaw
     - NVActivityIndicatorView
     - SDWebImage
-    - SWXMLHash
 
 SPEC CHECKSUMS:
   BubbleTransition: 2f112cc19772d9ab199bc850de92f5eb34744bce
   DateTimePicker: f65c0ae594e85dcf39d2aaf6a8ce06dee7d15aa7
   DLLocalNotifications: 5d358a73284efab757b4a4c07f3e5987b8afcef5
-  FanMenu: 44d06d35b0382daf6b6aaf78b57a7b9693fbb6e7
   HTMLString: 20374dc0195423d02569e87561f01153fca0c364
   KRActivityIndicatorView: a2022d5d3e366207d2690f6bcc550f83aa91241b
   KRProgressHUD: 115363b48feb530ab1f36c4146ed22e779e0f5aa
-  Macaw: 10bf9e327cb75f24e3225d5229a80ed544df85f0
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
-  SWXMLHash: 87b0006848a548b7f9485b40bc71721b3ae39add
 
-PODFILE CHECKSUM: f56ebcdd717494d1a223926e8c3bacbcf1f99b0f
+PODFILE CHECKSUM: 91264b5fd4c9e3b7a34620c9c7309a3d554b2c5e
 
 COCOAPODS: 1.7.5
