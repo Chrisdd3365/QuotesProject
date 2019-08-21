@@ -30,7 +30,6 @@ class RemindersViewController: UIViewController {
         createReminderButtonBackgroundColorSetup()
         addTimeButtonConfigure()
         navigationItem.title = "Reminders"
-        navigationController?.navigationBar.barTintColor = .white
     }
     
     //MARK: - Action
