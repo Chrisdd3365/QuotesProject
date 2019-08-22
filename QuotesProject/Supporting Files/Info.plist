@@ -28,9 +28,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow us to take pictures with your camera!</string>
+	<string>Allow us to get access to your camera in order to set up the background image of the quote with the picture you will take!</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Allow us to use your pictures!</string>
+	<string>Allow us to get access to your photo library in order to set up the background image of the quote with the picture of your choice!</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
