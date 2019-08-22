@@ -2,7 +2,7 @@
 
 ## Description:
 
-OwlQuotes is an iOS app developper on Swift 5.0. It's a motivation/inspirational app.
+OwlQuotes is an iOS app developed on Swift 5.0. It's a motivation/inspirational app.
 His main purpose is to suggest quotes, images and to write quotes too.
 
 ## Main functionnalities:
